@@ -25,6 +25,8 @@ class OnboardingPageViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = Constants.Color.white
         addPageVC()
+        
+        startButton.addTarget(self, action: #selector(gotoLogin), for: .touchUpInside)
     }
     
     override func configure() {
@@ -45,6 +47,16 @@ class OnboardingPageViewController: BaseViewController {
             make.trailing.equalTo(view).offset(-16)
             make.bottom.equalTo(view).offset(-60)
         }
+    }
+    
+    @objc func gotoLogin() {
+        let vc = PhoneAuthViewController()
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
     }
     
     let vc = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
