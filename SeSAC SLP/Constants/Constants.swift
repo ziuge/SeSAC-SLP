@@ -31,6 +31,8 @@ enum Constants {
     }
     
     enum Font {
+        static let onboarding = UIFont(name: "NotoSansKR-Medium", size: 24)
+        
         static let display1 = UIFont(name: "NotoSansKR-Regular", size: 20)
         static let display1_lineHeight = 20 * 1.6
         

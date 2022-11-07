@@ -15,6 +15,28 @@
 		DE0808E62918D5E0004A1445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0808E42918D5E0004A1445 /* LaunchScreen.storyboard */; };
 		DE0808F12918D63D004A1445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0808F02918D63D004A1445 /* Constants.swift */; };
 		DE0808FD2918E332004A1445 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DE0808FC2918E332004A1445 /* .gitignore */; };
+		DE0809002918ED5C004A1445 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0808FF2918ED5C004A1445 /* Onboarding.storyboard */; };
+		DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809012918EDC6004A1445 /* OnboardingPageViewController.swift */; };
+		DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809042918EDF5004A1445 /* BaseViewController.swift */; };
+		DE0809072918EE0A004A1445 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809062918EE0A004A1445 /* BaseView.swift */; };
+		DE08090A2918F776004A1445 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DE0809092918F776004A1445 /* SnapKit */; };
+		DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809122918FC1B004A1445 /* BaseCollectionViewCell.swift */; };
+		DE0809182918FCBA004A1445 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809172918FCBA004A1445 /* ReusableProtocol.swift */; };
+		DE08091D2919034C004A1445 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08091C2919034C004A1445 /* FirstViewController.swift */; };
+		DE08091F29190357004A1445 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08091E29190357004A1445 /* SecondViewController.swift */; };
+		DE08092129190360004A1445 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08092029190360004A1445 /* ThirdViewController.swift */; };
+		DE0809232919170C004A1445 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809222919170C004A1445 /* PageViewController.swift */; };
+		DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */; };
+		DE908E7D2919229900B54FAD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E762919229900B54FAD /* NotoSansKR-Light.otf */; };
+		DE908E7E2919229900B54FAD /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */; };
+		DE908E7F2919229900B54FAD /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E782919229900B54FAD /* NotoSansKR-Thin.otf */; };
+		DE908E802919229900B54FAD /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE908E792919229900B54FAD /* OFL.txt */; };
+		DE908E812919229900B54FAD /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E7A2919229900B54FAD /* NotoSansKR-Black.otf */; };
+		DE908E822919229900B54FAD /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E7B2919229900B54FAD /* NotoSansKR-Medium.otf */; };
+		DE908E832919229900B54FAD /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E7C2919229900B54FAD /* NotoSansKR-Regular.otf */; };
+		DE908E8B291926D200B54FAD /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E8A291926D200B54FAD /* Buttons.swift */; };
+		DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */; };
+		DE908E902919332A00B54FAD /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E8F2919332A00B54FAD /* InputTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,13 +49,28 @@
 		DE0808E52918D5E0004A1445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE0808E72918D5E0004A1445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE0808F02918D63D004A1445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DE0808F22918D8A8004A1445 /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
-		DE0808F32918D8A8004A1445 /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
-		DE0808F42918D8A8004A1445 /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
-		DE0808F52918D8A8004A1445 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
-		DE0808F62918D8A8004A1445 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
-		DE0808F72918D8A8004A1445 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		DE0808FC2918E332004A1445 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DE0808FF2918ED5C004A1445 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		DE0809012918EDC6004A1445 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
+		DE0809042918EDF5004A1445 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DE0809062918EE0A004A1445 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		DE0809122918FC1B004A1445 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		DE0809172918FCBA004A1445 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		DE08091C2919034C004A1445 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		DE08091E29190357004A1445 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		DE08092029190360004A1445 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		DE0809222919170C004A1445 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextColorChange+UILabel.swift"; sourceTree = "<group>"; };
+		DE908E762919229900B54FAD /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		DE908E782919229900B54FAD /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		DE908E792919229900B54FAD /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		DE908E7A2919229900B54FAD /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		DE908E7B2919229900B54FAD /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		DE908E7C2919229900B54FAD /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		DE908E8A291926D200B54FAD /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
+		DE908E8F2919332A00B54FAD /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE08090A2918F776004A1445 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +107,10 @@
 			children = (
 				DE0808F82918D8B9004A1445 /* Resources */,
 				DE0808ED2918D5FD004A1445 /* Constants */,
+				DE0809142918FC9A004A1445 /* Utility */,
+				DE0809032918EDEB004A1445 /* Base */,
+				DE0808FE2918ED16004A1445 /* Onboarding */,
+				DE908E8C2919316300B54FAD /* Login */,
 				DE0808D92918D5DE004A1445 /* AppDelegate.swift */,
 				DE0808DB2918D5DE004A1445 /* SceneDelegate.swift */,
 				DE0808DD2918D5DE004A1445 /* ViewController.swift */,
@@ -84,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				DE0808F02918D63D004A1445 /* Constants.swift */,
+				DE908E8A291926D200B54FAD /* Buttons.swift */,
+				DE908E8F2919332A00B54FAD /* InputTextField.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -91,14 +135,79 @@
 		DE0808F82918D8B9004A1445 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DE0808F22918D8A8004A1445 /* NotoSansKR-Black.otf */,
-				DE0808F72918D8A8004A1445 /* NotoSansKR-Bold.otf */,
-				DE0808F32918D8A8004A1445 /* NotoSansKR-Light.otf */,
-				DE0808F62918D8A8004A1445 /* NotoSansKR-Medium.otf */,
-				DE0808F52918D8A8004A1445 /* NotoSansKR-Regular.otf */,
-				DE0808F42918D8A8004A1445 /* NotoSansKR-Thin.otf */,
+				DE908E7129191B1600B54FAD /* Font */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		DE0808FE2918ED16004A1445 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				DE0808FF2918ED5C004A1445 /* Onboarding.storyboard */,
+				DE0809012918EDC6004A1445 /* OnboardingPageViewController.swift */,
+				DE0809222919170C004A1445 /* PageViewController.swift */,
+				DE08091C2919034C004A1445 /* FirstViewController.swift */,
+				DE08091E29190357004A1445 /* SecondViewController.swift */,
+				DE08092029190360004A1445 /* ThirdViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		DE0809032918EDEB004A1445 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DE0809042918EDF5004A1445 /* BaseViewController.swift */,
+				DE0809062918EE0A004A1445 /* BaseView.swift */,
+				DE0809122918FC1B004A1445 /* BaseCollectionViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DE0809142918FC9A004A1445 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DE908E7229191E2100B54FAD /* Extensions */,
+				DE0809172918FCBA004A1445 /* ReusableProtocol.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		DE908E7129191B1600B54FAD /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				DE908E752919229900B54FAD /* Noto_Sans_KR */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		DE908E7229191E2100B54FAD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE908E752919229900B54FAD /* Noto_Sans_KR */ = {
+			isa = PBXGroup;
+			children = (
+				DE908E762919229900B54FAD /* NotoSansKR-Light.otf */,
+				DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */,
+				DE908E782919229900B54FAD /* NotoSansKR-Thin.otf */,
+				DE908E792919229900B54FAD /* OFL.txt */,
+				DE908E7A2919229900B54FAD /* NotoSansKR-Black.otf */,
+				DE908E7B2919229900B54FAD /* NotoSansKR-Medium.otf */,
+				DE908E7C2919229900B54FAD /* NotoSansKR-Regular.otf */,
+			);
+			path = Noto_Sans_KR;
+			sourceTree = "<group>";
+		};
+		DE908E8C2919316300B54FAD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +226,9 @@
 			dependencies = (
 			);
 			name = "SeSAC SLP";
+			packageProductDependencies = (
+				DE0809092918F776004A1445 /* SnapKit */,
+			);
 			productName = "SeSAC SLP";
 			productReference = DE0808D62918D5DE004A1445 /* SeSAC SLP.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +257,9 @@
 				Base,
 			);
 			mainGroup = DE0808CD2918D5DE004A1445;
+			packageReferences = (
+				DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -159,9 +274,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE908E7D2919229900B54FAD /* NotoSansKR-Light.otf in Resources */,
+				DE908E7E2919229900B54FAD /* NotoSansKR-Bold.otf in Resources */,
 				DE0808FD2918E332004A1445 /* .gitignore in Resources */,
+				DE908E812919229900B54FAD /* NotoSansKR-Black.otf in Resources */,
+				DE908E802919229900B54FAD /* OFL.txt in Resources */,
+				DE0809002918ED5C004A1445 /* Onboarding.storyboard in Resources */,
+				DE908E7F2919229900B54FAD /* NotoSansKR-Thin.otf in Resources */,
 				DE0808E62918D5E0004A1445 /* LaunchScreen.storyboard in Resources */,
 				DE0808E32918D5E0004A1445 /* Assets.xcassets in Resources */,
+				DE908E822919229900B54FAD /* NotoSansKR-Medium.otf in Resources */,
+				DE908E832919229900B54FAD /* NotoSansKR-Regular.otf in Resources */,
 				DE0808E12918D5DE004A1445 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -173,10 +296,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE908E8B291926D200B54FAD /* Buttons.swift in Sources */,
+				DE08091F29190357004A1445 /* SecondViewController.swift in Sources */,
+				DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */,
+				DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */,
 				DE0808DE2918D5DE004A1445 /* ViewController.swift in Sources */,
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
+				DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */,
+				DE908E902919332A00B54FAD /* InputTextField.swift in Sources */,
+				DE08091D2919034C004A1445 /* FirstViewController.swift in Sources */,
+				DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */,
+				DE0809182918FCBA004A1445 /* ReusableProtocol.swift in Sources */,
+				DE0809072918EE0A004A1445 /* BaseView.swift in Sources */,
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,
+				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
+				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
+				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DE0809092918F776004A1445 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE0808CE2918D5DE004A1445 /* Project object */;
 }
