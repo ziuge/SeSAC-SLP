@@ -18,11 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         if UserDefaults.standard.bool(forKey: "First") {
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            let nav = UINavigationController(rootViewController: vc)
+            let vc = UIViewController()
             
-            window?.rootViewController = nav
+            window?.rootViewController = vc
         } else {
 //            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
 //            let vc = sb.instantiateViewController(withIdentifier: OnboardingPageViewController.reuseIdentifier) as! OnboardingPageViewController

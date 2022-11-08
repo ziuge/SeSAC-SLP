@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class PhoneAuthViewController: BaseViewController {
     
@@ -25,12 +26,12 @@ class PhoneAuthViewController: BaseViewController {
         view.placeholderText = "휴대폰 번호(-없이 숫자만 입력)"
         view.keyboardType = .phonePad
         view.becomeFirstResponder()
-        
         return view
     }()
     var button: H48FillButton = {
         let button = H48FillButton()
         button.titleText = "인증 문자 받기"
+        button.setTitle("선택", for: .selected)
         return button
     }()
     let stack: UIStackView = {
@@ -46,6 +47,37 @@ class PhoneAuthViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.Color.white
+        
+        button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
+    }
+    
+    @objc func getNumber() {
+        print(#function)
+//        let phoneNumber = "+1 699-555-2312"
+        let phoneNumber = textField.text!
+        let testVerificationCode = "312345"
+        Auth.auth().settings!.isAppVerificationDisabledForTesting = true
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
+            if let error = error {
+                print("error", error.localizedDescription)
+                return
+            }
+            UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+            
+            let credential = PhoneAuthProvider.provider().credential(
+                withVerificationID: verificationID ?? "",
+              verificationCode: testVerificationCode
+            )
+                
+            Auth.auth().signIn(with: credential) { (authData, error) in
+                if (error != nil) {
+                    print("로그인Error: \(error.debugDescription)")
+                    return
+                }
+                print("authData: \(String(describing: authData))")
+            }
+        }
     }
     
     override func configure() {

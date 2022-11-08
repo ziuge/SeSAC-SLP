@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0808D92918D5DE004A1445 /* AppDelegate.swift */; };
 		DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0808DB2918D5DE004A1445 /* SceneDelegate.swift */; };
-		DE0808DE2918D5DE004A1445 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0808DD2918D5DE004A1445 /* ViewController.swift */; };
-		DE0808E12918D5DE004A1445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0808DF2918D5DE004A1445 /* Main.storyboard */; };
 		DE0808E32918D5E0004A1445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE0808E22918D5E0004A1445 /* Assets.xcassets */; };
 		DE0808E62918D5E0004A1445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0808E42918D5E0004A1445 /* LaunchScreen.storyboard */; };
 		DE0808F12918D63D004A1445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0808F02918D63D004A1445 /* Constants.swift */; };
@@ -37,16 +35,17 @@
 		DE908E8B291926D200B54FAD /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E8A291926D200B54FAD /* Buttons.swift */; };
 		DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */; };
 		DE908E902919332A00B54FAD /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E8F2919332A00B54FAD /* InputTextField.swift */; };
-		DE908E93291964F900B54FAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DE908E92291964F900B54FAD /* FirebaseAuth */; };
 		DE908E972919666900B54FAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE908E962919666900B54FAD /* GoogleService-Info.plist */; };
+		DE908E9A291A263800B54FAD /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = DE908E99291A263800B54FAD /* FirebaseAuth */; };
+		DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DE908E9B291A263800B54FAD /* FirebaseMessaging */; };
+		DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE908E9E291A28F400B54FAD /* Main.storyboard */; };
+		DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DE0808D62918D5DE004A1445 /* SeSAC SLP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC SLP.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE0808D92918D5DE004A1445 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DE0808DB2918D5DE004A1445 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DE0808DD2918D5DE004A1445 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DE0808E02918D5DE004A1445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE0808E22918D5E0004A1445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE0808E52918D5E0004A1445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE0808E72918D5E0004A1445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +73,9 @@
 		DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewController.swift; sourceTree = "<group>"; };
 		DE908E8F2919332A00B54FAD /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		DE908E962919666900B54FAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC SLP.entitlements"; sourceTree = "<group>"; };
+		DE908E9E291A28F400B54FAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +83,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */,
 				DE08090A2918F776004A1445 /* SnapKit in Frameworks */,
-				DE908E93291964F900B54FAD /* FirebaseAuth in Frameworks */,
+				DE908E9A291A263800B54FAD /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +112,7 @@
 		DE0808D82918D5DE004A1445 /* SeSAC SLP */ = {
 			isa = PBXGroup;
 			children = (
+				DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */,
 				DE908E962919666900B54FAD /* GoogleService-Info.plist */,
 				DE0808F82918D8B9004A1445 /* Resources */,
 				DE0808ED2918D5FD004A1445 /* Constants */,
@@ -118,8 +122,7 @@
 				DE908E8C2919316300B54FAD /* Login */,
 				DE0808D92918D5DE004A1445 /* AppDelegate.swift */,
 				DE0808DB2918D5DE004A1445 /* SceneDelegate.swift */,
-				DE0808DD2918D5DE004A1445 /* ViewController.swift */,
-				DE0808DF2918D5DE004A1445 /* Main.storyboard */,
+				DE908E9E291A28F400B54FAD /* Main.storyboard */,
 				DE0808E22918D5E0004A1445 /* Assets.xcassets */,
 				DE0808E42918D5E0004A1445 /* LaunchScreen.storyboard */,
 				DE0808E72918D5E0004A1445 /* Info.plist */,
@@ -189,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */,
+				DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,7 +237,8 @@
 			name = "SeSAC SLP";
 			packageProductDependencies = (
 				DE0809092918F776004A1445 /* SnapKit */,
-				DE908E92291964F900B54FAD /* FirebaseAuth */,
+				DE908E99291A263800B54FAD /* FirebaseAuth */,
+				DE908E9B291A263800B54FAD /* FirebaseMessaging */,
 			);
 			productName = "SeSAC SLP";
 			productReference = DE0808D62918D5DE004A1445 /* SeSAC SLP.app */;
@@ -265,7 +270,7 @@
 			mainGroup = DE0808CD2918D5DE004A1445;
 			packageReferences = (
 				DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				DE908E91291964F900B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
 			projectDirPath = "";
@@ -288,12 +293,12 @@
 				DE908E812919229900B54FAD /* NotoSansKR-Black.otf in Resources */,
 				DE908E802919229900B54FAD /* OFL.txt in Resources */,
 				DE0809002918ED5C004A1445 /* Onboarding.storyboard in Resources */,
+				DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */,
 				DE908E7F2919229900B54FAD /* NotoSansKR-Thin.otf in Resources */,
 				DE0808E62918D5E0004A1445 /* LaunchScreen.storyboard in Resources */,
 				DE0808E32918D5E0004A1445 /* Assets.xcassets in Resources */,
 				DE908E822919229900B54FAD /* NotoSansKR-Medium.otf in Resources */,
 				DE908E832919229900B54FAD /* NotoSansKR-Regular.otf in Resources */,
-				DE0808E12918D5DE004A1445 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +313,6 @@
 				DE08091F29190357004A1445 /* SecondViewController.swift in Sources */,
 				DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */,
 				DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */,
-				DE0808DE2918D5DE004A1445 /* ViewController.swift in Sources */,
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
 				DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */,
@@ -318,6 +322,7 @@
 				DE0809182918FCBA004A1445 /* ReusableProtocol.swift in Sources */,
 				DE0809072918EE0A004A1445 /* BaseView.swift in Sources */,
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,
+				DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */,
 				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
@@ -327,14 +332,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DE0808DF2918D5DE004A1445 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE0808E02918D5DE004A1445 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DE0808E42918D5E0004A1445 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -465,6 +462,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SeSAC SLP/SeSAC SLP.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DV7XBU83N5;
@@ -493,6 +491,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "SeSAC SLP/SeSAC SLP.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DV7XBU83N5;
@@ -548,7 +547,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		DE908E91291964F900B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
@@ -564,10 +563,15 @@
 			package = DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		DE908E92291964F900B54FAD /* FirebaseAuth */ = {
+		DE908E99291A263800B54FAD /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE908E91291964F900B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			package = DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		DE908E9B291A263800B54FAD /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
