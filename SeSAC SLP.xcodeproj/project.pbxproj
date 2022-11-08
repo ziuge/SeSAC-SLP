@@ -39,6 +39,7 @@
 		DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DE908E9B291A263800B54FAD /* FirebaseMessaging */; };
 		DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE908E9E291A28F400B54FAD /* Main.storyboard */; };
 		DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */; };
+		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC SLP.entitlements"; sourceTree = "<group>"; };
 		DE908E9E291A28F400B54FAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
+		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */,
+				DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,
 				DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */,
 				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
+				DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */,
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
 			);

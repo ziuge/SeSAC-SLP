@@ -16,16 +16,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        guard let _ = (scene as? UIWindowScene) else { return }
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
+
+//        if UserDefaults.standard.bool(forKey: "First") {
+//            let vc = UIViewController()
+//
+//            window?.rootViewController = vc
+//        } else {
+//            let vc = OnboardingPageViewController()
+//
+//            window?.rootViewController = UINavigationController(rootViewController: vc)
+//        }
+//        let sb = UIStoryboard(name: "Onboarding", bundle: <#T##Bundle?#>)
         
-        if UserDefaults.standard.bool(forKey: "First") {
-            let vc = UIViewController()
-            
-            window?.rootViewController = vc
-        } else {
-            let vc = OnboardingPageViewController()
-            
-            window?.rootViewController = UINavigationController(rootViewController: vc)
-        }
+        let vc = OnboardingPageViewController()
+        
+        window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
         
     }

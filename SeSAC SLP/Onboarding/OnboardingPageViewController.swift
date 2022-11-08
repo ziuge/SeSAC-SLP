@@ -18,6 +18,8 @@ class OnboardingPageViewController: BaseViewController {
     var startButton: SeSACButton = {
         var button = SeSACButton()
         button.titleText = "시작하기"
+        button.isEnabled = true
+        button.setColor(backgroundColor: Constants.Color.green, borderColor: .clear, textColor: Constants.Color.white, for: .normal)
         return button
     }()
     

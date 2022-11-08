@@ -13,6 +13,7 @@ final class SeSACButton: UIButton {
     var borderWidth: CGFloat = 2.0
     var borderColor = Constants.Color.green
     var background = Constants.Color.green
+    var text = Constants.Color.white
 
     @IBInspectable var titleText: String? {
         didSet {
@@ -23,6 +24,7 @@ final class SeSACButton: UIButton {
 
     override init(frame: CGRect){
         super.init(frame: frame)
+        setup()
     }
 
     required init?(coder: NSCoder) {
@@ -31,7 +33,6 @@ final class SeSACButton: UIButton {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        setup()
     }
 
     func setup() {
@@ -40,8 +41,8 @@ final class SeSACButton: UIButton {
         self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = borderWidth
         self.backgroundColor = background
-        self.setColor(backgroundColor: background, borderColor: borderColor, for: .normal)
-        self.setColor(backgroundColor: Constants.Color.gray6, borderColor: Constants.Color.gray6, for: .disabled)
+        self.setColor(backgroundColor: background, borderColor: .clear, textColor: text, for: .normal)
+        self.setColor(backgroundColor: Constants.Color.gray6, borderColor: .clear, textColor: Constants.Color.gray3, for: .disabled)
     }
 }
 

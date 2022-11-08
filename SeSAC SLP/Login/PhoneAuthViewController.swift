@@ -31,8 +31,8 @@ class PhoneAuthViewController: BaseViewController {
     var button: SeSACButton = {
         let button = SeSACButton()
         button.titleText = "인증 문자 받기"
-        button.setTitle("선택", for: .selected)
         button.isEnabled = false
+        button.setColor(backgroundColor: Constants.Color.gray6, borderColor: Constants.Color.gray6, textColor: Constants.Color.gray3, for: .disabled)
         return button
     }()
     let stack: UIStackView = {
@@ -49,6 +49,7 @@ class PhoneAuthViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = Constants.Color.white
         
+        textField.delegate = self
         button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
     }
     
@@ -114,4 +115,38 @@ class PhoneAuthViewController: BaseViewController {
         }
     }
     
+}
+
+extension PhoneAuthViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let text = textField.text, let textRange = Range(range, in: text) else {
+            return false
+        }
+        let count = text.count
+        var updatedText = text.replacingCharacters(in: textRange, with: string)
+        updatedText.removeAll(where: {$0 == "-"})
+        if string != "" {
+            if count > 12
+            {
+                button.isEnabled = false
+                // TODO: Toast 유효한 전화번호 입력
+                return false
+            }
+            if count == 3 || count == 7 {
+                textField.text! += "-"
+            }
+            if count == 12 {
+//                textField.text?.removeAll(where: {$0 == "-"})
+                updatedText.removeAll(where: {$0 == "-"})
+                var index = updatedText.index(updatedText.startIndex, offsetBy: 3)
+                updatedText.insert("-", at: index)
+                index = updatedText.index(updatedText.startIndex, offsetBy: 8)
+                updatedText.insert("-", at: index)
+                textField.text = updatedText
+            }
+            return true
+        }
+        return true
+    }
 }
