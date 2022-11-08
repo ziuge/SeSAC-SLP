@@ -39,8 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         
-        
-        
         return true
     }
 
@@ -69,7 +67,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             print("Error fetching FCM registration token: \(error)")
           } else if let token = token {
             print("FCM registration token: \(token)")
-            
           }
         }
     }

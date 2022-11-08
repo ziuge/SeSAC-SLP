@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-final class H48FillButton: UIButton {
+final class SeSACButton: UIButton {
 
     var borderWidth: CGFloat = 2.0
     var borderColor = Constants.Color.green
@@ -40,6 +40,8 @@ final class H48FillButton: UIButton {
         self.layer.borderColor = borderColor.cgColor
         self.layer.borderWidth = borderWidth
         self.backgroundColor = background
+        self.setColor(backgroundColor: background, borderColor: borderColor, for: .normal)
+        self.setColor(backgroundColor: Constants.Color.gray6, borderColor: Constants.Color.gray6, for: .disabled)
     }
 }
 

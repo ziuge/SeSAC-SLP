@@ -13,7 +13,6 @@
 		DE0808E62918D5E0004A1445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0808E42918D5E0004A1445 /* LaunchScreen.storyboard */; };
 		DE0808F12918D63D004A1445 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0808F02918D63D004A1445 /* Constants.swift */; };
 		DE0808FD2918E332004A1445 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DE0808FC2918E332004A1445 /* .gitignore */; };
-		DE0809002918ED5C004A1445 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE0808FF2918ED5C004A1445 /* Onboarding.storyboard */; };
 		DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809012918EDC6004A1445 /* OnboardingPageViewController.swift */; };
 		DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809042918EDF5004A1445 /* BaseViewController.swift */; };
 		DE0809072918EE0A004A1445 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809062918EE0A004A1445 /* BaseView.swift */; };
@@ -51,7 +50,6 @@
 		DE0808E72918D5E0004A1445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE0808F02918D63D004A1445 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DE0808FC2918E332004A1445 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		DE0808FF2918ED5C004A1445 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
 		DE0809012918EDC6004A1445 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
 		DE0809042918EDF5004A1445 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DE0809062918EE0A004A1445 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 		DE0808FE2918ED16004A1445 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				DE0808FF2918ED5C004A1445 /* Onboarding.storyboard */,
 				DE0809012918EDC6004A1445 /* OnboardingPageViewController.swift */,
 				DE0809222919170C004A1445 /* PageViewController.swift */,
 				DE08091C2919034C004A1445 /* FirstViewController.swift */,
@@ -292,7 +289,6 @@
 				DE0808FD2918E332004A1445 /* .gitignore in Resources */,
 				DE908E812919229900B54FAD /* NotoSansKR-Black.otf in Resources */,
 				DE908E802919229900B54FAD /* OFL.txt in Resources */,
-				DE0809002918ED5C004A1445 /* Onboarding.storyboard in Resources */,
 				DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */,
 				DE908E7F2919229900B54FAD /* NotoSansKR-Thin.otf in Resources */,
 				DE0808E62918D5E0004A1445 /* LaunchScreen.storyboard in Resources */,

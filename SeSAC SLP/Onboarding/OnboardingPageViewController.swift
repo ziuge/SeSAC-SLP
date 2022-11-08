@@ -15,8 +15,8 @@ class OnboardingPageViewController: BaseViewController {
         let view = UIView()
         return view
     }()
-    var startButton: H48FillButton = {
-        var button = H48FillButton()
+    var startButton: SeSACButton = {
+        var button = SeSACButton()
         button.titleText = "시작하기"
         return button
     }()

@@ -22,8 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             window?.rootViewController = vc
         } else {
-//            let sb = UIStoryboard(name: "Onboarding", bundle: nil)
-//            let vc = sb.instantiateViewController(withIdentifier: OnboardingPageViewController.reuseIdentifier) as! OnboardingPageViewController
             let vc = OnboardingPageViewController()
             
             window?.rootViewController = UINavigationController(rootViewController: vc)

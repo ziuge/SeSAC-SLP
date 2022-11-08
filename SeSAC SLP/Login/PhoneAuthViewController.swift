@@ -28,10 +28,11 @@ class PhoneAuthViewController: BaseViewController {
         view.becomeFirstResponder()
         return view
     }()
-    var button: H48FillButton = {
-        let button = H48FillButton()
+    var button: SeSACButton = {
+        let button = SeSACButton()
         button.titleText = "인증 문자 받기"
         button.setTitle("선택", for: .selected)
+        button.isEnabled = false
         return button
     }()
     let stack: UIStackView = {
@@ -55,7 +56,7 @@ class PhoneAuthViewController: BaseViewController {
         print(#function)
 //        let phoneNumber = "+1 699-555-2312"
         let phoneNumber = textField.text!
-        let testVerificationCode = "312345"
+        let testVerificationCode = "982398"
         Auth.auth().settings!.isAppVerificationDisabledForTesting = true
         PhoneAuthProvider.provider()
             .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
