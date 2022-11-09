@@ -95,6 +95,7 @@ class PhoneVerificationViewController: BaseViewController {
         Auth.auth().signIn(with: credential) { [weak self] (authData, error) in
             if (error != nil) {
                 print("로그인Error: \(error.debugDescription)")
+                
                 return
             }
             print("authData: \(String(describing: authData))")

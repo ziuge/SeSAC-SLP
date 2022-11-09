@@ -43,11 +43,14 @@ class NicknameViewController: BaseViewController {
         return view
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        button.addTarget(self, action: #selector(), for: .touchUpInside)
+        button.addTarget(self, action: #selector(makeNickname), for: .touchUpInside)
+    }
+    
+    @objc func makeNickname() {
+        
     }
     
     override func configure() {

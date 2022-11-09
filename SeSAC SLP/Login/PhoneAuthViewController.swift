@@ -30,6 +30,15 @@ class PhoneAuthViewController: BaseViewController {
         view.becomeFirstResponder()
         return view
     }()
+    var validationLabel: UILabel = {
+        let view = UILabel()
+        view.backgroundColor = Constants.Color.gray3
+        view.layer.cornerRadius = 8.0
+        view.textColor = Constants.Color.white
+        view.font = Constants.Font.caption
+        view.isHidden = true
+        return view
+    }()
     var button: SeSACButton = {
         let button = SeSACButton()
         button.titleText = "인증 문자 받기"
@@ -52,15 +61,12 @@ class PhoneAuthViewController: BaseViewController {
     
     var message = ""
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        textField.delegate = self
         
-//        bind()
+        bind()
         
-        button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
     }
     
     @objc func getNumber() {
@@ -83,7 +89,6 @@ class PhoneAuthViewController: BaseViewController {
                 vc.verificationID = verificationID
                 self?.navigationController?.pushViewController(vc, animated: true)
         }
-        
     }
     
     override func configure() {
@@ -91,6 +96,7 @@ class PhoneAuthViewController: BaseViewController {
         [label, textField, button].forEach {
             stack.addArrangedSubview($0)
         }
+        view.addSubview(validationLabel)
     }
     
     override func setConstraints() {
@@ -117,6 +123,10 @@ class PhoneAuthViewController: BaseViewController {
         button.snp.makeConstraints { make in
             make.height.equalTo(48)
         }
+        validationLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(button.snp.bottom).offset(4)
+        }
     }
     
     func bind() {
@@ -124,36 +134,34 @@ class PhoneAuthViewController: BaseViewController {
         let input = PhoneAuthViewModel.Input(number: textField.rx.text, tap: button.rx.tap)
         let output = viewModel.transform(input: input)
         
-        output.validation
-            .bind(to: button.rx.isEnabled)
-            .disposed(by: disposeBag)
+//        output.text
+//            .drive(validationLabel.rx.text)
+//            .disposed(by: disposeBag)
+//
+//        output.validation
+//            .bind(to: validationLabel.rx.isHidden)
+//            .disposed(by: disposeBag)
         
-        output.tap
-            .bind { [weak self] in
-                print("Show toast")
-                self?.showToast(message: " 잘못된 전화번호 형식입니다. ")
-                self?.view.endEditing(true)
+        output.validation
+            .withUnretained(self)
+            .bind { (vc, value) in
+                let color: [UIColor] = value ? [Constants.Color.green, Constants.Color.white] : [Constants.Color.gray6, Constants.Color.gray3]
+                vc.button.setColor(backgroundColor: color[0], borderColor: .clear, textColor: color[1], for: .normal)
             }
             .disposed(by: disposeBag)
+        
+//        output.tap
+//            .bind(to: validationLabel.rx.isHidden)
+//            .disposed(by: disposeBag)
+        
+        textField
+            .rx.text
+            .withUnretained(self)
+            .bind { (vc, value) in
+                vc.textField.text = vc.viewModel.addHyphen(text: value ?? "")
+            }
+            .disposed(by: disposeBag)
+        
     }
     
-}
-
-extension PhoneAuthViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        guard let text = textField.text, let textRange = Range(range, in: text) else {
-            return false
-        }
-        
-        textField.text = text.withHyphen()
-        
-        let count = text.count
-        if count > 11 || count < 9 {
-            button.isEnabled = false
-//            self.showToast(message: " 잘못된 전화번호 형식입니다. ")
-            return false
-        }
-        return true
-    }
 }
