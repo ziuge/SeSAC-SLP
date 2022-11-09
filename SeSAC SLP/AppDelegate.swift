@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
         
-        Thread.sleep(forTimeInterval: 3)
+        Thread.sleep(forTimeInterval: 1)
         
         return true
     }

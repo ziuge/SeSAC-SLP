@@ -25,7 +25,7 @@ class OnboardingPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Constants.Color.white
+
         addPageVC()
         
         startButton.addTarget(self, action: #selector(gotoLogin), for: .touchUpInside)
@@ -57,10 +57,11 @@ class OnboardingPageViewController: BaseViewController {
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
         let window = windowScene?.windows.first
-        window?.rootViewController = vc
+        window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
     }
     
+    // MARK: PageVC
     let vc = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
     
     func addPageVC() {

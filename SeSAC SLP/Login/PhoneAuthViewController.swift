@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import RxSwift
+import RxCocoa
 
 class PhoneAuthViewController: BaseViewController {
     
@@ -31,8 +33,8 @@ class PhoneAuthViewController: BaseViewController {
     var button: SeSACButton = {
         let button = SeSACButton()
         button.titleText = "인증 문자 받기"
-        button.isEnabled = false
-        button.setColor(backgroundColor: Constants.Color.gray6, borderColor: Constants.Color.gray6, textColor: Constants.Color.gray3, for: .disabled)
+        button.isEnabled = true
+        button.setColor(backgroundColor: Constants.Color.gray6, borderColor: .clear, textColor: Constants.Color.gray3, for: .disabled)
         return button
     }()
     let stack: UIStackView = {
@@ -45,41 +47,43 @@ class PhoneAuthViewController: BaseViewController {
         return view
     }()
     
+    let disposeBag = DisposeBag()
+    let viewModel = PhoneAuthViewModel()
+    
+    var message = ""
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Constants.Color.white
-        
         textField.delegate = self
+        
+//        bind()
+        
         button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
     }
     
     @objc func getNumber() {
         print(#function)
-//        let phoneNumber = "+1 699-555-2312"
+//        let phoneNumber = "+16995552312"
         let phoneNumber = textField.text!
-        let testVerificationCode = "982398"
-        Auth.auth().settings!.isAppVerificationDisabledForTesting = true
+//        let testVerificationCode = "312345"
+//        Auth.auth().settings!.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider()
-            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { verificationID, error in
-            if let error = error {
-                print("error", error.localizedDescription)
-                return
-            }
-            UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-            
-            let credential = PhoneAuthProvider.provider().credential(
-                withVerificationID: verificationID ?? "",
-              verificationCode: testVerificationCode
-            )
-                
-            Auth.auth().signIn(with: credential) { (authData, error) in
-                if (error != nil) {
-                    print("로그인Error: \(error.debugDescription)")
+            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationID, error in
+                if let error = error {
+                    print("error", error.localizedDescription)
                     return
                 }
-                print("authData: \(String(describing: authData))")
-            }
+                print("success")
+
+                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+
+                let vc = PhoneVerificationViewController()
+                vc.verificationID = verificationID
+                self?.navigationController?.pushViewController(vc, animated: true)
         }
+        
     }
     
     override func configure() {
@@ -115,6 +119,24 @@ class PhoneAuthViewController: BaseViewController {
         }
     }
     
+    func bind() {
+
+        let input = PhoneAuthViewModel.Input(number: textField.rx.text, tap: button.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.validation
+            .bind(to: button.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.tap
+            .bind { [weak self] in
+                print("Show toast")
+                self?.showToast(message: " 잘못된 전화번호 형식입니다. ")
+                self?.view.endEditing(true)
+            }
+            .disposed(by: disposeBag)
+    }
+    
 }
 
 extension PhoneAuthViewController: UITextFieldDelegate {
@@ -123,29 +145,14 @@ extension PhoneAuthViewController: UITextFieldDelegate {
         guard let text = textField.text, let textRange = Range(range, in: text) else {
             return false
         }
+        
+        textField.text = text.withHyphen()
+        
         let count = text.count
-        var updatedText = text.replacingCharacters(in: textRange, with: string)
-        updatedText.removeAll(where: {$0 == "-"})
-        if string != "" {
-            if count > 12
-            {
-                button.isEnabled = false
-                // TODO: Toast 유효한 전화번호 입력
-                return false
-            }
-            if count == 3 || count == 7 {
-                textField.text! += "-"
-            }
-            if count == 12 {
-//                textField.text?.removeAll(where: {$0 == "-"})
-                updatedText.removeAll(where: {$0 == "-"})
-                var index = updatedText.index(updatedText.startIndex, offsetBy: 3)
-                updatedText.insert("-", at: index)
-                index = updatedText.index(updatedText.startIndex, offsetBy: 8)
-                updatedText.insert("-", at: index)
-                textField.text = updatedText
-            }
-            return true
+        if count > 11 || count < 9 {
+            button.isEnabled = false
+//            self.showToast(message: " 잘못된 전화번호 형식입니다. ")
+            return false
         }
         return true
     }

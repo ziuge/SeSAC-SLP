@@ -23,6 +23,10 @@
 		DE08091F29190357004A1445 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08091E29190357004A1445 /* SecondViewController.swift */; };
 		DE08092129190360004A1445 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08092029190360004A1445 /* ThirdViewController.swift */; };
 		DE0809232919170C004A1445 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809222919170C004A1445 /* PageViewController.swift */; };
+		DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A865A291BC9E800DE83C9 /* PhoneVerificationViewController.swift */; };
+		DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A865C291BF92D00DE83C9 /* WithHyphen+String.swift */; };
+		DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A865F291BFF0900DE83C9 /* NicknameViewController.swift */; };
+		DE3A8663291BFFA900DE83C9 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A8662291BFFA900DE83C9 /* APIKey.swift */; };
 		DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */; };
 		DE908E7D2919229900B54FAD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E762919229900B54FAD /* NotoSansKR-Light.otf */; };
 		DE908E7E2919229900B54FAD /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */; };
@@ -40,6 +44,9 @@
 		DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE908E9E291A28F400B54FAD /* Main.storyboard */; };
 		DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */; };
 		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
+		DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE49291AA0C200C1F807 /* RxCocoa */; };
+		DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE4B291AA0C200C1F807 /* RxSwift */; };
+		DE9FAE51291AAFA000C1F807 /* Toast+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +67,10 @@
 		DE08091E29190357004A1445 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DE08092029190360004A1445 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		DE0809222919170C004A1445 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		DE3A865A291BC9E800DE83C9 /* PhoneVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneVerificationViewController.swift; sourceTree = "<group>"; };
+		DE3A865C291BF92D00DE83C9 /* WithHyphen+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WithHyphen+String.swift"; sourceTree = "<group>"; };
+		DE3A865F291BFF0900DE83C9 /* NicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewController.swift; sourceTree = "<group>"; };
+		DE3A8662291BFFA900DE83C9 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextColorChange+UILabel.swift"; sourceTree = "<group>"; };
 		DE908E762919229900B54FAD /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
@@ -76,6 +87,7 @@
 		DE908E9E291A28F400B54FAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
 		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
+		DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +97,8 @@
 			files = (
 				DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */,
 				DE08090A2918F776004A1445 /* SnapKit in Frameworks */,
+				DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */,
+				DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */,
 				DE908E9A291A263800B54FAD /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +126,7 @@
 		DE0808D82918D5DE004A1445 /* SeSAC SLP */ = {
 			isa = PBXGroup;
 			children = (
+				DE3A8661291BFF9D00DE83C9 /* API */,
 				DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */,
 				DE908E962919666900B54FAD /* GoogleService-Info.plist */,
 				DE0808F82918D8B9004A1445 /* Resources */,
@@ -120,6 +135,7 @@
 				DE0809032918EDEB004A1445 /* Base */,
 				DE0808FE2918ED16004A1445 /* Onboarding */,
 				DE908E8C2919316300B54FAD /* Login */,
+				DE3A865E291BFEF200DE83C9 /* SignUp */,
 				DE0808D92918D5DE004A1445 /* AppDelegate.swift */,
 				DE0808DB2918D5DE004A1445 /* SceneDelegate.swift */,
 				DE908E9E291A28F400B54FAD /* Main.storyboard */,
@@ -179,6 +195,22 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		DE3A865E291BFEF200DE83C9 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				DE3A865F291BFF0900DE83C9 /* NicknameViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		DE3A8661291BFF9D00DE83C9 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DE3A8662291BFFA900DE83C9 /* APIKey.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		DE908E7129191B1600B54FAD /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +224,8 @@
 			children = (
 				DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */,
 				DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */,
+				DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */,
+				DE3A865C291BF92D00DE83C9 /* WithHyphen+String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -215,6 +249,7 @@
 			children = (
 				DE908E8D291931AA00B54FAD /* PhoneAuthViewController.swift */,
 				DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */,
+				DE3A865A291BC9E800DE83C9 /* PhoneVerificationViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -239,6 +274,8 @@
 				DE0809092918F776004A1445 /* SnapKit */,
 				DE908E99291A263800B54FAD /* FirebaseAuth */,
 				DE908E9B291A263800B54FAD /* FirebaseMessaging */,
+				DE9FAE49291AA0C200C1F807 /* RxCocoa */,
+				DE9FAE4B291AA0C200C1F807 /* RxSwift */,
 			);
 			productName = "SeSAC SLP";
 			productReference = DE0808D62918D5DE004A1445 /* SeSAC SLP.app */;
@@ -271,6 +308,7 @@
 			packageReferences = (
 				DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
 			projectDirPath = "";
@@ -310,10 +348,12 @@
 			files = (
 				DE908E8B291926D200B54FAD /* Buttons.swift in Sources */,
 				DE08091F29190357004A1445 /* SecondViewController.swift in Sources */,
+				DE3A8663291BFFA900DE83C9 /* APIKey.swift in Sources */,
 				DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */,
 				DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */,
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
+				DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */,
 				DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */,
 				DE908E902919332A00B54FAD /* InputTextField.swift in Sources */,
 				DE08091D2919034C004A1445 /* FirstViewController.swift in Sources */,
@@ -324,6 +364,9 @@
 				DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */,
 				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
 				DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */,
+				DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */,
+				DE9FAE51291AAFA000C1F807 /* Toast+UIViewController.swift in Sources */,
+				DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */,
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
 			);
@@ -555,6 +598,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -572,6 +623,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		DE9FAE49291AA0C200C1F807 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DE9FAE4B291AA0C200C1F807 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
