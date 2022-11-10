@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class NicknameViewController: BaseViewController {
     // MARK: UI
@@ -45,6 +46,16 @@ class NicknameViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+          if let error = error {
+            // Handle error
+            return;
+          }
+
+          print("idToken:", idToken)
+        }
         
         button.addTarget(self, action: #selector(makeNickname), for: .touchUpInside)
     }
