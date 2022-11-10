@@ -35,7 +35,7 @@ class PhoneAuthViewController: BaseViewController {
         view.backgroundColor = Constants.Color.gray3
         view.layer.cornerRadius = 8.0
         view.textColor = Constants.Color.white
-        view.font = Constants.Font.caption
+        view.font = Constants.Font.body4
         view.isHidden = true
         return view
     }()
@@ -66,14 +66,19 @@ class PhoneAuthViewController: BaseViewController {
         
         bind()
         
-//        button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
+        button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
     }
     
     @objc func getNumber() {
         print(#function)
 //        let phoneNumber = "+16995552312"
+//        let testVerificationCode = "312345"
+        
+//        guard let text = textField.text else { return showValidationLabel() }
+//        let phoneNumber = "+82" + text.removeFirst()
+//        let phoneNumber = text.replacingCharacters(in: textRange, with: string)
+        
         let phoneNumber = textField.text!
-//        let testVerificationCode = "312345"
 //        Auth.auth().settings!.isAppVerificationDisabledForTesting = false
         PhoneAuthProvider.provider()
             .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationID, error in
@@ -98,14 +103,12 @@ class PhoneAuthViewController: BaseViewController {
         }
         view.addSubview(validationLabel)
     }
-    
     override func setConstraints() {
         let spacing = 16
         let frameHeight = view.frame.height
         
         stack.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            
             make.leading.equalTo(view).offset(spacing)
             make.trailing.equalTo(view).offset(-spacing)
             make.bottom.equalTo(view).offset((-frameHeight / 2) + 40)
@@ -113,7 +116,6 @@ class PhoneAuthViewController: BaseViewController {
         }
         
         label.snp.makeConstraints { make in
-            
         }
         
         textField.snp.makeConstraints { make in
@@ -129,18 +131,22 @@ class PhoneAuthViewController: BaseViewController {
         }
     }
     
+    func showValidationLabel() {
+        self.validationLabel.isHidden = false
+        UIView.animate(withDuration: 3.0, delay: 0.2, options: .curveEaseOut, animations: {
+            self.validationLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            self.validationLabel.removeFromSuperview()
+        })
+    }
+    
     func bind() {
-
         let input = PhoneAuthViewModel.Input(number: textField.rx.text, tap: button.rx.tap)
         let output = viewModel.transform(input: input)
         
-//        output.text
-//            .drive(validationLabel.rx.text)
-//            .disposed(by: disposeBag)
-//
-//        output.validation
-//            .bind(to: validationLabel.rx.isHidden)
-//            .disposed(by: disposeBag)
+        output.text
+            .drive(validationLabel.rx.text)
+            .disposed(by: disposeBag)
         
         output.validation
             .withUnretained(self)
@@ -150,9 +156,11 @@ class PhoneAuthViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-//        output.tap
-//            .bind(to: validationLabel.rx.isHidden)
-//            .disposed(by: disposeBag)
+        output.tap
+            .bind { _ in
+                self.showValidationLabel()
+            }
+            .disposed(by: disposeBag)
         
         textField
             .rx.text

@@ -27,7 +27,7 @@ class PhoneAuthViewModel {
         
         let valid = input.number
             .orEmpty
-            .map { $0.count < 14 && $0.count > 9 }
+            .map { $0.count < 15 && $0.count > 9 }
             .share()
         
         let text = validText.asDriver()
@@ -39,5 +39,4 @@ class PhoneAuthViewModel {
         let text = text.withHyphen()
         return text
     }
-    
 }

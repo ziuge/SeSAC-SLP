@@ -126,7 +126,7 @@
 		DE0808D82918D5DE004A1445 /* SeSAC SLP */ = {
 			isa = PBXGroup;
 			children = (
-				DE3A8661291BFF9D00DE83C9 /* API */,
+				DE3A8661291BFF9D00DE83C9 /* Network */,
 				DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */,
 				DE908E962919666900B54FAD /* GoogleService-Info.plist */,
 				DE0808F82918D8B9004A1445 /* Resources */,
@@ -203,12 +203,12 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		DE3A8661291BFF9D00DE83C9 /* API */ = {
+		DE3A8661291BFF9D00DE83C9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				DE3A8662291BFFA900DE83C9 /* APIKey.swift */,
 			);
-			path = API;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		DE908E7129191B1600B54FAD /* Font */ = {
