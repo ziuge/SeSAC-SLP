@@ -20,7 +20,7 @@ class EmailViewController: BaseViewController {
         view.numberOfLines = 2
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = Constants.Font.display1_lineHeight
-        view.halfTextColorChange(fullText: "이메일을 입력해 주세요\n휴대폰 번호 변경 시 인증을 위해 사용해요", changeText: "휴대폰 번호 변경 시 인증을 위해 사용해요", color: Constants.Color.gray3)
+        view.halfTextColorAndFontChange(fullText: view.text!, changeText: "휴대폰 번호 변경 시 인증을 위해 사용해요", color: Constants.Color.gray7, font: Constants.Font.title2!)
         return view
     }()
     var textField: InputTextField = {

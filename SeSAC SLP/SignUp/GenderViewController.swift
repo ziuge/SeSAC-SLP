@@ -20,7 +20,7 @@ class GenderViewController: BaseViewController {
         view.numberOfLines = 2
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = Constants.Font.display1_lineHeight
-        view.halfTextColorChange(fullText: "성별을 선택해 주세요\n새싹 찾기 기능을 이용하기 위해서 필요해요!", changeText: "새싹 찾기 기능을 이용하기 위해서 필요해요!", color: Constants.Color.gray3)
+        view.halfTextColorAndFontChange(fullText: view.text!, changeText: "새싹 찾기 기능을 이용하기 위해서 필요해요!", color: Constants.Color.gray7, font: Constants.Font.title2!)
         return view
     }()
     var maleButton: UIButton = {
@@ -29,6 +29,7 @@ class GenderViewController: BaseViewController {
         button.setTitle("남자", for: .normal)
         button.contentVerticalAlignment = .center
         button.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.black, for: .normal)
+        button.setColor(backgroundColor: Constants.Color.whiteGreen, borderColor: Constants.Color.whiteGreen, textColor: Constants.Color.black, for: .selected)
         return button
     }()
     var femaleButton: UIButton = {
@@ -45,6 +46,7 @@ class GenderViewController: BaseViewController {
         view.axis = .horizontal
         view.alignment = .fill
         view.distribution = .equalSpacing
+        view.spacing = 12
         return view
     }()
     var button: SeSACButton = {

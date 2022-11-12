@@ -15,4 +15,13 @@ extension UILabel {
         attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
         self.attributedText = attribute
     }
+    
+    func halfTextColorAndFontChange(fullText: String, changeText: String, color: UIColor, font: UIFont) {
+        let strNumber: NSString = fullText as NSString
+        let range = (strNumber).range(of: changeText)
+        let attribute = NSMutableAttributedString.init(string: fullText)
+        attribute.addAttribute(.font, value: font, range: range)
+        attribute.addAttribute(.foregroundColor, value: color, range: range)
+        self.attributedText = attribute
+    }
 }
