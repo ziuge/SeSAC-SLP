@@ -35,7 +35,7 @@ class PhoneAuthViewController: BaseViewController {
         view.backgroundColor = Constants.Color.gray3
         view.layer.cornerRadius = 8.0
         view.textColor = Constants.Color.white
-        view.font = Constants.Font.body4
+        view.font = Constants.Font.body3
         view.isHidden = true
         return view
     }()
@@ -73,13 +73,13 @@ class PhoneAuthViewController: BaseViewController {
         print(#function)
 //        let phoneNumber = "+16995552312"
 //        let testVerificationCode = "312345"
-        
 //        guard let text = textField.text else { return showValidationLabel() }
 //        let phoneNumber = "+82" + text.removeFirst()
 //        let phoneNumber = text.replacingCharacters(in: textRange, with: string)
-        
-        let phoneNumber = textField.text!
 //        Auth.auth().settings!.isAppVerificationDisabledForTesting = false
+        
+//        let phoneNumber = "+16662223333"
+        let phoneNumber = textField.text!
         PhoneAuthProvider.provider()
             .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationID, error in
                 if let error = error {
@@ -131,15 +131,6 @@ class PhoneAuthViewController: BaseViewController {
         }
     }
     
-    func showValidationLabel() {
-        self.validationLabel.isHidden = false
-        UIView.animate(withDuration: 3.0, delay: 0.2, options: .curveEaseOut, animations: {
-            self.validationLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            self.validationLabel.removeFromSuperview()
-        })
-    }
-    
     func bind() {
         let input = PhoneAuthViewModel.Input(number: textField.rx.text, tap: button.rx.tap)
         let output = viewModel.transform(input: input)
@@ -170,6 +161,15 @@ class PhoneAuthViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+    }
+    
+    func showValidationLabel() {
+        self.validationLabel.isHidden = false
+        UIView.animate(withDuration: 3.0, delay: 0.2, options: .curveEaseOut, animations: {
+            self.validationLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            self.validationLabel.removeFromSuperview()
+        })
     }
     
 }

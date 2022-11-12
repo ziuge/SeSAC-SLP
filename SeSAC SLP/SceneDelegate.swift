@@ -26,9 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
 //            window?.rootViewController = UINavigationController(rootViewController: vc)
 //        }
-//        let sb = UIStoryboard(name: "Onboarding", bundle: <#T##Bundle?#>)
+
         
-        let vc = OnboardingPageViewController()
+//        let vc = OnboardingPageViewController()
+        let vc = NicknameViewController()
         
         window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()

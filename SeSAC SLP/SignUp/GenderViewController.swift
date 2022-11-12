@@ -1,39 +1,55 @@
 //
-//  NicknameViewController.swift
+//  GenderViewController.swift
 //  SeSAC SLP
 //
-//  Created by CHOI on 2022/11/10.
+//  Created by CHOI on 2022/11/11.
 //
 
+import Foundation
 import UIKit
-import FirebaseAuth
 import RxSwift
 import RxCocoa
 
-class NicknameViewController: BaseViewController {
+class GenderViewController: BaseViewController {
     // MARK: UI
     var label: UILabel = {
         let view = UILabel()
-        view.text = "닉네임을 입력해 주세요"
+        view.text = "성별을 선택해 주세요\n새싹 찾기 기능을 이용하기 위해서 필요해요!"
         view.textAlignment = .center
         view.font = Constants.Font.display1
         view.numberOfLines = 2
         var paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = Constants.Font.display1_lineHeight
+        view.halfTextColorChange(fullText: "성별을 선택해 주세요\n새싹 찾기 기능을 이용하기 위해서 필요해요!", changeText: "새싹 찾기 기능을 이용하기 위해서 필요해요!", color: Constants.Color.gray3)
         return view
     }()
-    var textField: InputTextField = {
-        let view = InputTextField()
-        view.placeholderText = "10자 이내로 입력"
-        view.keyboardType = .default
-        view.becomeFirstResponder()
+    var maleButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "man"), for: .normal)
+        button.setTitle("남자", for: .normal)
+        button.contentVerticalAlignment = .center
+        return button
+    }()
+    var femaleButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "woman"), for: .normal)
+        button.setTitle("여자", for: .normal)
+        button.contentVerticalAlignment = .center
+        return button
+    }()
+    var buttonStack: UIStackView = {
+        let view = UIStackView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .equalSpacing
         return view
     }()
     var button: SeSACButton = {
         let button = SeSACButton()
         button.titleText = "다음"
         button.isEnabled = true
-        button.setColor(backgroundColor: Constants.Color.gray6, borderColor: .clear, textColor: Constants.Color.gray3, for: .disabled)
+        button.setColor(backgroundColor: Constants.Color.gray6, borderColor: .clear, textColor: Constants.Color.gray3, for: .normal)
         return button
     }()
     let stack: UIStackView = {
@@ -42,7 +58,6 @@ class NicknameViewController: BaseViewController {
         view.axis = .vertical
         view.alignment = .fill
         view.distribution = .equalSpacing
-//        view.spacing = 72
         return view
     }()
     var validationLabel: UILabel = {
@@ -63,57 +78,28 @@ class NicknameViewController: BaseViewController {
         
         bind()
         
-        button.addTarget(self, action: #selector(makeNickname), for: .touchUpInside)
+        button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
     }
-    
-    func getToken() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-          if let error = error {
-            // Handle error
-            return;
-          }
-          print("idToken:", idToken)
-        }
-    }
-    
+
     func bind() {
-        let input = NicknameValidationModel.Input(nick: textField.rx.text, tap: button.rx.tap)
-        let output = viewModel.transform(input: input)
-        
-        output.text
-            .drive(validationLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        output.validation
-            .withUnretained(self)
-            .bind { (vc, value) in
-                let color: [UIColor] = value ? [Constants.Color.green, Constants.Color.white] : [Constants.Color.gray6, Constants.Color.gray3]
-                vc.button.setColor(backgroundColor: color[0], borderColor: .clear, textColor: color[1], for: .normal)
-            }
-            .disposed(by: disposeBag)
-        
-        output.tap
-            .bind { _ in
-                self.showValidationLabel()
-            }
-            .disposed(by: disposeBag)
+
 
     }
     
-    @objc func makeNickname() {
+    @objc func getEmail() {
         print(#function)
         
-        let vc = BirthViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     override func configure() {
         view.addSubview(stack)
-        [label, textField, button].forEach {
+        [label, buttonStack, button].forEach {
             stack.addArrangedSubview($0)
         }
         view.addSubview(validationLabel)
+        [maleButton, femaleButton].forEach {
+            stack.addArrangedSubview($0)
+        }
     }
     override func setConstraints() {
         let spacing = 16
@@ -121,7 +107,6 @@ class NicknameViewController: BaseViewController {
         
         stack.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            
             make.leading.equalTo(view).offset(spacing)
             make.trailing.equalTo(view).offset(-spacing)
             make.bottom.equalTo(view).offset((-frameHeight / 2) + 40)
@@ -130,10 +115,6 @@ class NicknameViewController: BaseViewController {
         
         label.snp.makeConstraints { make in
             
-        }
-        
-        textField.snp.makeConstraints { make in
-            make.height.equalTo(48)
         }
         
         button.snp.makeConstraints { make in
@@ -157,3 +138,4 @@ class NicknameViewController: BaseViewController {
     }
     
 }
+

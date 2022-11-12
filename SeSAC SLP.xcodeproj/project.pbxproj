@@ -31,8 +31,9 @@
 		DE3A8668291CDAD100DE83C9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DE3A8667291CDAD100DE83C9 /* Alamofire */; };
 		DE3A866A291CDAFE00DE83C9 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A8669291CDAFE00DE83C9 /* Network.swift */; };
 		DE3A866C291CDB3300DE83C9 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A866B291CDB3300DE83C9 /* Endpoint.swift */; };
-		DE3A866E291D0F2B00DE83C9 /* UserValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A866D291D0F2B00DE83C9 /* UserValidationModel.swift */; };
 		DE3A8670291D2B6000DE83C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE3A866F291D2B6000DE83C9 /* GoogleService-Info.plist */; };
+		DE3A8672291D539600DE83C9 /* NicknameValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A8671291D539600DE83C9 /* NicknameValidationModel.swift */; };
+		DE3A8674291D5C4400DE83C9 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A8673291D5C4400DE83C9 /* BirthViewController.swift */; };
 		DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */; };
 		DE908E7D2919229900B54FAD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E762919229900B54FAD /* NotoSansKR-Light.otf */; };
 		DE908E7E2919229900B54FAD /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */; };
@@ -48,6 +49,9 @@
 		DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DE908E9B291A263800B54FAD /* FirebaseMessaging */; };
 		DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE908E9E291A28F400B54FAD /* Main.storyboard */; };
 		DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */; };
+		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
+		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
+		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
 		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
 		DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE49291AA0C200C1F807 /* RxCocoa */; };
 		DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE4B291AA0C200C1F807 /* RxSwift */; };
@@ -79,8 +83,9 @@
 		DE3A8664291CDA2800DE83C9 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		DE3A8669291CDAFE00DE83C9 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		DE3A866B291CDB3300DE83C9 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		DE3A866D291D0F2B00DE83C9 /* UserValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserValidationModel.swift; sourceTree = "<group>"; };
 		DE3A866F291D2B6000DE83C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DE3A8671291D539600DE83C9 /* NicknameValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidationModel.swift; sourceTree = "<group>"; };
+		DE3A8673291D5C4400DE83C9 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
 		DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextColorChange+UILabel.swift"; sourceTree = "<group>"; };
 		DE908E762919229900B54FAD /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
@@ -95,6 +100,9 @@
 		DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC SLP.entitlements"; sourceTree = "<group>"; };
 		DE908E9E291A28F400B54FAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
+		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
+		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
+		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
 		DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,7 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				DE3A865F291BFF0900DE83C9 /* NicknameViewController.swift */,
-				DE3A866D291D0F2B00DE83C9 /* UserValidationModel.swift */,
+				DE3A8671291D539600DE83C9 /* NicknameValidationModel.swift */,
+				DE3A8673291D5C4400DE83C9 /* BirthViewController.swift */,
+				DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */,
+				DE9B7D53291E358800089C2D /* EmailViewController.swift */,
+				DE9B7D55291E3A4800089C2D /* GenderViewController.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -371,24 +383,28 @@
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
 				DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */,
 				DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */,
+				DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */,
 				DE908E902919332A00B54FAD /* InputTextField.swift in Sources */,
 				DE3A866A291CDAFE00DE83C9 /* Network.swift in Sources */,
 				DE08091D2919034C004A1445 /* FirstViewController.swift in Sources */,
-				DE3A866E291D0F2B00DE83C9 /* UserValidationModel.swift in Sources */,
 				DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */,
 				DE0809182918FCBA004A1445 /* ReusableProtocol.swift in Sources */,
 				DE0809072918EE0A004A1445 /* BaseView.swift in Sources */,
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,
 				DE3A866C291CDB3300DE83C9 /* Endpoint.swift in Sources */,
+				DE3A8672291D539600DE83C9 /* NicknameValidationModel.swift in Sources */,
+				DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */,
 				DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */,
 				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
 				DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */,
 				DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */,
 				DE9FAE51291AAFA000C1F807 /* Toast+UIViewController.swift in Sources */,
+				DE3A8674291D5C4400DE83C9 /* BirthViewController.swift in Sources */,
 				DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */,
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
 				DE3A8665291CDA2800DE83C9 /* APIService.swift in Sources */,
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
+				DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
