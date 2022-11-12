@@ -12,6 +12,7 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.Color.white
+        navigationItem.backButtonTitle = ""
         configure()
         setConstraints()
     }

@@ -31,6 +31,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let vc = OnboardingPageViewController()
         let vc = NicknameViewController()
         
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "arrow")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "arrow")
+        UINavigationBar.appearance().tintColor = Constants.Color.black
+        
         window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
         

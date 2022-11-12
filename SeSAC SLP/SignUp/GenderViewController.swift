@@ -28,6 +28,7 @@ class GenderViewController: BaseViewController {
         button.setImage(UIImage(named: "man"), for: .normal)
         button.setTitle("남자", for: .normal)
         button.contentVerticalAlignment = .center
+        button.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.black, for: .normal)
         return button
     }()
     var femaleButton: UIButton = {
@@ -35,6 +36,7 @@ class GenderViewController: BaseViewController {
         button.setImage(UIImage(named: "woman"), for: .normal)
         button.setTitle("여자", for: .normal)
         button.contentVerticalAlignment = .center
+        button.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.black, for: .normal)
         return button
     }()
     var buttonStack: UIStackView = {
@@ -98,7 +100,7 @@ class GenderViewController: BaseViewController {
         }
         view.addSubview(validationLabel)
         [maleButton, femaleButton].forEach {
-            stack.addArrangedSubview($0)
+            buttonStack.addArrangedSubview($0)
         }
     }
     override func setConstraints() {
@@ -123,6 +125,15 @@ class GenderViewController: BaseViewController {
         validationLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.top.equalTo(button.snp.bottom).offset(4)
+        }
+        buttonStack.snp.makeConstraints { make in
+            
+        }
+        maleButton.snp.makeConstraints { make in
+            
+        }
+        femaleButton.snp.makeConstraints { make in
+            
         }
     }
     
