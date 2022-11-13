@@ -27,7 +27,10 @@ class GenderViewController: BaseViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "man"), for: .normal)
         button.setTitle("남자", for: .normal)
-        button.contentVerticalAlignment = .center
+        button.alignTextBelow()
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 8.0
+        button.clipsToBounds = true
         button.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.black, for: .normal)
         button.setColor(backgroundColor: Constants.Color.whiteGreen, borderColor: Constants.Color.whiteGreen, textColor: Constants.Color.black, for: .selected)
         return button
@@ -36,8 +39,12 @@ class GenderViewController: BaseViewController {
         let button = UIButton()
         button.setImage(UIImage(named: "woman"), for: .normal)
         button.setTitle("여자", for: .normal)
-        button.contentVerticalAlignment = .center
+        button.alignTextBelow()
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 8.0
+        button.clipsToBounds = true
         button.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.black, for: .normal)
+        button.setColor(backgroundColor: Constants.Color.whiteGreen, borderColor: Constants.Color.whiteGreen, textColor: Constants.Color.black, for: .selected)
         return button
     }()
     var buttonStack: UIStackView = {
@@ -45,7 +52,7 @@ class GenderViewController: BaseViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.axis = .horizontal
         view.alignment = .fill
-        view.distribution = .equalSpacing
+        view.distribution = .fillEqually
         view.spacing = 12
         return view
     }()
@@ -82,17 +89,19 @@ class GenderViewController: BaseViewController {
         
         bind()
         
+        maleButton.isSelected = true
+        femaleButton.isSelected = false
+        
         button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
+        maleButton.addTarget(self, action: #selector(toggleMaleButton), for: .touchUpInside)
+        femaleButton.addTarget(self, action: #selector(toggleFemaleButton), for: .touchUpInside)
     }
 
     func bind() {
-
-
     }
     
     @objc func getEmail() {
         print(#function)
-        
     }
 
     override func configure() {
@@ -132,10 +141,10 @@ class GenderViewController: BaseViewController {
             
         }
         maleButton.snp.makeConstraints { make in
-            
+            make.height.equalTo(120)
         }
         femaleButton.snp.makeConstraints { make in
-            
+            make.height.equalTo(120)
         }
     }
     
@@ -148,6 +157,20 @@ class GenderViewController: BaseViewController {
             self.validationLabel.isHidden = true
             self.validationLabel.alpha = 1.0
         })
+    }
+    
+    @objc func toggleMaleButton() {
+        if maleButton.isSelected == false {
+            maleButton.isSelected = true
+            femaleButton.isSelected = false
+        }
+    }
+    
+    @objc func toggleFemaleButton() {
+        if femaleButton.isSelected == false {
+            maleButton.isSelected = false
+            femaleButton.isSelected = true
+        }
     }
     
 }

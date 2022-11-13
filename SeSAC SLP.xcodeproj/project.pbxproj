@@ -52,6 +52,7 @@
 		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
 		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
+		DE9B7D58291FF32C00089C2D /* AlignText+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D57291FF32C00089C2D /* AlignText+UIButton.swift */; };
 		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
 		DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE49291AA0C200C1F807 /* RxCocoa */; };
 		DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE4B291AA0C200C1F807 /* RxSwift */; };
@@ -103,6 +104,7 @@
 		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
 		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		DE9B7D57291FF32C00089C2D /* AlignText+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlignText+UIButton.swift"; sourceTree = "<group>"; };
 		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
 		DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +252,7 @@
 			children = (
 				DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */,
 				DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */,
+				DE9B7D57291FF32C00089C2D /* AlignText+UIButton.swift */,
 				DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */,
 				DE3A865C291BF92D00DE83C9 /* WithHyphen+String.swift */,
 			);
@@ -382,6 +385,7 @@
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
 				DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */,
+				DE9B7D58291FF32C00089C2D /* AlignText+UIButton.swift in Sources */,
 				DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */,
 				DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */,
 				DE908E902919332A00B54FAD /* InputTextField.swift in Sources */,
