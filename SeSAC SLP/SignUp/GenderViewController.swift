@@ -60,7 +60,7 @@ class GenderViewController: BaseViewController {
         let button = SeSACButton()
         button.titleText = "다음"
         button.isEnabled = true
-        button.setColor(backgroundColor: Constants.Color.gray6, borderColor: .clear, textColor: Constants.Color.gray3, for: .normal)
+        button.setColor(backgroundColor: Constants.Color.green, borderColor: .clear, textColor: Constants.Color.white, for: .normal)
         return button
     }()
     let stack: UIStackView = {
@@ -82,12 +82,12 @@ class GenderViewController: BaseViewController {
     }()
     
     let disposeBag = DisposeBag()
-    let viewModel = NicknameValidationModel()
+    let viewModel = SignupViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bind()
+//        bind()
         
         print(self, SignupDetails.details)
         if SignupDetails.details.gender == 0 {
@@ -104,17 +104,52 @@ class GenderViewController: BaseViewController {
     }
 
     func bind() {
+        
+        viewModel.fetchData()
+        
+        viewModel.user
+            .withUnretained(self)
+            .subscribe { (vc, value) in
+                print(value.phoneNumber)
+                print(value.email)
+                print(value.birth)
+                print(value.nick)
+                print(value.gender)
+                
+            }
+        
     }
     
     @objc func getEmail() {
         print(#function)
-        let vc = MainViewController()
         
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        let window = windowScene?.windows.first
-        window?.rootViewController = UINavigationController(rootViewController: vc)
-        window?.makeKeyAndVisible()
+        // TODO: If network connected~
+        
+        // post signup
+//        bind()
+        let detail = SignupDetails.details
+        let api = SeSACAPI.signup(phoneNumber: detail.phoneNumber, FCMtoken: detail.FCMtoken, email: detail.email, birth: detail.birth, nick: detail.nick, gender: detail.gender)
+        Network.shared.requestSeSAC(type: User.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { [weak self] response in
+            switch response {
+            case .success(let success):
+                print("fetchData success", success)
+                let vc = MainViewController()
+                
+                let scenes = UIApplication.shared.connectedScenes
+                let windowScene = scenes.first as? UIWindowScene
+                let window = windowScene?.windows.first
+                window?.rootViewController = UINavigationController(rootViewController: vc)
+                window?.makeKeyAndVisible()
+            case .failure(let failure):
+                print("fetchData failure", failure)
+                self?.dismiss(animated: true)
+                self?.validationLabel.text = failure.localizedDescription
+                self?.showValidationLabel()
+            }
+        }
+        
+        // TODO: If success~
+        
     }
 
     override func configure() {
@@ -161,17 +196,6 @@ class GenderViewController: BaseViewController {
         }
     }
     
-    func showValidationLabel() {
-        print(#function)
-        self.validationLabel.isHidden = false
-        UIView.animate(withDuration: 3.0, delay: 0.2, options: .curveEaseOut, animations: {
-            self.validationLabel.alpha = 0.0
-        }, completion: {(isCompleted) in
-            self.validationLabel.isHidden = true
-            self.validationLabel.alpha = 1.0
-        })
-    }
-    
     @objc func toggleMaleButton() {
         if maleButton.isSelected == false {
             maleButton.isSelected = true
@@ -186,5 +210,15 @@ class GenderViewController: BaseViewController {
         }
     }
     
+    func showValidationLabel() {
+        print(#function)
+        self.validationLabel.isHidden = false
+        UIView.animate(withDuration: 3.0, delay: 0.2, options: .curveEaseOut, animations: {
+            self.validationLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            self.validationLabel.isHidden = true
+            self.validationLabel.alpha = 1.0
+        })
+    }
+    
 }
-

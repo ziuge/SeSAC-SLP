@@ -62,6 +62,7 @@ class NicknameViewController: BaseViewController {
         super.viewDidLoad()
         
         bind()
+        getToken()
         
         print(self, SignupDetails.details)
         if SignupDetails.details.nick != "" {

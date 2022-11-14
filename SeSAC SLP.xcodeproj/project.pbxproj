@@ -56,6 +56,7 @@
 		DE9B7D5C2921F46400089C2D /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D5B2921F46400089C2D /* SignupData.swift */; };
 		DE9B7D5F292201FC00089C2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D5E292201FC00089C2D /* MainViewController.swift */; };
 		DE9B7D612922028E00089C2D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D602922028E00089C2D /* HomeViewController.swift */; };
+		DE9B7D662922080600089C2D /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D652922080600089C2D /* SignupViewModel.swift */; };
 		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
 		DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE49291AA0C200C1F807 /* RxCocoa */; };
 		DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE4B291AA0C200C1F807 /* RxSwift */; };
@@ -111,6 +112,7 @@
 		DE9B7D5B2921F46400089C2D /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
 		DE9B7D5E292201FC00089C2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DE9B7D602922028E00089C2D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DE9B7D652922080600089C2D /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
 		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
 		DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 				DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */,
 				DE9B7D53291E358800089C2D /* EmailViewController.swift */,
 				DE9B7D55291E3A4800089C2D /* GenderViewController.swift */,
+				DE9B7D652922080600089C2D /* SignupViewModel.swift */,
 				DE9B7D5B2921F46400089C2D /* SignupData.swift */,
 			);
 			path = SignUp;
@@ -412,6 +415,7 @@
 				DE3A866A291CDAFE00DE83C9 /* Network.swift in Sources */,
 				DE08091D2919034C004A1445 /* FirstViewController.swift in Sources */,
 				DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */,
+				DE9B7D662922080600089C2D /* SignupViewModel.swift in Sources */,
 				DE0809182918FCBA004A1445 /* ReusableProtocol.swift in Sources */,
 				DE0809072918EE0A004A1445 /* BaseView.swift in Sources */,
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,

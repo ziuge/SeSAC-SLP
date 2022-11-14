@@ -10,7 +10,7 @@ import Foundation
 struct SignupDetails {
     static var details: SignupDetails = SignupDetails()
     
-    var phoneNumber: String = ""
+    var phoneNumber: String = "+821098894793"
     var FCMtoken: String = ""
     var nick: String = ""
     var birth: String = ""
