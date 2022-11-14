@@ -108,6 +108,13 @@ class GenderViewController: BaseViewController {
     
     @objc func getEmail() {
         print(#function)
+        let vc = MainViewController()
+        
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
     }
 
     override func configure() {

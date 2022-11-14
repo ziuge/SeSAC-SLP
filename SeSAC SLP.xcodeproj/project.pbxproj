@@ -54,6 +54,8 @@
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
 		DE9B7D58291FF32C00089C2D /* AlignText+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D57291FF32C00089C2D /* AlignText+UIButton.swift */; };
 		DE9B7D5C2921F46400089C2D /* SignupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D5B2921F46400089C2D /* SignupData.swift */; };
+		DE9B7D5F292201FC00089C2D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D5E292201FC00089C2D /* MainViewController.swift */; };
+		DE9B7D612922028E00089C2D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D602922028E00089C2D /* HomeViewController.swift */; };
 		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
 		DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE49291AA0C200C1F807 /* RxCocoa */; };
 		DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE4B291AA0C200C1F807 /* RxSwift */; };
@@ -107,6 +109,8 @@
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
 		DE9B7D57291FF32C00089C2D /* AlignText+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlignText+UIButton.swift"; sourceTree = "<group>"; };
 		DE9B7D5B2921F46400089C2D /* SignupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupData.swift; sourceTree = "<group>"; };
+		DE9B7D5E292201FC00089C2D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DE9B7D602922028E00089C2D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
 		DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +162,7 @@
 				DE0808FE2918ED16004A1445 /* Onboarding */,
 				DE908E8C2919316300B54FAD /* Login */,
 				DE3A865E291BFEF200DE83C9 /* SignUp */,
+				DE9B7D5D292201C300089C2D /* Main */,
 				DE0808D92918D5DE004A1445 /* AppDelegate.swift */,
 				DE0808DB2918D5DE004A1445 /* SceneDelegate.swift */,
 				DE908E9E291A28F400B54FAD /* Main.storyboard */,
@@ -286,6 +291,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		DE9B7D5D292201C300089C2D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DE9B7D5E292201FC00089C2D /* MainViewController.swift */,
+				DE9B7D602922028E00089C2D /* HomeViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -385,8 +399,10 @@
 				DE3A8663291BFFA900DE83C9 /* APIKey.swift in Sources */,
 				DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */,
 				DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */,
+				DE9B7D612922028E00089C2D /* HomeViewController.swift in Sources */,
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
+				DE9B7D5F292201FC00089C2D /* MainViewController.swift in Sources */,
 				DE9B7D5C2921F46400089C2D /* SignupData.swift in Sources */,
 				DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */,
 				DE9B7D58291FF32C00089C2D /* AlignText+UIButton.swift in Sources */,
