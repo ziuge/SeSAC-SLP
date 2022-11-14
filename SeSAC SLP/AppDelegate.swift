@@ -65,11 +65,11 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         Auth.auth().setAPNSToken(deviceToken, type: .prod)
         Messaging.messaging().apnsToken = deviceToken
         Messaging.messaging().token { token, error in
-          if let error = error {
-            print("Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-            print("FCM registration token: \(token)")
-          }
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FCM registration token: \(token)")
+            }
         }
     }
     
@@ -81,6 +81,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("Firebase registration token: \(String(describing: fcmToken))")
+        if let token = fcmToken {
+            SignupDetails.details.FCMtoken = token
+        }
 
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(

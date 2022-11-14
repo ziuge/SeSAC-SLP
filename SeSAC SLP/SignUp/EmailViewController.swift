@@ -63,6 +63,10 @@ class EmailViewController: BaseViewController {
         super.viewDidLoad()
         
         bind()
+        print(self, SignupDetails.details)
+        if SignupDetails.details.email != "" {
+            textField.text = SignupDetails.details.email
+        }
         
         button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
     }
@@ -76,6 +80,7 @@ class EmailViewController: BaseViewController {
         print(#function)
         
         if isValidEmail(testStr: textField.text ?? "") {
+            SignupDetails.details.email = textField.text!
             let vc = GenderViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

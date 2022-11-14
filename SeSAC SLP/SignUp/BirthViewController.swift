@@ -65,6 +65,11 @@ class BirthViewController: BaseViewController {
         
 //        bind()
         configureDatePicker()
+        print(self, SignupDetails.details)
+        if SignupDetails.details.birth != "" {
+            textField.text = SignupDetails.details.birth
+            // TODO: textField 3개로 수정하고나서 수정
+        }
         
         button.addTarget(self, action: #selector(getBirth), for: .touchUpInside)
     }
@@ -75,6 +80,7 @@ class BirthViewController: BaseViewController {
         var registerableBirth = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
         // TODO: if success/fail 분기처리
         if birthDate < registerableBirth {
+            SignupDetails.details.birth = String(describing: birthDate)
             let vc = EmailViewController()
             self.navigationController?.pushViewController(vc, animated: true)
         } else {

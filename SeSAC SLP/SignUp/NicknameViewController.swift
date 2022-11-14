@@ -63,6 +63,11 @@ class NicknameViewController: BaseViewController {
         
         bind()
         
+        print(self, SignupDetails.details)
+        if SignupDetails.details.nick != "" {
+            textField.text = SignupDetails.details.nick
+        }
+        
         button.addTarget(self, action: #selector(makeNickname), for: .touchUpInside)
     }
     
@@ -98,11 +103,13 @@ class NicknameViewController: BaseViewController {
                 self.showValidationLabel()
             }
             .disposed(by: disposeBag)
-
+        
     }
     
     @objc func makeNickname() {
         print(#function)
+        
+        SignupDetails.details.nick = textField.text!
         
         let vc = BirthViewController()
         self.navigationController?.pushViewController(vc, animated: true)

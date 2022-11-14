@@ -89,8 +89,14 @@ class GenderViewController: BaseViewController {
         
         bind()
         
-        maleButton.isSelected = true
-        femaleButton.isSelected = false
+        print(self, SignupDetails.details)
+        if SignupDetails.details.gender == 0 {
+            maleButton.isSelected = true
+            femaleButton.isSelected = false
+        } else {
+            maleButton.isSelected = false
+            femaleButton.isSelected = true
+        }
         
         button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
         maleButton.addTarget(self, action: #selector(toggleMaleButton), for: .touchUpInside)
