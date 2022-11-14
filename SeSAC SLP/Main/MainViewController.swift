@@ -21,9 +21,9 @@ class MainViewController: UITabBarController {
     func setupVCs() {
         viewControllers = [
             createNavController(for: HomeViewController(), title: "홈", image: UIImage(named: "home")!),
-            createNavController(for: HomeViewController(), title: "새싹샵", image: UIImage(named: "shop")!),
-            createNavController(for: HomeViewController(), title: "새싹친구", image: UIImage(named: "friend")!),
-            createNavController(for: HomeViewController(), title: "내정보", image: UIImage(named: "my")!)
+            createNavController(for: ShopViewController(), title: "새싹샵", image: UIImage(named: "shop")!),
+            createNavController(for: FriendViewController(), title: "새싹친구", image: UIImage(named: "friend")!),
+            createNavController(for: MypageViewController(), title: "내정보", image: UIImage(named: "my")!)
         ]
     }
     
