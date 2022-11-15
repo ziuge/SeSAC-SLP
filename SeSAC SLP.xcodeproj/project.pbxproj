@@ -307,9 +307,17 @@
 				DE9B7D602922028E00089C2D /* HomeViewController.swift */,
 				DE9B7D672922997400089C2D /* ShopViewController.swift */,
 				DE9B7D692922998300089C2D /* FriendViewController.swift */,
-				DE9B7D6B2922998F00089C2D /* MypageViewController.swift */,
+				DE9B7D6D2923582B00089C2D /* My */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		DE9B7D6D2923582B00089C2D /* My */ = {
+			isa = PBXGroup;
+			children = (
+				DE9B7D6B2922998F00089C2D /* MypageViewController.swift */,
+			);
+			path = My;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

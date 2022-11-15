@@ -90,14 +90,10 @@ class GenderViewController: BaseViewController {
 //        bind()
         
         print(self, SignupDetails.details)
-        if SignupDetails.details.gender == 0 {
-            maleButton.isSelected = true
-            femaleButton.isSelected = false
-        } else {
-            maleButton.isSelected = false
-            femaleButton.isSelected = true
-        }
-        
+
+        maleButton.isSelected = false
+        femaleButton.isSelected = false
+
         button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
         maleButton.addTarget(self, action: #selector(toggleMaleButton), for: .touchUpInside)
         femaleButton.addTarget(self, action: #selector(toggleFemaleButton), for: .touchUpInside)
@@ -115,9 +111,7 @@ class GenderViewController: BaseViewController {
                 print(value.birth)
                 print(value.nick)
                 print(value.gender)
-                
             }
-        
     }
     
     @objc func getEmail() {
@@ -220,5 +214,4 @@ class GenderViewController: BaseViewController {
             self.validationLabel.alpha = 1.0
         })
     }
-    
 }
