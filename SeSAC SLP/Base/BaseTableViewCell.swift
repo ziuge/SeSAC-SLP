@@ -1,16 +1,16 @@
 //
-//  BaseCollectionViewCell.swift
+//  BaseTableViewCell.swift
 //  SeSAC SLP
 //
-//  Created by CHOI on 2022/11/07.
+//  Created by CHOI on 2022/11/15.
 //
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
+class BaseTableViewCell: UITableViewCell {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
         setConstraints()
     }
@@ -20,6 +20,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
     }
     
     func configure() {}
-    
     func setConstraints() {}
 }
+

@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         
 //        let vc = OnboardingPageViewController()
-        let vc = NicknameViewController()
+        let vc = MainViewController()
         
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "arrow")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "arrow")

@@ -49,6 +49,9 @@
 		DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = DE908E9B291A263800B54FAD /* FirebaseMessaging */; };
 		DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE908E9E291A28F400B54FAD /* Main.storyboard */; };
 		DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */; };
+		DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */; };
+		DE99A33F2923BDDC00FAF745 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */; };
+		DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DE99A3442923F06700FAF745 /* MultiSlider */; };
 		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
 		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
@@ -60,6 +63,7 @@
 		DE9B7D682922997400089C2D /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D672922997400089C2D /* ShopViewController.swift */; };
 		DE9B7D6A2922998300089C2D /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D692922998300089C2D /* FriendViewController.swift */; };
 		DE9B7D6C2922998F00089C2D /* MypageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D6B2922998F00089C2D /* MypageViewController.swift */; };
+		DE9B7D6F29239A0200089C2D /* MypageSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D6E29239A0200089C2D /* MypageSettingViewController.swift */; };
 		DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */; };
 		DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE49291AA0C200C1F807 /* RxCocoa */; };
 		DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FAE4B291AA0C200C1F807 /* RxSwift */; };
@@ -108,6 +112,8 @@
 		DE908E9D291A286300B54FAD /* SeSAC SLP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SeSAC SLP.entitlements"; sourceTree = "<group>"; };
 		DE908E9E291A28F400B54FAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
+		DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
+		DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
 		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +125,7 @@
 		DE9B7D672922997400089C2D /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
 		DE9B7D692922998300089C2D /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
 		DE9B7D6B2922998F00089C2D /* MypageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageViewController.swift; sourceTree = "<group>"; };
+		DE9B7D6E29239A0200089C2D /* MypageSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageSettingViewController.swift; sourceTree = "<group>"; };
 		DE9FAE46291AA00400C1F807 /* PhoneAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneAuthViewModel.swift; sourceTree = "<group>"; };
 		DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Toast+UIViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +138,7 @@
 				DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */,
 				DE08090A2918F776004A1445 /* SnapKit in Frameworks */,
 				DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */,
+				DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */,
 				DE3A8668291CDAD100DE83C9 /* Alamofire in Frameworks */,
 				DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */,
 				DE908E9A291A263800B54FAD /* FirebaseAuth in Frameworks */,
@@ -217,6 +225,7 @@
 				DE0809042918EDF5004A1445 /* BaseViewController.swift */,
 				DE0809062918EE0A004A1445 /* BaseView.swift */,
 				DE0809122918FC1B004A1445 /* BaseCollectionViewCell.swift */,
+				DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -316,6 +325,8 @@
 			isa = PBXGroup;
 			children = (
 				DE9B7D6B2922998F00089C2D /* MypageViewController.swift */,
+				DE9B7D6E29239A0200089C2D /* MypageSettingViewController.swift */,
+				DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */,
 			);
 			path = My;
 			sourceTree = "<group>";
@@ -343,6 +354,7 @@
 				DE9FAE49291AA0C200C1F807 /* RxCocoa */,
 				DE9FAE4B291AA0C200C1F807 /* RxSwift */,
 				DE3A8667291CDAD100DE83C9 /* Alamofire */,
+				DE99A3442923F06700FAF745 /* MultiSlider */,
 			);
 			productName = "SeSAC SLP";
 			productReference = DE0808D62918D5DE004A1445 /* SeSAC SLP.app */;
@@ -377,6 +389,7 @@
 				DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
 			projectDirPath = "";
@@ -418,6 +431,8 @@
 				DE08091F29190357004A1445 /* SecondViewController.swift in Sources */,
 				DE3A8663291BFFA900DE83C9 /* APIKey.swift in Sources */,
 				DE9B7D6C2922998F00089C2D /* MypageViewController.swift in Sources */,
+				DE99A33F2923BDDC00FAF745 /* BaseTableViewCell.swift in Sources */,
+				DE9B7D6F29239A0200089C2D /* MypageSettingViewController.swift in Sources */,
 				DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */,
 				DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */,
 				DE9B7D612922028E00089C2D /* HomeViewController.swift in Sources */,
@@ -445,6 +460,7 @@
 				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
 				DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */,
 				DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */,
+				DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */,
 				DE9FAE51291AAFA000C1F807 /* Toast+UIViewController.swift in Sources */,
 				DE3A8674291D5C4400DE83C9 /* BirthViewController.swift in Sources */,
 				DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */,
@@ -690,6 +706,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/MultiSlider";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -720,6 +744,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		DE99A3442923F06700FAF745 /* MultiSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */;
+			productName = MultiSlider;
 		};
 		DE9FAE49291AA0C200C1F807 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
