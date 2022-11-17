@@ -52,6 +52,8 @@
 		DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */; };
 		DE99A33F2923BDDC00FAF745 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */; };
 		DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DE99A3442923F06700FAF745 /* MultiSlider */; };
+		DE99A3472926207300FAF745 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A3462926207300FAF745 /* NetworkMonitor.swift */; };
+		DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */; };
 		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
 		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
@@ -114,6 +116,8 @@
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
 		DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		DE99A3462926207300FAF745 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
 		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				DE908E9E291A28F400B54FAD /* Main.storyboard */,
 				DE0808E22918D5E0004A1445 /* Assets.xcassets */,
 				DE0808E42918D5E0004A1445 /* LaunchScreen.storyboard */,
+				DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */,
 				DE0808E72918D5E0004A1445 /* Info.plist */,
 			);
 			path = "SeSAC SLP";
@@ -261,6 +266,7 @@
 				DE3A8664291CDA2800DE83C9 /* APIService.swift */,
 				DE3A8669291CDAFE00DE83C9 /* Network.swift */,
 				DE3A866B291CDB3300DE83C9 /* Endpoint.swift */,
+				DE99A3462926207300FAF745 /* NetworkMonitor.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 				DE3A8672291D539600DE83C9 /* NicknameValidationModel.swift in Sources */,
 				DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */,
 				DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */,
+				DE99A3472926207300FAF745 /* NetworkMonitor.swift in Sources */,
 				DE0809232919170C004A1445 /* PageViewController.swift in Sources */,
 				DE9FAE47291AA00400C1F807 /* PhoneAuthViewModel.swift in Sources */,
 				DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */,
@@ -468,6 +475,7 @@
 				DE3A8665291CDA2800DE83C9 /* APIService.swift in Sources */,
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
 				DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */,
+				DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */,
 				DE9B7D682922997400089C2D /* ShopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -711,7 +719,7 @@
 			repositoryURL = "https://github.com/yonat/MultiSlider";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.13.2;
 			};
 		};
 		DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */ = {

@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
 
         
-//        let vc = OnboardingPageViewController()
+//        let vc = LaunchScreenViewController()
         let vc = MainViewController()
         
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "arrow")

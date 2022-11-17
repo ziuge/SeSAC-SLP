@@ -40,6 +40,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Thread.sleep(forTimeInterval: 1)
         
+        NetworkMonitor.shared.startMonitoring()
+        
         return true
     }
 
