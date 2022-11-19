@@ -62,7 +62,6 @@ class NicknameViewController: BaseViewController {
         super.viewDidLoad()
         
         bind()
-        getToken()
         
         print(self, SignupDetails.details)
         if SignupDetails.details.nick != "" {
@@ -70,17 +69,6 @@ class NicknameViewController: BaseViewController {
         }
         
         button.addTarget(self, action: #selector(makeNickname), for: .touchUpInside)
-    }
-    
-    func getToken() {
-        let currentUser = Auth.auth().currentUser
-        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
-          if let error = error {
-            // Handle error
-            return;
-          }
-          print("idToken:", idToken)
-        }
     }
     
     func bind() {

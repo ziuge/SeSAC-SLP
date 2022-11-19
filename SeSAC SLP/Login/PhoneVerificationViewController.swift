@@ -99,11 +99,45 @@ class PhoneVerificationViewController: BaseViewController {
                 return
             }
             print("authData: \(String(describing: authData))")
-            print("Login Success")
+            print("auth login Success")
+            
+            if UserDefaults.standard.string(forKey: "idToken") == nil {
+                self?.getToken()
+                let api = SeSACAPI.login
+                Network.shared.requestSeSAC(type: User.self, url: api.url, headers: api.headers) { response in
+                    switch response {
+                    case .success(let success):
+                        print(self, "login Success", success)
+                        let vc = MainViewController()
+                        let scenes = UIApplication.shared.connectedScenes
+                        let windowScene = scenes.first as? UIWindowScene
+                        let window = windowScene?.windows.first
+                        window?.rootViewController = UINavigationController(rootViewController: vc)
+                        window?.makeKeyAndVisible()
+                    case .failure(_):
+                        print(self, "login fail, go sign up")
+                        let vc = NicknameViewController()
+                        self?.navigationController?.pushViewController(vc, animated: true)
+                    }
+                }
+            } else {
+                
+            }
             
             // TODO: 회원일 경우와 아닐 경우 나누어서 연결하기
-            let vc = NicknameViewController()
-            self?.navigationController?.pushViewController(vc, animated: true)
+//            let vc = NicknameViewController()
+//            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func getToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            if let error = error {
+                return;
+            }
+            print("idToken:", idToken)
+            UserDefaults.setValue(idToken, forKey: "idToken")
         }
     }
 }
