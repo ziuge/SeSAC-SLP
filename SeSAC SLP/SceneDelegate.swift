@@ -28,14 +28,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        }
 
         
-//        let vc = LaunchScreenViewController()
-        let vc = MainViewController()
+        let vc = LaunchScreenViewController()
+//        let vc = MainViewController()
         
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "arrow")
         UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "arrow")
         UINavigationBar.appearance().tintColor = Constants.Color.black
         
         window?.rootViewController = UINavigationController(rootViewController: vc)
+//        window?.rootViewController = vc
         window?.makeKeyAndVisible()
         
     }

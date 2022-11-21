@@ -101,7 +101,7 @@ class PhoneVerificationViewController: BaseViewController {
             print("authData: \(String(describing: authData))")
             print("auth login Success")
             
-            if UserDefaults.standard.string(forKey: "idToken") == nil {
+//            if UserDefaults.standard.string(forKey: "idToken")?.isEmpty == nil {
                 self?.getToken()
                 let api = SeSACAPI.login
                 Network.shared.requestSeSAC(type: User.self, url: api.url, headers: api.headers) { response in
@@ -114,15 +114,15 @@ class PhoneVerificationViewController: BaseViewController {
                         let window = windowScene?.windows.first
                         window?.rootViewController = UINavigationController(rootViewController: vc)
                         window?.makeKeyAndVisible()
-                    case .failure(_):
-                        print(self, "login fail, go sign up")
+                    case .failure(let failure):
+                        print("login fail, go sign up", failure)
                         let vc = NicknameViewController()
                         self?.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
-            } else {
-                
-            }
+//            } else {
+//
+//            }
             
             // TODO: 회원일 경우와 아닐 경우 나누어서 연결하기
 //            let vc = NicknameViewController()
@@ -137,7 +137,9 @@ class PhoneVerificationViewController: BaseViewController {
                 return;
             }
             print("idToken:", idToken)
+        
             UserDefaults.setValue(idToken, forKey: "idToken")
+            print("== UserDefaults idToken", UserDefaults.standard.string(forKey: "idToken"))
         }
     }
 }

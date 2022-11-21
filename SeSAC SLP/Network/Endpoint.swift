@@ -17,9 +17,9 @@ extension SeSACAPI {
     var url: URL {
         switch self {
         case .signup:
-            return URL(string: "http://api.sesac.co.kr:1207/v1/user/")!
+            return URL(string: "http://api.sesac.co.kr:1210/v1/user/")!
         case .login:
-            return URL(string: "http://api.sesac.co.kr:1207/v1/user/")!
+            return URL(string: "http://api.sesac.co.kr:1210/v1/user/")!
         }
     }
     

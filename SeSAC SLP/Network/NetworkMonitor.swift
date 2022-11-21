@@ -38,9 +38,9 @@ final class NetworkMonitor{
             self?.getConenctionType(path)
             
             if self?.isConnected == true{
-                print("연결이된 상태임!")
+                print("연결된 상태임!")
             }else{
-                print("연결 안된 상태임!")
+                print("연결 안 된 상태임!")
 
             }
         }

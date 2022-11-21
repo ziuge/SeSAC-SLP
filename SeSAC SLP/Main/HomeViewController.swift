@@ -18,7 +18,6 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
     }
     
     override func configure() {
@@ -28,7 +27,8 @@ class HomeViewController: BaseViewController {
     }
     override func setConstraints() {
         mapView.snp.makeConstraints { make in
-            make.top.leading.trailing.bottom.equalTo(view)
+            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view)
         }
         mapView.delegate = self
     }
