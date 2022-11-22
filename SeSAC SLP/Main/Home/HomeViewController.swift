@@ -6,12 +6,12 @@
 //
 
 import UIKit
-import MapKit
+import NMapsMap
 
 class HomeViewController: BaseViewController {
     
-    let mapView: MKMapView = {
-        let map = MKMapView()
+    let mapView: NMFMapView = {
+        let map = NMFMapView()
         return map
     }()
     
@@ -30,10 +30,7 @@ class HomeViewController: BaseViewController {
             make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
             make.top.equalTo(view)
         }
-        mapView.delegate = self
+        
     }
 }
 
-extension HomeViewController: MKMapViewDelegate {
-    
-}

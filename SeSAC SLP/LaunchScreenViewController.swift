@@ -82,7 +82,7 @@ class LaunchScreenViewController: BaseViewController {
         let scenes = UIApplication.shared.connectedScenes
         let windowScene = scenes.first as? UIWindowScene
         let window = windowScene?.windows.first
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.rootViewController = vc
         window?.makeKeyAndVisible()
     }
     
