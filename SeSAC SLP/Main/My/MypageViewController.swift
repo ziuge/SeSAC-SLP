@@ -21,7 +21,7 @@ class MypageViewController: BaseViewController {
     }()
     
     var list = [
-        MyPage(name: "김새싹", image: UIImage(named: "sesac_face_1 1")),
+        MyPage(name: "\(UserDefaultsManager.userinfo.nick)", image: UIImage(named: "sesac_face_\(UserDefaultsManager.userinfo.sesac + 1)")),
         MyPage(name: "공지사항", image: UIImage(named: "notice")),
         MyPage(name: "자주 묻는 질문", image: UIImage(named: "faq")),
         MyPage(name: "1:1 문의", image: UIImage(named: "qna")),

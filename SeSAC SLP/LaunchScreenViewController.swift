@@ -62,43 +62,59 @@ class LaunchScreenViewController: BaseViewController {
                 switch response {
                 case .success(let userinfo):
                     print("==== login success")
-                    detail.ageMax = userinfo.ageMax
-                    detail.ageMin = userinfo.ageMin
-                    detail.background = userinfo.background
-                    detail.backgroundCollection = userinfo.backgroundCollection
-                    detail.birth = userinfo.birth
-                    detail.comment = userinfo.comment
-                    detail.createdAt = userinfo.createdAt
-                    detail.dodgeNum = userinfo.dodgeNum
-                    detail.dodgepenalty = userinfo.dodgepenalty
-                    detail.email = userinfo.email
-                    detail.fcMtoken = userinfo.fcMtoken
-                    detail.gender = userinfo.gender
-                    detail.id = userinfo.id
-                    detail.nick = userinfo.nick
-                    detail.phoneNumber = userinfo.phoneNumber
-                    detail.purchaseToken = userinfo.purchaseToken
-                    detail.reportedNum = userinfo.reportedNum
-                    detail.sesac = userinfo.sesac
-                    detail.searchable = userinfo.searchable
+                    print(userinfo)
+//                    detail.ageMax = userinfo.ageMax
+//                    detail.ageMin = userinfo.ageMin
+//                    detail.background = userinfo.background
+//                    detail.backgroundCollection = userinfo.backgroundCollection
+//                    detail.birth = userinfo.birth
+//                    detail.comment = userinfo.comment
+//                    detail.createdAt = userinfo.createdAt
+//                    detail.dodgeNum = userinfo.dodgeNum
+//                    detail.dodgepenalty = userinfo.dodgepenalty
+//                    detail.email = userinfo.email
+//                    detail.fcMtoken = userinfo.fcMtoken
+//                    detail.gender = userinfo.gender
+//                    detail.id = userinfo.id
+//                    detail.nick = userinfo.nick
+//                    detail.phoneNumber = userinfo.phoneNumber
+//                    detail.purchaseToken = userinfo.purchaseToken
+//                    detail.reportedNum = userinfo.reportedNum
+//                    detail.sesac = userinfo.sesac
+//                    detail.searchable = userinfo.searchable
+//                    detail.study = userinfo.study
+//                    print("detail", detail)
+                    
+                    let info = UserInfo(id: userinfo.id, reputation: userinfo.reputation, comment: userinfo.comment, sesacCollection: userinfo.sesacCollection, backgroundCollection: userinfo.backgroundCollection, purchaseToken: userinfo.purchaseToken, transactionID: userinfo.transactionID, reviewedBefore: userinfo.reviewedBefore, reportedUser: userinfo.reportedUser, uid: userinfo.uid, phoneNumber: userinfo.phoneNumber, fcMtoken: userinfo.fcMtoken, nick: userinfo.nick, birth: userinfo.birth, email: userinfo.email, gender: userinfo.gender, sesac: userinfo.sesac, study: userinfo.study, dodgepenalty: userinfo.dodgepenalty, background: userinfo.background, ageMin: userinfo.ageMin, ageMax: userinfo.ageMax, dodgeNum: userinfo.dodgeNum, searchable: userinfo.searchable, reportedNum: userinfo.reportedNum, createdAt: userinfo.createdAt, v: userinfo.v)
+                    
+                    let encoder = JSONEncoder()
+
+                    /// encoded는 Data형
+                    if let encoded = try? encoder.encode(info) {
+                        UserDefaults.standard.setValue(encoded, forKey: "userinfo")
+                    }
+                    
+                    if let savedData = UserDefaults.standard.object(forKey: "userinfo") as? Data {
+                        let decoder = JSONDecoder()
+                        if let savedObject = try? decoder.decode(UserInfo.self, from: savedData) {
+                            print(savedObject) // Person(name: "jake", age: 20)
+                        }
+                    }
+                    
+                    print("using Manager~~", UserDefaultsManager.userinfo)
+                    
                 case .failure(let error):
                     print("==== login error", error)
                 }
             }
             
             let vc = MainViewController()
+//            let vc = OnboardingPageViewController()
             let scenes = UIApplication.shared.connectedScenes
             let windowScene = scenes.first as? UIWindowScene
             let window = windowScene?.windows.first
             window?.rootViewController = vc
             window?.makeKeyAndVisible()
-            
-//            let vc = OnboardingPageViewController()
-//            let scenes = UIApplication.shared.connectedScenes
-//            let windowScene = scenes.first as? UIWindowScene
-//            let window = windowScene?.windows.first
-//            window?.rootViewController = UINavigationController(rootViewController: vc)
-//            window?.makeKeyAndVisible()
             
         } else {
             showToast(message: "네트워크에 연결해주세요")

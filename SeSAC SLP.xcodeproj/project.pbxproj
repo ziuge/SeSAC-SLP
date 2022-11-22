@@ -35,6 +35,7 @@
 		DE3A8670291D2B6000DE83C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE3A866F291D2B6000DE83C9 /* GoogleService-Info.plist */; };
 		DE3A8672291D539600DE83C9 /* NicknameValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A8671291D539600DE83C9 /* NicknameValidationModel.swift */; };
 		DE3A8674291D5C4400DE83C9 /* BirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A8673291D5C4400DE83C9 /* BirthViewController.swift */; };
+		DE5C43FC292D1415003D7011 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5C43FB292D1415003D7011 /* UserDefaultsManager.swift */; };
 		DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */; };
 		DE908E7D2919229900B54FAD /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E762919229900B54FAD /* NotoSansKR-Light.otf */; };
 		DE908E7E2919229900B54FAD /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */; };
@@ -103,6 +104,7 @@
 		DE3A866F291D2B6000DE83C9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DE3A8671291D539600DE83C9 /* NicknameValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameValidationModel.swift; sourceTree = "<group>"; };
 		DE3A8673291D5C4400DE83C9 /* BirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthViewController.swift; sourceTree = "<group>"; };
+		DE5C43FB292D1415003D7011 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		DE908E7329191E3300B54FAD /* TextColorChange+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextColorChange+UILabel.swift"; sourceTree = "<group>"; };
 		DE908E762919229900B54FAD /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		DE908E772919229900B54FAD /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			children = (
 				DE908E7229191E2100B54FAD /* Extensions */,
 				DE0809172918FCBA004A1445 /* ReusableProtocol.swift */,
+				DE5C43FB292D1415003D7011 /* UserDefaultsManager.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
 				DE3A8665291CDA2800DE83C9 /* APIService.swift in Sources */,
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
+				DE5C43FC292D1415003D7011 /* UserDefaultsManager.swift in Sources */,
 				DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */,
 				DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */,
 				DE9B7D682922997400089C2D /* ShopViewController.swift in Sources */,

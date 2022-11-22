@@ -13,13 +13,13 @@ class ImageTableViewCell: BaseTableViewCell {
     
     var background: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "sesac_background_\(LoginDetails.details.background + 1)")
+        view.image = UIImage(named: "sesac_background_\(UserDefaultsManager.userinfo.background + 1)")
         return view
     }()
     
     var sesacImage: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "sesac_face_\(LoginDetails.details.sesac + 1)")
+        view.image = UIImage(named: "sesac_face_\(UserDefaultsManager.userinfo.sesac + 1)")
         return view
     }()
     
@@ -93,7 +93,7 @@ class GenderTableViewCell: BaseTableViewCell {
             make.height.equalTo(48)
             make.width.equalTo(56)
         }
-        if LoginDetails.details.gender == 0 {
+        if UserDefaultsManager.userinfo.gender == 0 {
             femaleButton.setColor(backgroundColor: Constants.Color.green, borderColor: .clear, textColor: Constants.Color.white, for: .normal)
             maleButton.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.gray3, for: .normal)
         } else {
@@ -115,7 +115,7 @@ class FrequentStudyTableViewCell: BaseTableViewCell {
     }()
     let textField: UITextField = {
         let view = InputTextField()
-        view.placeholder = "스터디를 입력해 주세요"
+        view.placeholder = UserDefaultsManager.userinfo.study == "" ? "스터디를 입력해 주세요" : "\(UserDefaultsManager.userinfo.study)"
         view.font = Constants.Font.title4
         return view
     }()
@@ -179,7 +179,7 @@ class AllowSearchTableViewCell: BaseTableViewCell {
             make.bottom.equalTo(contentView).offset(-8)
             make.trailing.equalTo(contentView).offset(-16)
         }
-        if LoginDetails.details.searchable == 0 {
+        if UserDefaultsManager.userinfo.searchable == 0 {
             allowSwitch.isOn = false
         } else {
             allowSwitch.isOn = true
@@ -198,7 +198,7 @@ class AgeRangeTableViewCell: BaseTableViewCell {
     }()
     let numberLabel: UILabel = {
         let view = UILabel()
-        view.text = "\(LoginDetails.details.ageMin) - \(LoginDetails.details.ageMax)"
+        view.text = "\(UserDefaultsManager.userinfo.ageMin) - \(UserDefaultsManager.userinfo.ageMax)"
         view.font = Constants.Font.title3
         view.textColor = Constants.Color.green
         return view
