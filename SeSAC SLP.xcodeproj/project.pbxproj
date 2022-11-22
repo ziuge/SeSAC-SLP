@@ -425,10 +425,10 @@
 			);
 			mainGroup = DE0808CD2918D5DE004A1445;
 			packageReferences = (
-				DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
+				DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-				DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift.git" */,
-				DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire.git" */,
+				DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
@@ -693,7 +693,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SeSAC SLP/SeSAC SLP.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DV7XBU83N5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SeSAC SLP/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -723,7 +723,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SeSAC SLP/SeSAC SLP.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DV7XBU83N5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SeSAC SLP/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -768,7 +768,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -776,7 +776,7 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire.git" */ = {
+		DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
@@ -800,7 +800,7 @@
 				minimumVersion = 1.13.2;
 			};
 		};
-		DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift.git" */ = {
+		DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
 			requirement = {
@@ -813,12 +813,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		DE0809092918F776004A1445 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		DE3A8667291CDAD100DE83C9 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire.git" */;
+			package = DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		DE908E99291A263800B54FAD /* FirebaseAuth */ = {
@@ -838,12 +838,12 @@
 		};
 		DE9FAE49291AA0C200C1F807 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
 		};
 		DE9FAE4B291AA0C200C1F807 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift.git" */;
+			package = DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
