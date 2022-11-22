@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class LaunchScreenViewController: BaseViewController {
     
@@ -25,6 +26,7 @@ class LaunchScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkNetwork()
+        
     }
     
     override func configure() {
@@ -51,17 +53,37 @@ class LaunchScreenViewController: BaseViewController {
         if NetworkMonitor.shared.isConnected {
             print("connected")
             
-            let vc = OnboardingPageViewController()
-            
-            let scenes = UIApplication.shared.connectedScenes
-            let windowScene = scenes.first as? UIWindowScene
-            let window = windowScene?.windows.first
-            window?.rootViewController = UINavigationController(rootViewController: vc)
-            window?.makeKeyAndVisible()
+            getToken()
+//            let vc = OnboardingPageViewController()
+//
+//            let scenes = UIApplication.shared.connectedScenes
+//            let windowScene = scenes.first as? UIWindowScene
+//            let window = windowScene?.windows.first
+//            window?.rootViewController = UINavigationController(rootViewController: vc)
+//            window?.makeKeyAndVisible()
             
         } else {
             showToast(message: "네트워크에 연결해주세요")
         }
+    }
+    
+    func getToken() {
+        let currentUser = Auth.auth().currentUser
+        currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
+            if let error = error {
+                return;
+            }
+            print("idToken:", idToken)
+        
+            UserDefaults.standard.set(idToken, forKey: "idToken")
+            print("== UserDefaults idToken", UserDefaults.standard.string(forKey: "idToken"))
+        }
+        let vc = MainViewController()
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
     }
     
 }
