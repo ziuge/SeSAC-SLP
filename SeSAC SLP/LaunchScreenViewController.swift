@@ -53,9 +53,47 @@ class LaunchScreenViewController: BaseViewController {
         if NetworkMonitor.shared.isConnected {
             print("connected")
             
-            getToken()
+//            if UserDefaults.standard.string(forKey: "idToken") == nil {
+//                getToken()
+//            }
+            var detail = LoginDetails.details
+            let api = SeSACAPI.login
+            Network.shared.requestSeSAC(type: UserInfo.self, url: api.url, method: .get, parameters: api.parameters, headers: api.headers) { response in
+                switch response {
+                case .success(let userinfo):
+                    print("==== login success")
+                    detail.ageMax = userinfo.ageMax
+                    detail.ageMin = userinfo.ageMin
+                    detail.background = userinfo.background
+                    detail.backgroundCollection = userinfo.backgroundCollection
+                    detail.birth = userinfo.birth
+                    detail.comment = userinfo.comment
+                    detail.createdAt = userinfo.createdAt
+                    detail.dodgeNum = userinfo.dodgeNum
+                    detail.dodgepenalty = userinfo.dodgepenalty
+                    detail.email = userinfo.email
+                    detail.fcMtoken = userinfo.fcMtoken
+                    detail.gender = userinfo.gender
+                    detail.id = userinfo.id
+                    detail.nick = userinfo.nick
+                    detail.phoneNumber = userinfo.phoneNumber
+                    detail.purchaseToken = userinfo.purchaseToken
+                    detail.reportedNum = userinfo.reportedNum
+                    detail.sesac = userinfo.sesac
+                    detail.searchable = userinfo.searchable
+                case .failure(let error):
+                    print("==== login error", error)
+                }
+            }
+            
+            let vc = MainViewController()
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScene = scenes.first as? UIWindowScene
+            let window = windowScene?.windows.first
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
+            
 //            let vc = OnboardingPageViewController()
-//
 //            let scenes = UIApplication.shared.connectedScenes
 //            let windowScene = scenes.first as? UIWindowScene
 //            let window = windowScene?.windows.first
@@ -71,19 +109,13 @@ class LaunchScreenViewController: BaseViewController {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let error = error {
+                print("error", error)
                 return;
             }
             print("idToken:", idToken)
-        
             UserDefaults.standard.set(idToken, forKey: "idToken")
             print("== UserDefaults idToken", UserDefaults.standard.string(forKey: "idToken"))
         }
-        let vc = MainViewController()
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScene = scenes.first as? UIWindowScene
-        let window = windowScene?.windows.first
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
     }
     
 }

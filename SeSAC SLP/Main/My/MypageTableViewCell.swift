@@ -11,9 +11,15 @@ import MultiSlider
 // MARK: ImageTableViewCell
 class ImageTableViewCell: BaseTableViewCell {
     
-    var image: UIImageView = {
+    var background: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "sesac_img")
+        view.image = UIImage(named: "sesac_background_\(LoginDetails.details.background + 1)")
+        return view
+    }()
+    
+    var sesacImage: UIImageView = {
+        let view = UIImageView()
+        view.image = UIImage(named: "sesac_face_\(LoginDetails.details.sesac + 1)")
         return view
     }()
     
@@ -22,10 +28,11 @@ class ImageTableViewCell: BaseTableViewCell {
     }
     
     override func configure() {
-        contentView.addSubview(image)
+        contentView.addSubview(background)
+        contentView.addSubview(sesacImage)
     }
     override func setConstraints() {
-        image.snp.makeConstraints { make in
+        background.snp.makeConstraints { make in
             make.centerY.equalTo(contentView)
             make.leading.equalTo(contentView).offset(16)
             make.trailing.equalTo(contentView).offset(-16)
@@ -59,6 +66,7 @@ class GenderTableViewCell: BaseTableViewCell {
     
     override class func awakeFromNib() {
         super.awakeFromNib()
+        
     }
     
     override func configure() {
@@ -84,6 +92,13 @@ class GenderTableViewCell: BaseTableViewCell {
             make.trailing.equalTo(contentView).offset(-16)
             make.height.equalTo(48)
             make.width.equalTo(56)
+        }
+        if LoginDetails.details.gender == 0 {
+            femaleButton.setColor(backgroundColor: Constants.Color.green, borderColor: .clear, textColor: Constants.Color.white, for: .normal)
+            maleButton.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.gray3, for: .normal)
+        } else {
+            maleButton.setColor(backgroundColor: Constants.Color.green, borderColor: .clear, textColor: Constants.Color.white, for: .normal)
+            femaleButton.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.gray3, for: .normal)
         }
     }
     
@@ -164,6 +179,11 @@ class AllowSearchTableViewCell: BaseTableViewCell {
             make.bottom.equalTo(contentView).offset(-8)
             make.trailing.equalTo(contentView).offset(-16)
         }
+        if LoginDetails.details.searchable == 0 {
+            allowSwitch.isOn = false
+        } else {
+            allowSwitch.isOn = true
+        }
     }
 }
 
@@ -178,7 +198,7 @@ class AgeRangeTableViewCell: BaseTableViewCell {
     }()
     let numberLabel: UILabel = {
         let view = UILabel()
-        view.text = "18 - 35"
+        view.text = "\(LoginDetails.details.ageMin) - \(LoginDetails.details.ageMax)"
         view.font = Constants.Font.title3
         view.textColor = Constants.Color.green
         return view

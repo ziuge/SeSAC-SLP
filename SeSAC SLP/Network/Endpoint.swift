@@ -28,11 +28,11 @@ extension SeSACAPI {
         case .signup:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
-                "idtoken": (UserDefaults.standard.string(forKey: "idToken") != nil) ? UserDefaults.standard.string(forKey: "idToken")! : ""
+                "idtoken": APIKey.authorization
             ]
         case .login:
             return [
-                "idtoken": (UserDefaults.standard.string(forKey: "idToken") != nil) ? UserDefaults.standard.string(forKey: "idToken")! : ""
+                "idtoken": APIKey.authorization
             ]
 //        case .profile:
 //            return [

@@ -108,6 +108,8 @@ class PhoneVerificationViewController: BaseViewController {
                     switch response {
                     case .success(let success):
                         print(self, "login Success", success)
+                        
+                        
                         let vc = MainViewController()
                         let scenes = UIApplication.shared.connectedScenes
                         let windowScene = scenes.first as? UIWindowScene

@@ -4,19 +4,6 @@
 <dict>
 	<key></key>
 	<string></string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>위치정보 권한이 필요합니다.</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>위치정보 권한이 필요합니다.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>위치정보 권한이 필요합니다.</string>
-	<key>NMFClientId</key>
-	<string>ezlvavfcgm</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -28,6 +15,13 @@
 			</array>
 		</dict>
 	</array>
+	<key>NMFClientId</key>
+	<string>ezlvavfcgm</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NotoSansKR-Black.otf</string>
@@ -56,5 +50,9 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 </dict>
 </plist>
