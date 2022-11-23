@@ -77,7 +77,7 @@ class BirthViewController: BaseViewController {
     @objc func getBirth() {
         print(#function)
         
-        var registerableBirth = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
+        let registerableBirth = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
         // TODO: if success/fail 분기처리
         if birthDate < registerableBirth {
             SignupDetails.details.birth = String(describing: birthDate)

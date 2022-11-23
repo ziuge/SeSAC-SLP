@@ -208,10 +208,10 @@ class AgeRangeTableViewCell: BaseTableViewCell {
         view.minimumValue = 18
         view.maximumValue = 65
         view.thumbTintColor = Constants.Color.green
-        view.value = [18, 35, 65]
+        view.value = [18, 65]
         view.snapStepSize = 1.0
-        view.trackWidth = 120
-        view.isVertical = true
+        view.orientation = .horizontal
+        view.tintColor = Constants.Color.green
         view.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
 //        view.outerTrackColor = .lightGray
         return view
@@ -238,8 +238,8 @@ class AgeRangeTableViewCell: BaseTableViewCell {
             make.top.equalTo(contentView).offset(8)
         }
         ageSlider.snp.makeConstraints { make in
-//            make.leading.equalTo(contentView).offset(16)
-//            make.trailing.equalTo(contentView).offset(-16)
+            make.leading.equalTo(contentView).offset(16)
+            make.trailing.equalTo(contentView).offset(-16)
             make.centerX.equalTo(contentView)
             make.top.equalTo(label.snp.bottom).offset(8)
             make.bottom.equalTo(contentView).offset(-8)

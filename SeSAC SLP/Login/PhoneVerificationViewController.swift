@@ -107,7 +107,7 @@ class PhoneVerificationViewController: BaseViewController {
                 Network.shared.requestSeSAC(type: User.self, url: api.url, headers: api.headers) { response in
                     switch response {
                     case .success(let success):
-                        print(self, "login Success", success)
+                        print("login Success", success)
                         
                         let vc = MainViewController()
                         let scenes = UIApplication.shared.connectedScenes
@@ -135,9 +135,10 @@ class PhoneVerificationViewController: BaseViewController {
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let error = error {
+                print(error)
                 return;
             }
-            print("idToken:", idToken)
+            print("idToken:", "\(idToken)")
         
             UserDefaults.setValue(idToken, forKey: "idToken")
             print("== UserDefaults idToken", UserDefaults.standard.string(forKey: "idToken"))

@@ -56,7 +56,7 @@ class LaunchScreenViewController: BaseViewController {
 //            if UserDefaults.standard.string(forKey: "idToken") == nil {
 //                getToken()
 //            }
-            var detail = LoginDetails.details
+//            var detail = LoginDetails.details
             let api = SeSACAPI.login
             Network.shared.requestSeSAC(type: UserInfo.self, url: api.url, method: .get, parameters: api.parameters, headers: api.headers) { response in
                 switch response {

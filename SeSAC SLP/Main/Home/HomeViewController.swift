@@ -23,6 +23,11 @@ class HomeViewController: BaseViewController {
         image.image = UIImage(named: "marker")
         return image
     }()
+    let matchButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "Property 1=default"), for: .normal)
+        return view
+    }()
     
     
     override func viewDidLoad() {
@@ -33,11 +38,16 @@ class HomeViewController: BaseViewController {
         locationManager.requestWhenInUseAuthorization()
         
         mapView.addCameraDelegate(delegate: self)
-        
+        matchButton.addTarget(self, action: #selector(searchSesac), for: .touchUpInside)
+    }
+    
+    @objc func searchSesac() {
+        let vc = SearchSesacViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func configure() {
-        [mapView, centerImage].forEach {
+        [mapView, centerImage, matchButton].forEach {
             view.addSubview($0)
         }
     }
@@ -50,6 +60,10 @@ class HomeViewController: BaseViewController {
             make.centerX.centerY.equalTo(view.safeAreaLayoutGuide)
             make.width.equalTo(35)
             make.height.equalTo(45)
+        }
+        matchButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            make.height.width.equalTo(64)
         }
     }
     

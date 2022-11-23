@@ -21,7 +21,7 @@ final class Network {
             switch response.result {
             case .success(let data):
                 completion(.success(data))
-            case .failure(let error):
+            case .failure(_):
                 
                 guard let statusCode = response.response?.statusCode else { return }
                 guard let error = SeSACError(rawValue: statusCode) else { return }
