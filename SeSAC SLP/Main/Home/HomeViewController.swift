@@ -37,7 +37,7 @@ class HomeViewController: BaseViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         
-        fetchSesac()
+        fetchSesac(lat: 37.517833650056794, long: 126.88634053113901)
         
         mapView.addCameraDelegate(delegate: self)
         matchButton.addTarget(self, action: #selector(searchSesac), for: .touchUpInside)
@@ -48,8 +48,8 @@ class HomeViewController: BaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    func fetchSesac() {
-        let api = SeSACAPI.main(lat: 37.517833650056794, long: 126.88634053113901)
+    func fetchSesac(lat: Double, long: Double) {
+        let api = SeSACAPI.main(lat: lat, long: long)
         Network.shared.requestSeSAC(type: Main.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { response in
             switch response {
             case .success(let success):
@@ -153,6 +153,20 @@ extension HomeViewController: NMFMapViewCameraDelegate {
         
         print("위도:", cameraPosition.target.lat)
         print("경도:", cameraPosition.target.lng)
+//        fetchSesac(lat: cameraPosition.target.lat, long: cameraPosition.target.lng)
+    }
+    
+    func mapViewCameraIdle(_ mapView: NMFMapView) {
+        let alert = UIAlertController(title: "카메라 움직임 종료",
+                                      message: nil,
+                                      preferredStyle: .alert)
+        present(alert, animated: true, completion: {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                alert.dismiss(animated: true, completion: nil)
+            })
+        })
+        let cameraPosition = mapView.cameraPosition
+        fetchSesac(lat: cameraPosition.target.lat, long: cameraPosition.target.lng)
     }
 }
 
