@@ -25,7 +25,7 @@ struct User: Codable {
     let FCMtoken: String
 }
 
-// MARK: UserInfo
+// MARK: - UserInfo
 struct UserInfo: Codable {
     let id: String
     let reputation: [Int]
@@ -51,6 +51,24 @@ struct UserInfo: Codable {
         case v = "__v"
     }
 }
+
+// MARK: - Main
+struct Main: Codable {
+    let fromQueueDB, fromQueueDBRequested: [FromQueueDB]
+    let fromRecommend: [String]
+}
+
+// MARK: - FromQueueDB
+struct FromQueueDB: Codable {
+    let uid, nick: String
+    let lat, long: Double
+    let reputation: [Int]
+    let studylist, reviews: [String]
+    let gender, type, sesac, background: Int
+}
+
+
+// MARK: - Error
 
 enum SeSACError: Int, Error {
     case takenEmail = 201

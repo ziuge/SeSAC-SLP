@@ -11,6 +11,7 @@ import Alamofire
 enum SeSACAPI {
     case signup(phoneNumber: String, FCMtoken: String, email: String, birth: String, nick: String, gender: Int)
     case login
+    case main(lat: Double, long: Double)
 }
 
 extension SeSACAPI {
@@ -20,6 +21,8 @@ extension SeSACAPI {
             return URL(string: "http://api.sesac.co.kr:1210/v1/user/")!
         case .login:
             return URL(string: "http://api.sesac.co.kr:1210/v1/user/")!
+        case .main:
+            return URL(string: "http://api.sesac.co.kr:1210/v1/queue/search")!
         }
     }
     
@@ -34,11 +37,11 @@ extension SeSACAPI {
             return [
                 "idtoken": APIKey.authorization
             ]
-//        case .profile:
-//            return [
-//                "Authorization": "Bearer \(UserDefaults.standard.string(forKey: "token")!)",
-//                "Content-Type": "application/x-www-form-urlencoded"
-//            ]
+        case .main:
+            return [
+                "Content-Type": "application/x-www-form-urlencoded",
+                "idtoken": APIKey.authorization
+            ]
         }
     }
     
@@ -52,6 +55,11 @@ extension SeSACAPI {
                 "birth": birth,
                 "email": email,
                 "gender": "\(gender)"
+            ]
+        case .main(let lat, let long):
+            return [
+                "lat": "\(lat)",
+                "long": "\(long)"
             ]
         default: return ["": ""]
         }

@@ -20,9 +20,6 @@ class SearchSesacViewController: BaseViewController {
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-//        layout.minimumLineSpacing = 10
-//        layout.scrollDirection = .vertical
-//        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         return view
     }()
@@ -41,7 +38,7 @@ class SearchSesacViewController: BaseViewController {
         configureHierarchy()
         collectionView.delegate = self
         collectionView.dataSource = self
-//        collectionView.register(SearchSesacCollectionViewCell.self, forCellWithReuseIdentifier: SearchSesacCollectionViewCell.reuseIdentifier)
+
     }
     
     override func configure() {
@@ -68,16 +65,32 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
             content.textProperties.font = Constants.Font.title4!
             cell.contentConfiguration = content
         }
+        collectionView.register(UINib(nibName: "HeaderSupplementaryView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderSupplementaryView")
     }
     
     private func createLayout() -> UICollectionViewLayout {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(84), heightDimension: .estimated(32))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(40), heightDimension: .estimated(20))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(8))
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(32))
+        item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
+        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
+        
+//        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+//                                                     heightDimension: .estimated(44))
+//        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+//            layoutSize: headerFooterSize,
+//            elementKind: SearchSesacViewController.sectionHeaderElementKind, alignment: .top)
+//        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
+//            layoutSize: headerFooterSize,
+//            elementKind: SearchSesacViewController.sectionFooterElementKind, alignment: .bottom)
+//        section.boundarySupplementaryItems = [sectionHeader, sectionFooter]
 
+        let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
+        let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+        section.boundarySupplementaryItems = [headerItem]
+        
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
     }
@@ -86,12 +99,9 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         
         let item = tagList[indexPath.item]
         let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
-//        cell.label.text = tagList[indexPath.row]
-//        cell.label.font = Constants.Font.title4
-//        cell.label.textColor = Constants.Color.gray3
         cell.layer.borderWidth = 1
         cell.layer.borderColor = Constants.Color.error.cgColor
-        cell.layer.cornerRadius = 5
+        cell.layer.cornerRadius = 10
         return cell
     }
     
@@ -108,29 +118,4 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         
     }
     
-    
-
 }
-
-//class SearchSesacCollectionViewCell: BaseCollectionViewCell {
-//
-//    let label: UILabel = {
-//        let view = UILabel()
-//
-//        return view
-//    }()
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//    }
-//
-//    override func setConstraints() {
-//        contentView.addSubview(label)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
-//
-//}

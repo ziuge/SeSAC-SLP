@@ -37,6 +37,8 @@ class HomeViewController: BaseViewController {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         
+        fetchSesac()
+        
         mapView.addCameraDelegate(delegate: self)
         matchButton.addTarget(self, action: #selector(searchSesac), for: .touchUpInside)
     }
@@ -44,6 +46,30 @@ class HomeViewController: BaseViewController {
     @objc func searchSesac() {
         let vc = SearchSesacViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func fetchSesac() {
+        let api = SeSACAPI.main(lat: 37.517833650056794, long: 126.88634053113901)
+        Network.shared.requestSeSAC(type: Main.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { response in
+            switch response {
+            case .success(let success):
+                print("sesac success")
+                
+                for user in success.fromQueueDB {
+                    let marker = NMFMarker()
+                    marker.position = NMGLatLng(lat: user.lat, lng: user.long)
+                    marker.iconImage = NMFOverlayImage(image: UIImage(named: "sesac_face_\(user.sesac + 1)")!)
+                    marker.width = 83
+                    marker.height = 83
+                    marker.mapView = self.mapView
+                }
+                
+                
+                
+            case .failure(let error):
+                print("sesac error", error)
+            }
+        }
     }
     
     override func configure() {
@@ -57,7 +83,8 @@ class HomeViewController: BaseViewController {
             make.top.equalTo(view)
         }
         centerImage.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(view.safeAreaLayoutGuide)
+            make.centerX.equalTo(mapView)
+            make.centerY.equalTo(mapView).offset(-45)
             make.width.equalTo(35)
             make.height.equalTo(45)
         }
