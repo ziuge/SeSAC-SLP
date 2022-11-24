@@ -9,7 +9,7 @@ import UIKit
 
 class SearchSesacViewController: BaseViewController {
     
-    let tagList: [String] = [
+    var tagList: [String] = [
         "Choi",
         "SnapKit",
         "RxSwift",
@@ -17,6 +17,7 @@ class SearchSesacViewController: BaseViewController {
         "UIKit",
         "Foundation"
       ]
+    var studyQueueList: [String] = []
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -38,7 +39,9 @@ class SearchSesacViewController: BaseViewController {
         configureHierarchy()
         collectionView.delegate = self
         collectionView.dataSource = self
-
+        
+        print("tag List:", tagList)
+        print("studyQueueList", studyQueueList)
     }
     
     override func configure() {
@@ -61,14 +64,38 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         cellRegistration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.cell()
             content.text = itemIdentifier
-            content.textProperties.color = Constants.Color.error
+            if indexPath.section == 0 {
+                content.textProperties.color = Constants.Color.error
+                cell.layer.borderColor = Constants.Color.error.cgColor
+            } else {
+                content.textProperties.color = Constants.Color.black
+                cell.layer.borderColor = Constants.Color.gray3.cgColor
+            }
+            
             content.textProperties.font = Constants.Font.title4!
+            
             cell.contentConfiguration = content
         }
         collectionView.register(UINib(nibName: "HeaderSupplementaryView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderSupplementaryView")
     }
     
     private func createLayout() -> UICollectionViewLayout {
+        
+        return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
+            
+            switch sectionNumber {
+                
+            case 0: return self.firstLayoutSection()
+            case 1: return self.secondLayoutSection()
+            default: return self.firstLayoutSection()
+            }
+        }
+        
+//        let layout = UICollectionViewCompositionalLayout(section: section)
+//        return layout
+    }
+    
+    private func firstLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(40), heightDimension: .estimated(20))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
@@ -91,31 +118,48 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
         section.boundarySupplementaryItems = [headerItem]
         
-        let layout = UICollectionViewCompositionalLayout(section: section)
-        return layout
+        return section
+    }
+    
+    private func secondLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(20), heightDimension: .estimated(20))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
+        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let section = NSCollectionLayoutSection(group: group)
+
+        let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(20))
+        let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
+        section.boundarySupplementaryItems = [headerItem]
+        
+        return section
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let item = tagList[indexPath.item]
+
+        let item = (indexPath.section == 0) ? tagList[indexPath.item] : studyQueueList[indexPath.item]
         let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = Constants.Color.error.cgColor
+        cell.layer.borderWidth = 1.5
         cell.layer.cornerRadius = 10
         return cell
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return tagList.count
-        } else {
-            return 0
-        }
         
+        switch section {
+        case 0:
+            return tagList.count
+        case 1:
+            return studyQueueList.count
+        default:
+            return 5
+        }
     }
     
 }

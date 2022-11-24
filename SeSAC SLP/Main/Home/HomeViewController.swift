@@ -12,11 +12,13 @@ import CoreLocation
 class HomeViewController: BaseViewController {
     
     var locationManager = CLLocationManager()
+    var studyRecommend: [String] = []
+    var studyQueue: [String] = []
     
+    // MARK: UI
     let mapView: NMFMapView = {
         let map = NMFMapView()
 //        map.showLocationButton = true
-        
         return map
     }()
     let centerImage: UIImageView = {
@@ -35,14 +37,13 @@ class HomeViewController: BaseViewController {
         return view
     }()
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
-        
-        fetchSesac(lat: 37.517833650056794, long: 126.88634053113901)
         
         mapView.addCameraDelegate(delegate: self)
         matchButton.addTarget(self, action: #selector(searchSesac), for: .touchUpInside)
@@ -51,6 +52,8 @@ class HomeViewController: BaseViewController {
     
     @objc func searchSesac() {
         let vc = SearchSesacViewController()
+        vc.tagList = studyRecommend
+        vc.studyQueueList = studyQueue
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -69,19 +72,25 @@ class HomeViewController: BaseViewController {
     
     func fetchSesac(lat: Double, long: Double) {
         let api = SeSACAPI.main(lat: lat, long: long)
-        Network.shared.requestSeSAC(type: Main.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { response in
+        Network.shared.requestSeSAC(type: Main.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { [weak self] response in
             switch response {
             case .success(let success):
                 print("sesac success")
                 
                 for user in success.fromQueueDB {
+                    print(user)
                     let marker = NMFMarker()
                     marker.position = NMGLatLng(lat: user.lat, lng: user.long)
                     marker.iconImage = NMFOverlayImage(image: UIImage(named: "sesac_face_\(user.sesac + 1)")!)
                     marker.width = 83
                     marker.height = 83
-                    marker.mapView = self.mapView
+                    marker.mapView = self?.mapView
+                    self?.studyQueue.append(contentsOf: user.studylist)
                 }
+                
+                self?.studyRecommend = success.fromRecommend
+                print("success recommend", success.fromRecommend)
+                print("recommend:", self?.studyRecommend)
             case .failure(let error):
                 print("sesac error", error)
             }
@@ -134,7 +143,7 @@ extension HomeViewController: CLLocationManagerDelegate {
                 
                 
                 // 시뮬 빌드를 위한 위치 변경 (새싹)
-                let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.517833650056794, lng: 126.88634053113901))
+                let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.48511640269022, lng: 126.92947109241517))
                 cameraUpdate.animation = .easeIn
                 self.mapView.moveCamera(cameraUpdate)
 
