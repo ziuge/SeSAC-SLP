@@ -16,6 +16,7 @@ class HomeViewController: BaseViewController {
     let mapView: NMFMapView = {
         let map = NMFMapView()
 //        map.showLocationButton = true
+        
         return map
     }()
     let centerImage: UIImageView = {
@@ -28,7 +29,11 @@ class HomeViewController: BaseViewController {
         view.setImage(UIImage(named: "Property 1=default"), for: .normal)
         return view
     }()
-    
+    let gpsButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "bt_gps"), for: .normal)
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,11 +46,25 @@ class HomeViewController: BaseViewController {
         
         mapView.addCameraDelegate(delegate: self)
         matchButton.addTarget(self, action: #selector(searchSesac), for: .touchUpInside)
+        gpsButton.addTarget(self, action: #selector(setGPS), for: .touchUpInside)
     }
     
     @objc func searchSesac() {
         let vc = SearchSesacViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func setGPS() {
+        //현 위치로 카메라 이동
+        let location = self.locationManager.location?.coordinate
+        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: location?.latitude ?? 0, lng: location?.longitude ?? 0))
+        cameraUpdate.animation = .easeIn
+        self.mapView.moveCamera(cameraUpdate)
+        
+        // 시뮬 빌드를 위한 위치 변경 (새싹)
+//        let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.517833650056794, lng: 126.88634053113901))
+//        cameraUpdate.animation = .easeIn
+//        self.mapView.moveCamera(cameraUpdate)
     }
     
     func fetchSesac(lat: Double, long: Double) {
@@ -63,9 +82,6 @@ class HomeViewController: BaseViewController {
                     marker.height = 83
                     marker.mapView = self.mapView
                 }
-                
-                
-                
             case .failure(let error):
                 print("sesac error", error)
             }
@@ -73,7 +89,7 @@ class HomeViewController: BaseViewController {
     }
     
     override func configure() {
-        [mapView, centerImage, matchButton].forEach {
+        [mapView, centerImage, matchButton, gpsButton].forEach {
             view.addSubview($0)
         }
     }
@@ -91,6 +107,11 @@ class HomeViewController: BaseViewController {
         matchButton.snp.makeConstraints { make in
             make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
             make.height.width.equalTo(64)
+        }
+        gpsButton.snp.makeConstraints { make in
+            make.height.width.equalTo(48)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
     }
     
@@ -157,14 +178,6 @@ extension HomeViewController: NMFMapViewCameraDelegate {
     }
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
-        let alert = UIAlertController(title: "카메라 움직임 종료",
-                                      message: nil,
-                                      preferredStyle: .alert)
-        present(alert, animated: true, completion: {
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
-                alert.dismiss(animated: true, completion: nil)
-            })
-        })
         let cameraPosition = mapView.cameraPosition
         fetchSesac(lat: cameraPosition.target.lat, long: cameraPosition.target.lng)
     }

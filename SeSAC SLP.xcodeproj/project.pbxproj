@@ -717,7 +717,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SeSAC SLP/SeSAC SLP.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DV7XBU83N5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SeSAC SLP/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
@@ -750,7 +750,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SeSAC SLP/SeSAC SLP.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = DV7XBU83N5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "SeSAC SLP/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "위치정보 권한이 필요합니다.";
