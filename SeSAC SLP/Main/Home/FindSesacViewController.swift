@@ -17,18 +17,31 @@ class FindSesacViewController: TabmanViewController {
         super.viewDidLoad()
         self.dataSource = self
         
+        // MARK: Tabbar
         let bar = TMBar.ButtonBar()
         bar.layout.transitionStyle = .snap
         bar.layout.alignment = .centerDistributed
         bar.layout.contentMode = .fit
         bar.indicator.overscrollBehavior = .compress
         bar.layout.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        bar.indicator.tintColor = Constants.Color.green
+        //버튼 글씨 커스텀
+        bar.buttons.customize{ (button) in
+            button.tintColor = Constants.Color.black
+            button.selectedTintColor = Constants.Color.green
+            button.font = Constants.Font.title4!
+            button.selectedFont = Constants.Font.title3!
+        }
+        // indicator 커스텀
+        bar.indicator.weight = .custom(value: 2)
+        bar.indicator.tintColor = Constants.Color.green
         
         addBar(bar, dataSource: self, at: .top)
         
     }
 }
 
+// MARK: TabBar DataSource
 extension FindSesacViewController: PageboyViewControllerDataSource, TMBarDataSource {
 
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {

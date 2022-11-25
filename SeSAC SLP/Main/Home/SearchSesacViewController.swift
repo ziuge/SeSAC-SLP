@@ -203,7 +203,7 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var lists = [tagList, studyQueueList, studyWantList]
+        let lists = [tagList, studyQueueList, studyWantList]
         if studyWantList.count >= 8 {
             showToast(message: "스터디를 더 이상 추가할 수 없습니다")
         } else {
@@ -234,7 +234,7 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var lists = [tagList, studyQueueList, studyWantList]
+        let lists = [tagList, studyQueueList, studyWantList]
         return lists[section].count
     }
     
