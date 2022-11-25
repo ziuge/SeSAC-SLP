@@ -23,13 +23,17 @@ class SearchSesacViewController: BaseViewController {
         view.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         return view
     }()
+    let findSesacButton: SeSACButton = {
+        let button = SeSACButton()
+        button.setTitle("새싹 찾기", for: .normal)
+        return button
+    }()
     
     var cellRegistration: UICollectionView.CellRegistration<UICollectionViewCell, String>!
     var dataSource: UICollectionViewDiffableDataSource<Int, String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemMint
         
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
@@ -37,16 +41,23 @@ class SearchSesacViewController: BaseViewController {
         configureHierarchy()
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
     }
     
     override func configure() {
-        [collectionView].forEach {
+        [collectionView, findSesacButton].forEach {
             view.addSubview($0)
         }
     }
     override func setConstraints() {
         collectionView.snp.makeConstraints { make in
             make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        findSesacButton.snp.makeConstraints { make in
+            make.height.equalTo(48)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
         }
     }
     
