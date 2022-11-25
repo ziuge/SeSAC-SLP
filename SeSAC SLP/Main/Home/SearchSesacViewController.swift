@@ -34,6 +34,7 @@ class SearchSesacViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboard()
         
         searchBar.delegate = self
         self.navigationItem.titleView = searchBar
@@ -42,7 +43,25 @@ class SearchSesacViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        
+        //  Moving next button when keyboard appears
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification:NSNotification){
+        print(#function)
+        let userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        findSesacButton.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 80))
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        print(#function)
+        let userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        findSesacButton.transform = CGAffineTransform(translationX: 0, y: keyboardFrame.height - 80)
     }
     
     override func configure() {

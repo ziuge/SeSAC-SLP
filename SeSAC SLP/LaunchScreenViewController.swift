@@ -56,35 +56,14 @@ class LaunchScreenViewController: BaseViewController {
 //            if UserDefaults.standard.string(forKey: "idToken") == nil {
 //                getToken()
 //            }
-//            var detail = LoginDetails.details
+
             let api = SeSACAPI.login
             Network.shared.requestSeSAC(type: UserInfo.self, url: api.url, method: .get, parameters: api.parameters, headers: api.headers) { response in
                 switch response {
                 case .success(let userinfo):
                     print("==== login success")
                     print(userinfo)
-//                    detail.ageMax = userinfo.ageMax
-//                    detail.ageMin = userinfo.ageMin
-//                    detail.background = userinfo.background
-//                    detail.backgroundCollection = userinfo.backgroundCollection
-//                    detail.birth = userinfo.birth
-//                    detail.comment = userinfo.comment
-//                    detail.createdAt = userinfo.createdAt
-//                    detail.dodgeNum = userinfo.dodgeNum
-//                    detail.dodgepenalty = userinfo.dodgepenalty
-//                    detail.email = userinfo.email
-//                    detail.fcMtoken = userinfo.fcMtoken
-//                    detail.gender = userinfo.gender
-//                    detail.id = userinfo.id
-//                    detail.nick = userinfo.nick
-//                    detail.phoneNumber = userinfo.phoneNumber
-//                    detail.purchaseToken = userinfo.purchaseToken
-//                    detail.reportedNum = userinfo.reportedNum
-//                    detail.sesac = userinfo.sesac
-//                    detail.searchable = userinfo.searchable
-//                    detail.study = userinfo.study
-//                    print("detail", detail)
-                    
+
                     let info = UserInfo(id: userinfo.id, reputation: userinfo.reputation, comment: userinfo.comment, sesacCollection: userinfo.sesacCollection, backgroundCollection: userinfo.backgroundCollection, purchaseToken: userinfo.purchaseToken, transactionID: userinfo.transactionID, reviewedBefore: userinfo.reviewedBefore, reportedUser: userinfo.reportedUser, uid: userinfo.uid, phoneNumber: userinfo.phoneNumber, fcMtoken: userinfo.fcMtoken, nick: userinfo.nick, birth: userinfo.birth, email: userinfo.email, gender: userinfo.gender, sesac: userinfo.sesac, study: userinfo.study, dodgepenalty: userinfo.dodgepenalty, background: userinfo.background, ageMin: userinfo.ageMin, ageMax: userinfo.ageMax, dodgeNum: userinfo.dodgeNum, searchable: userinfo.searchable, reportedNum: userinfo.reportedNum, createdAt: userinfo.createdAt, v: userinfo.v)
                     
                     let encoder = JSONEncoder()

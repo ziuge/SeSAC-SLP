@@ -53,6 +53,8 @@
 		DE908E9F291A28F400B54FAD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE908E9E291A28F400B54FAD /* Main.storyboard */; };
 		DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */; };
 		DE92079F2930A89C0077BA13 /* SearchSesacHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */; };
+		DE9207A1293115600077BA13 /* FindSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207A0293115600077BA13 /* FindSesacViewController.swift */; };
+		DE9207A429311A300077BA13 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = DE9207A329311A300077BA13 /* Tabman */; };
 		DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */; };
 		DE99A33F2923BDDC00FAF745 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */; };
 		DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DE99A3442923F06700FAF745 /* MultiSlider */; };
@@ -123,6 +125,7 @@
 		DE908E9E291A28F400B54FAD /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
 		DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSesacHeaderView.swift; sourceTree = "<group>"; };
+		DE9207A0293115600077BA13 /* FindSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSesacViewController.swift; sourceTree = "<group>"; };
 		DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A3462926207300FAF745 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -154,6 +157,7 @@
 				DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */,
 				DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */,
 				DE3A8668291CDAD100DE83C9 /* Alamofire in Frameworks */,
+				DE9207A429311A300077BA13 /* Tabman in Frameworks */,
 				DE9FAE4A291AA0C200C1F807 /* RxCocoa in Frameworks */,
 				DE908E9A291A263800B54FAD /* FirebaseAuth in Frameworks */,
 				0686FC24AFBC0296FC03D056 /* Pods_SeSAC_SLP.framework in Frameworks */,
@@ -381,6 +385,7 @@
 				DE9B7D602922028E00089C2D /* HomeViewController.swift */,
 				DE5C4401292DE4C9003D7011 /* SearchSesacViewController.swift */,
 				DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */,
+				DE9207A0293115600077BA13 /* FindSesacViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -420,6 +425,7 @@
 				DE9FAE4B291AA0C200C1F807 /* RxSwift */,
 				DE3A8667291CDAD100DE83C9 /* Alamofire */,
 				DE99A3442923F06700FAF745 /* MultiSlider */,
+				DE9207A329311A300077BA13 /* Tabman */,
 			);
 			productName = "SeSAC SLP";
 			productReference = DE0808D62918D5DE004A1445 /* SeSAC SLP.app */;
@@ -455,6 +461,7 @@
 				DE9FAE48291AA0C200C1F807 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */,
+				DE9207A229311A300077BA13 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
 			projectDirPath = "";
@@ -557,6 +564,7 @@
 				DE908E7429191E3300B54FAD /* TextColorChange+UILabel.swift in Sources */,
 				DE9B7D662922080600089C2D /* SignupViewModel.swift in Sources */,
 				DE0809182918FCBA004A1445 /* ReusableProtocol.swift in Sources */,
+				DE9207A1293115600077BA13 /* FindSesacViewController.swift in Sources */,
 				DE0809072918EE0A004A1445 /* BaseView.swift in Sources */,
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,
 				DE9B7D6A2922998300089C2D /* FriendViewController.swift in Sources */,
@@ -826,6 +834,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		DE9207A229311A300077BA13 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yonat/MultiSlider";
@@ -864,6 +880,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE908E98291A263800B54FAD /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseMessaging;
+		};
+		DE9207A329311A300077BA13 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE9207A229311A300077BA13 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 		DE99A3442923F06700FAF745 /* MultiSlider */ = {
 			isa = XCSwiftPackageProductDependency;
