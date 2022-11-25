@@ -19,6 +19,10 @@ class FindSesacViewController: TabmanViewController {
         
         let bar = TMBar.ButtonBar()
         bar.layout.transitionStyle = .snap
+        bar.layout.alignment = .centerDistributed
+        bar.layout.contentMode = .fit
+        bar.indicator.overscrollBehavior = .compress
+        bar.layout.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
         addBar(bar, dataSource: self, at: .top)
         
@@ -41,7 +45,13 @@ extension FindSesacViewController: PageboyViewControllerDataSource, TMBarDataSou
     }
 
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        let title = "Page \(index)"
-        return TMBarItem(title: title)
+        switch index {
+        case 0:
+            return TMBarItem(title: "주변 새싹")
+        case 1:
+            return TMBarItem(title: "받은 요청")
+        default:
+            return TMBarItem(title: "Page \(index)")
+        }
     }
 }

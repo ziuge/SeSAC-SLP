@@ -43,7 +43,6 @@ class SearchSesacViewController: BaseViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        //  Moving next button when keyboard appears
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
         findSesacButton.addTarget(self, action: #selector(pushFindSesac), for: .touchUpInside)
@@ -208,19 +207,23 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         if studyWantList.count >= 8 {
             showToast(message: "스터디를 더 이상 추가할 수 없습니다")
         } else {
-            if studyWantList.contains(lists[indexPath.section][indexPath.row]) {
-                showToast(message: "이미 등록된 스터디입니다")
-            } else {
-                switch indexPath.section {
-                case 0:
+            switch indexPath.section {
+            case 0:
+                if studyWantList.contains(lists[indexPath.section][indexPath.row]) {
+                    showToast(message: "이미 등록된 스터디입니다")
+                } else {
                     studyWantList.append(tagList[indexPath.row])
-                case 1:
-                    studyWantList.append(studyQueueList[indexPath.row])
-                case 2:
-                    studyWantList.remove(at: indexPath.row)
-                default:
-                    print(indexPath)
                 }
+            case 1:
+                if studyWantList.contains(lists[indexPath.section][indexPath.row]) {
+                    showToast(message: "이미 등록된 스터디입니다")
+                } else {
+                    studyWantList.append(studyQueueList[indexPath.row])
+                }
+            case 2:
+                studyWantList.remove(at: indexPath.row)
+            default:
+                print(indexPath)
             }
             collectionView.reloadData()
         }
@@ -231,17 +234,8 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        switch section {
-        case 0:
-            return tagList.count
-        case 1:
-            return studyQueueList.count
-        case 2:
-            return studyWantList.count
-        default:
-            return studyWantList.count
-        }
+        var lists = [tagList, studyQueueList, studyWantList]
+        return lists[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
