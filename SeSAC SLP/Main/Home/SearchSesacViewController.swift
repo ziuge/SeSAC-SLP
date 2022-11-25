@@ -8,14 +8,7 @@
 import UIKit
 
 class SearchSesacViewController: BaseViewController {
-    var tagList: [String] = [
-        "Choi",
-        "SnapKit",
-        "RxSwift",
-        "Swift",
-        "UIKit",
-        "Foundation"
-    ]
+    var tagList: [String] = []
     var studyQueueList: [String] = []
     var studyWantList: [String] = []
     
@@ -23,6 +16,11 @@ class SearchSesacViewController: BaseViewController {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(CategoryHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CategoryHeaderView")
+        return view
+    }()
+    let searchBar: UISearchBar = {
+        let view = UISearchBar()
+        view.placeholder = "띄어쓰기로 복수 입력이 가능해요"
         return view
     }()
     
@@ -33,16 +31,12 @@ class SearchSesacViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
         
-        let searchBar = UISearchBar()
-        searchBar.placeholder = "띄어쓰기로 복수 입력이 가능해요"
+        searchBar.delegate = self
         self.navigationItem.titleView = searchBar
         
         configureHierarchy()
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        print("tag List:", tagList)
-        print("studyQueueList", studyQueueList)
     }
     
     override func configure() {
@@ -174,17 +168,26 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 0:
-            studyWantList.append(tagList[indexPath.row])
-        case 1:
-            studyWantList.append(studyQueueList[indexPath.row])
-        case 2:
-            studyWantList.remove(at: indexPath.row)
-        default:
-            print(indexPath)
+        var lists = [tagList, studyQueueList, studyWantList]
+        if studyWantList.count >= 8 {
+            showToast(message: "스터디를 더 이상 추가할 수 없습니다")
+        } else {
+            if studyWantList.contains(lists[indexPath.section][indexPath.row]) {
+                showToast(message: "이미 등록된 스터디입니다")
+            } else {
+                switch indexPath.section {
+                case 0:
+                    studyWantList.append(tagList[indexPath.row])
+                case 1:
+                    studyWantList.append(studyQueueList[indexPath.row])
+                case 2:
+                    studyWantList.remove(at: indexPath.row)
+                default:
+                    print(indexPath)
+                }
+            }
+            collectionView.reloadData()
         }
-        collectionView.reloadData()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -217,3 +220,33 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     
 }
 
+// MARK: - SearchBar
+extension SearchSesacViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let items = searchBar.text?.split(separator: " ") else { return }
+        print("searchButton Clicked \(items)")
+        for i in items {
+            if studyWantList.count >= 8 {
+                showToast(message: "스터디를 더 이상 추가할 수 없습니다")
+                break
+            }
+            if String(i).count > 8 {
+                showToast(message: "최소 한 자 이상, 최대 8글자까지 작성 가능합니다")
+            } else {
+                if studyWantList.contains(String(i)) {
+                    showToast(message: "이미 등록된 스터디입니다")
+                    continue
+                } else {
+                    studyWantList.append(String(i))
+                }
+            }
+        }
+        searchBar.text = ""
+        searchBar.endEditing(true)
+        collectionView.reloadData()
+    }
+}
