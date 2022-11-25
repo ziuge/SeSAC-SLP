@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchSesacViewController: BaseViewController {
-    
     var tagList: [String] = [
         "Choi",
         "SnapKit",
@@ -16,7 +15,7 @@ class SearchSesacViewController: BaseViewController {
         "Swift",
         "UIKit",
         "Foundation"
-      ]
+    ]
     var studyQueueList: [String] = []
     var studyWantList: [String] = []
     
@@ -58,8 +57,9 @@ class SearchSesacViewController: BaseViewController {
     }
     
 }
-
-extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+// MARK: - Compositional Layout
+extension SearchSesacViewController {
     
     func configureHierarchy() {
         collectionView.collectionViewLayout = createLayout()
@@ -67,10 +67,21 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         cellRegistration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.cell()
             content.text = itemIdentifier
-            if indexPath.section == 0 {
+            switch indexPath.section {
+            case 0:
                 content.textProperties.color = Constants.Color.error
                 cell.layer.borderColor = Constants.Color.error.cgColor
-            } else {
+                //                cell.tintColor = Constants.Color.error
+            case 1:
+                content.textProperties.color = Constants.Color.black
+                cell.layer.borderColor = Constants.Color.gray3.cgColor
+            case 2:
+                content.textProperties.color = Constants.Color.green
+                cell.layer.borderColor = Constants.Color.green.cgColor
+                content.image = UIImage(systemName: "xmark")
+                //                content.imageProperties.tintColor = Constants.Color.green.cgColor
+                //                content.imageProperties.maximumSize = CGSize(width: 10, height: 10)
+            default:
                 content.textProperties.color = Constants.Color.black
                 cell.layer.borderColor = Constants.Color.gray3.cgColor
             }
@@ -89,14 +100,15 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
                 
             case 0: return self.firstLayoutSection()
             case 1: return self.secondLayoutSection()
-            default: return self.thirdLayoutSection()
+            case 2: return self.thirdLayoutSection()
+            default: return self.firstLayoutSection()
             }
         }
     }
     
     // First Layout
     private func firstLayoutSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(40), heightDimension: .estimated(20))
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(30), heightDimension: .estimated(20))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.edgeSpacing = .init(leading: .fixed(0), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
         item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
@@ -139,7 +151,7 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         group.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
         let section = NSCollectionLayoutSection(group: group)
         
-        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(44))
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
         sectionHeader.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
         
@@ -148,13 +160,31 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         return section
     }
     
+}
+    
+// MARK: - UICollectionView - Delegate, DataSource
+extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
-        let item = (indexPath.section == 0) ? tagList[indexPath.item] : studyQueueList[indexPath.item]
+        var lists = [tagList, studyQueueList, studyWantList]
+        let item = lists[indexPath.section][indexPath.item]
         let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
-        cell.layer.borderWidth = 1.5
+        cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 10
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            studyWantList.append(tagList[indexPath.row])
+        case 1:
+            studyWantList.append(studyQueueList[indexPath.row])
+        case 2:
+            studyWantList.remove(at: indexPath.row)
+        default:
+            print(indexPath)
+        }
+        collectionView.reloadData()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -168,8 +198,10 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
             return tagList.count
         case 1:
             return studyQueueList.count
+        case 2:
+            return studyWantList.count
         default:
-            return 5
+            return studyWantList.count
         }
     }
     
@@ -185,34 +217,3 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     
 }
 
-class CategoryHeaderView: UICollectionReusableView {
-    
-    let label: UILabel = {
-        let view = UILabel()
-        view.font = Constants.Font.title6
-        view.text = "지금 주변에는"
-        return view
-    }()
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(label)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        label.frame = bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        self.prepare(text: nil)
-    }
-    
-    func prepare(text: String?) {
-        self.label.text = text
-      }
-}
