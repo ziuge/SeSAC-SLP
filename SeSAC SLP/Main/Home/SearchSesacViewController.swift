@@ -46,6 +46,12 @@ class SearchSesacViewController: BaseViewController {
         //  Moving next button when keyboard appears
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+        findSesacButton.addTarget(self, action: #selector(pushFindSesac), for: .touchUpInside)
+    }
+    
+    @objc func pushFindSesac() {
+        let vc = FindSesacViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func keyboardWillShow(notification:NSNotification){

@@ -55,6 +55,8 @@
 		DE92079F2930A89C0077BA13 /* SearchSesacHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */; };
 		DE9207A1293115600077BA13 /* FindSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207A0293115600077BA13 /* FindSesacViewController.swift */; };
 		DE9207A429311A300077BA13 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = DE9207A329311A300077BA13 /* Tabman */; };
+		DE9207A629311AD00077BA13 /* NearSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207A529311AD00077BA13 /* NearSesacViewController.swift */; };
+		DE9207A829311AFA0077BA13 /* AcceptSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */; };
 		DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */; };
 		DE99A33F2923BDDC00FAF745 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */; };
 		DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DE99A3442923F06700FAF745 /* MultiSlider */; };
@@ -126,6 +128,8 @@
 		DE908EA0291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SetBackgroundColor+UIButton.swift"; sourceTree = "<group>"; };
 		DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSesacHeaderView.swift; sourceTree = "<group>"; };
 		DE9207A0293115600077BA13 /* FindSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSesacViewController.swift; sourceTree = "<group>"; };
+		DE9207A529311AD00077BA13 /* NearSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearSesacViewController.swift; sourceTree = "<group>"; };
+		DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptSesacViewController.swift; sourceTree = "<group>"; };
 		DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A3462926207300FAF745 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -386,6 +390,8 @@
 				DE5C4401292DE4C9003D7011 /* SearchSesacViewController.swift */,
 				DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */,
 				DE9207A0293115600077BA13 /* FindSesacViewController.swift */,
+				DE9207A529311AD00077BA13 /* NearSesacViewController.swift */,
+				DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -571,6 +577,7 @@
 				DE92079F2930A89C0077BA13 /* SearchSesacHeaderView.swift in Sources */,
 				DE3A866C291CDB3300DE83C9 /* Endpoint.swift in Sources */,
 				DE3A8672291D539600DE83C9 /* NicknameValidationModel.swift in Sources */,
+				DE9207A829311AFA0077BA13 /* AcceptSesacViewController.swift in Sources */,
 				DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */,
 				DE908EA1291A4A7000B54FAD /* SetBackgroundColor+UIButton.swift in Sources */,
 				DE99A3472926207300FAF745 /* NetworkMonitor.swift in Sources */,
@@ -579,6 +586,7 @@
 				DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */,
 				DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */,
 				DE9FAE51291AAFA000C1F807 /* Toast+UIViewController.swift in Sources */,
+				DE9207A629311AD00077BA13 /* NearSesacViewController.swift in Sources */,
 				DE3A8674291D5C4400DE83C9 /* BirthViewController.swift in Sources */,
 				DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */,
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
