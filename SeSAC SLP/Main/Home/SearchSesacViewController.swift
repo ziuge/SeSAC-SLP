@@ -18,10 +18,12 @@ class SearchSesacViewController: BaseViewController {
         "Foundation"
       ]
     var studyQueueList: [String] = []
+    var studyWantList: [String] = []
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.register(CategoryHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CategoryHeaderView")
         return view
     }()
     
@@ -61,6 +63,7 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
     
     func configureHierarchy() {
         collectionView.collectionViewLayout = createLayout()
+        
         cellRegistration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.cell()
             content.text = itemIdentifier
@@ -76,7 +79,6 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
             
             cell.contentConfiguration = content
         }
-        collectionView.register(UINib(nibName: "HeaderSupplementaryView", bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: "HeaderSupplementaryView")
     }
     
     private func createLayout() -> UICollectionViewLayout {
@@ -87,52 +89,61 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
                 
             case 0: return self.firstLayoutSection()
             case 1: return self.secondLayoutSection()
-            default: return self.firstLayoutSection()
+            default: return self.thirdLayoutSection()
             }
         }
-        
-//        let layout = UICollectionViewCompositionalLayout(section: section)
-//        return layout
     }
     
+    // First Layout
     private func firstLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(40), heightDimension: .estimated(20))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
+        item.edgeSpacing = .init(leading: .fixed(0), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
         item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(20))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
         let section = NSCollectionLayoutSection(group: group)
         
-//        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-//                                                     heightDimension: .estimated(44))
-//        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: headerFooterSize,
-//            elementKind: SearchSesacViewController.sectionHeaderElementKind, alignment: .top)
-//        let sectionFooter = NSCollectionLayoutBoundarySupplementaryItem(
-//            layoutSize: headerFooterSize,
-//            elementKind: SearchSesacViewController.sectionFooterElementKind, alignment: .bottom)
-//        section.boundarySupplementaryItems = [sectionHeader, sectionFooter]
-
-        let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(44))
-        let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
-        section.boundarySupplementaryItems = [headerItem]
+        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(44))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        sectionHeader.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
+        
+        section.boundarySupplementaryItems = [sectionHeader]
         
         return section
     }
     
+    // Second Layout
     private func secondLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(20), heightDimension: .estimated(20))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.edgeSpacing = .init(leading: .fixed(8), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
+        item.edgeSpacing = .init(leading: .fixed(0), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
         item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(20))
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(20))
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
         let section = NSCollectionLayoutSection(group: group)
-
-        let headerItemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(20))
-        let headerItem = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerItemSize, elementKind: "header", alignment: .top)
-        section.boundarySupplementaryItems = [headerItem]
+        
+        return section
+    }
+    
+    // Third Layout
+    private func thirdLayoutSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(20), heightDimension: .estimated(20))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.edgeSpacing = .init(leading: .fixed(0), top: .fixed(8), trailing: .fixed(8), bottom: .fixed(0))
+        item.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.9), heightDimension: .estimated(20))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        group.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
+        let section = NSCollectionLayoutSection(group: group)
+        
+        let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(44))
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
+        sectionHeader.edgeSpacing = .init(leading: .fixed(16), top: .fixed(0), trailing: .fixed(16), bottom: .fixed(0))
+        
+        section.boundarySupplementaryItems = [sectionHeader]
         
         return section
     }
@@ -162,4 +173,46 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CategoryHeaderView", for: indexPath) as? CategoryHeaderView else {
+            return CategoryHeaderView()
+        }
+        if indexPath.section == 2 {
+            header.label.text = "내가 하고 싶은"
+        }
+        return header
+    }
+    
+}
+
+class CategoryHeaderView: UICollectionReusableView {
+    
+    let label: UILabel = {
+        let view = UILabel()
+        view.font = Constants.Font.title6
+        view.text = "지금 주변에는"
+        return view
+    }()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(label)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        label.frame = bounds
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.prepare(text: nil)
+    }
+    
+    func prepare(text: String?) {
+        self.label.text = text
+      }
 }
