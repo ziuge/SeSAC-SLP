@@ -26,7 +26,7 @@ class LaunchScreenViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkNetwork()
-//        getToken()
+        getToken()
     }
     
     override func configure() {

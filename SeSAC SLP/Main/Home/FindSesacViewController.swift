@@ -17,14 +17,18 @@ class FindSesacViewController: TabmanViewController {
         super.viewDidLoad()
         self.dataSource = self
         
+        tabBarController?.tabBar.isHidden = true
+        
+        title = "새싹 찾기"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "찾기 중단", style: .plain, target: self, action: #selector(stopFinding))
+        
         // MARK: Tabbar
         let bar = TMBar.ButtonBar()
         bar.layout.transitionStyle = .snap
         bar.layout.alignment = .centerDistributed
         bar.layout.contentMode = .fit
-        bar.indicator.overscrollBehavior = .compress
         bar.layout.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        bar.indicator.tintColor = Constants.Color.green
+        bar.backgroundColor = .clear
         //버튼 글씨 커스텀
         bar.buttons.customize{ (button) in
             button.tintColor = Constants.Color.black
@@ -35,9 +39,14 @@ class FindSesacViewController: TabmanViewController {
         // indicator 커스텀
         bar.indicator.weight = .custom(value: 2)
         bar.indicator.tintColor = Constants.Color.green
+        bar.indicator.overscrollBehavior = .compress
         
         addBar(bar, dataSource: self, at: .top)
         
+    }
+    
+    @objc func stopFinding() {
+        dismiss(animated: true)
     }
 }
 

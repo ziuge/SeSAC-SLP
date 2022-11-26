@@ -10,6 +10,6 @@ import UIKit
 class AcceptSesacViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemCyan
+        
     }
 }

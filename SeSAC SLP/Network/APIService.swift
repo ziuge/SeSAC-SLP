@@ -26,7 +26,7 @@ struct User: Codable {
 }
 
 // MARK: - UserInfo
-struct UserInfo: Codable {
+struct UserInfo: Codable, Hashable {
     let id: String
     let reputation: [Int]
     let comment: [String]
