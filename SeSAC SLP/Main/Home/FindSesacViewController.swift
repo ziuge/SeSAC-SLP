@@ -11,7 +11,7 @@ import Pageboy
 
 class FindSesacViewController: TabmanViewController {
     
-    private var viewControllers = [NearSesacViewController(), AcceptSesacViewController()]
+    private var viewControllers = [FindNearSesacViewController(), AcceptSesacViewController()]
     
     override func viewDidLoad() {
         super.viewDidLoad()

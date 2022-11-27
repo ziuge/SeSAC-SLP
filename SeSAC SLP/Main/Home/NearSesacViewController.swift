@@ -44,11 +44,11 @@ extension NearSesacViewController {
         collectionView.collectionViewLayout = createLayout()
         
         cellRegistration = UICollectionView.CellRegistration<UserCollectionViewCell, UserInfo>(handler: { cell, indexPath, itemIdentifier in
-//            var content = UIListContentConfiguration.valueCell()
-//            content.text = "\(itemIdentifier.nick)"
-            var content = UIListContentConfiguration.cell()
-            content.background.image = UIImage(named: "sesac_background_\(itemIdentifier.background + 1)")
-            content.sesacImage.image = UIImage(named: "sesac_face_\(itemIdentifier.sesac + 1)")
+            var content = UIListContentConfiguration.valueCell()
+            content.text = "\(itemIdentifier.nick)"
+//            var content = UIListContentConfiguration.cell()
+//            content.background.image = UIImage(named: "sesac_background_\(itemIdentifier.background + 1)")
+//            content.sesacImage.image = UIImage(named: "sesac_face_\(itemIdentifier.sesac + 1)")
             
 //            content.textProperties.font = Constants.Font.title4!
             
