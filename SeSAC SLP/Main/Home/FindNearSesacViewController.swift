@@ -9,7 +9,7 @@ import UIKit
 
 class FindNearSesacViewController: BaseViewController {
     
-    var list = [UserDefaultsManager.userinfo]
+    var fromQueueDB: [FromQueueDB] = []
     
     let tableView: UITableView = {
         let view = UITableView()
@@ -20,7 +20,8 @@ class FindNearSesacViewController: BaseViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        print(list)
+        tableView.register(FindUserTableViewCell.classForCoder(), forCellReuseIdentifier: FindUserTableViewCell.reuseIdentifier)
+        print(fromQueueDB)
     }
     
     override func configure() {
@@ -36,20 +37,26 @@ class FindNearSesacViewController: BaseViewController {
 
 extension FindNearSesacViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return fromQueueDB.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FindUserTableViewCell.reuseIdentifier, for: indexPath) as? FindUserTableViewCell else { return UITableViewCell() }
-        cell.background.image = UIImage(named: "sesac_background_\(list[indexPath.row].background + 1)")
-        cell.sesacImage.image = UIImage(named: "sesac_face_\(list[indexPath.row].sesac + 1)")
+        cell.user = fromQueueDB[indexPath.row]
+        cell.nickButton.setTitle("\(fromQueueDB[indexPath.row].nick)", for: .normal)
+        cell.background.image = UIImage(named: "sesac_background_\(fromQueueDB[indexPath.row].background + 1)")
+        cell.sesacImage.image = UIImage(named: "sesac_face_\(fromQueueDB[indexPath.row].sesac + 1)")
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 240
+//    }
     
 }
 
 class FindUserTableViewCell: BaseTableViewCell {
-    let user: UserInfo = UserDefaultsManager.userinfo
+    var user: FromQueueDB = FromQueueDB(uid: "", nick: "", lat: 0, long: 0, reputation: [], studylist: [], reviews: [], gender: 0, type: 0, sesac: 0, background: 0)
     var background: UIImageView = {
         let view = UIImageView()
         return view
@@ -60,15 +67,19 @@ class FindUserTableViewCell: BaseTableViewCell {
     }()
     var images: UIImageView = {
         let view = UIImageView()
-        view.backgroundColor = .systemCyan
         return view
     }()
-    var stack: UIStackView = {
+    lazy var stack: UIStackView = {
         let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fill
         return view
     }()
-    var nickLabel: UILabel = {
-        let view = UILabel()
+    var nickButton: SeSACButton = {
+        let view = SeSACButton()
+        view.setColor(backgroundColor: Constants.Color.white, borderColor: Constants.Color.gray3, textColor: Constants.Color.black, for: .normal)
+        view.layer.borderWidth = 0.5
+        view.titleLabel?.textAlignment = .left
         return view
     }()
     
@@ -85,8 +96,8 @@ class FindUserTableViewCell: BaseTableViewCell {
         [background, sesacImage].forEach {
             images.addSubview($0)
         }
-        [images, nickLabel].forEach {
-            stack.addSubview($0)
+        [images, nickButton].forEach {
+            stack.addArrangedSubview($0)
         }
     }
     override func setConstraints() {
@@ -95,20 +106,21 @@ class FindUserTableViewCell: BaseTableViewCell {
             make.trailing.bottom.equalTo(contentView).offset(-16)
         }
         images.snp.makeConstraints { make in
-            
+//            make.leading.top.trailing.bottom.equalTo(stack)
+            make.height.greaterThanOrEqualTo(190)
         }
-        nickLabel.snp.makeConstraints { make in
-            
+        nickButton.snp.makeConstraints { make in
+            make.height.equalTo(48)
         }
         background.snp.makeConstraints { make in
             make.height.equalTo(190)
         }
         sesacImage.snp.makeConstraints { make in
-            make.height.width.equalTo(180)
+            make.height.width.equalTo(170)
             make.centerY.equalTo(background).offset(16)
             make.centerX.equalTo(background)
         }
-        nickLabel.text = "\(user.nick)"
+        nickButton.setTitle("  \(user.nick)", for: .normal)
         background.image = UIImage(named: "sesac_background_\(user.background + 2)")
         sesacImage.image = UIImage(named: "sesac_face_\(user.sesac + 1)")
     }

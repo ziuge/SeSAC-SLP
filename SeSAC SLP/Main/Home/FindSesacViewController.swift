@@ -11,6 +11,9 @@ import Pageboy
 
 class FindSesacViewController: TabmanViewController {
     
+    var fromQueueDB: [FromQueueDB] = []
+    var fromQueueDBRequested: [FromQueueDB] = []
+    
     private var viewControllers = [FindNearSesacViewController(), AcceptSesacViewController()]
     
     override func viewDidLoad() {
@@ -59,6 +62,15 @@ extension FindSesacViewController: PageboyViewControllerDataSource, TMBarDataSou
 
     func viewController(for pageboyViewController: PageboyViewController,
                         at index: PageboyViewController.PageIndex) -> UIViewController? {
+        if index == 0 {
+            if let vc = viewControllers[0] as? FindNearSesacViewController {
+                vc.fromQueueDB = fromQueueDB
+            }
+        } else {
+            if let vc = viewControllers[1] as? AcceptSesacViewController {
+                vc.fromQueueDBRequested = fromQueueDBRequested
+            }
+        }
         return viewControllers[index]
     }
 

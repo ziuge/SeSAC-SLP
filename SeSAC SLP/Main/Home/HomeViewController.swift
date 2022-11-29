@@ -14,6 +14,8 @@ class HomeViewController: BaseViewController {
     var locationManager = CLLocationManager()
     var studyRecommend: [String] = []
     var studyQueue: [String] = []
+    var fromQueueDB: [FromQueueDB] = []
+    var fromQueueDBRequested: [FromQueueDB] = []
     
     // MARK: UI
     let mapView: NMFMapView = {
@@ -55,6 +57,8 @@ class HomeViewController: BaseViewController {
         let vc = SearchSesacViewController()
         vc.tagList = studyRecommend
         vc.studyQueueList = studyQueue
+        vc.fromQueueDB = fromQueueDB
+        vc.fromQueueDBRequested = fromQueueDBRequested
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -90,8 +94,12 @@ class HomeViewController: BaseViewController {
                 }
                 
                 self?.studyRecommend = success.fromRecommend
-                print("success recommend", success.fromRecommend)
-                print("recommend:", self?.studyRecommend)
+//                print("success recommend", success.fromRecommend)
+//                print("recommend:", self?.studyRecommend)
+                print("fromQueueDB", success.fromQueueDB)
+                self?.fromQueueDB = success.fromQueueDB
+                print("fromQueueDBRequested", success.fromQueueDBRequested)
+                self?.fromQueueDBRequested = success.fromQueueDBRequested
             case .failure(let error):
                 print("sesac error", error)
             }

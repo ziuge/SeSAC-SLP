@@ -11,6 +11,8 @@ class SearchSesacViewController: BaseViewController {
     var tagList: [String] = []
     var studyQueueList: [String] = []
     var studyWantList: [String] = []
+    var fromQueueDB: [FromQueueDB] = []
+    var fromQueueDBRequested: [FromQueueDB] = []
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -50,6 +52,8 @@ class SearchSesacViewController: BaseViewController {
     
     @objc func pushFindSesac() {
         let vc = FindSesacViewController()
+        vc.fromQueueDB = fromQueueDB
+        vc.fromQueueDBRequested = fromQueueDBRequested
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
