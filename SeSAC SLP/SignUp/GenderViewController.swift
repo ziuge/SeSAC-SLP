@@ -86,10 +86,6 @@ class GenderViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        bind()
-        
-        print(self, SignupDetails.details)
 
         maleButton.isSelected = false
         femaleButton.isSelected = false
@@ -97,6 +93,50 @@ class GenderViewController: BaseViewController {
         button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
         maleButton.addTarget(self, action: #selector(toggleMaleButton), for: .touchUpInside)
         femaleButton.addTarget(self, action: #selector(toggleFemaleButton), for: .touchUpInside)
+    }
+    
+    override func configure() {
+        view.addSubview(stack)
+        [label, buttonStack, button].forEach {
+            stack.addArrangedSubview($0)
+        }
+        view.addSubview(validationLabel)
+        [maleButton, femaleButton].forEach {
+            buttonStack.addArrangedSubview($0)
+        }
+    }
+    override func setConstraints() {
+        let spacing = 16
+        let frameHeight = view.frame.height
+        
+        stack.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.leading.equalTo(view).offset(spacing)
+            make.trailing.equalTo(view).offset(-spacing)
+            make.bottom.equalTo(view).offset((-frameHeight / 2) + 40)
+            make.height.equalTo(view).multipliedBy(0.35)
+        }
+        
+        label.snp.makeConstraints { make in
+            
+        }
+        
+        button.snp.makeConstraints { make in
+            make.height.equalTo(48)
+        }
+        validationLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(view)
+            make.top.equalTo(button.snp.bottom).offset(4)
+        }
+        buttonStack.snp.makeConstraints { make in
+            
+        }
+        maleButton.snp.makeConstraints { make in
+            make.height.equalTo(120)
+        }
+        femaleButton.snp.makeConstraints { make in
+            make.height.equalTo(120)
+        }
     }
 
     func bind() {
@@ -146,50 +186,6 @@ class GenderViewController: BaseViewController {
         
     }
 
-    override func configure() {
-        view.addSubview(stack)
-        [label, buttonStack, button].forEach {
-            stack.addArrangedSubview($0)
-        }
-        view.addSubview(validationLabel)
-        [maleButton, femaleButton].forEach {
-            buttonStack.addArrangedSubview($0)
-        }
-    }
-    override func setConstraints() {
-        let spacing = 16
-        let frameHeight = view.frame.height
-        
-        stack.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.leading.equalTo(view).offset(spacing)
-            make.trailing.equalTo(view).offset(-spacing)
-            make.bottom.equalTo(view).offset((-frameHeight / 2) + 40)
-            make.height.equalTo(view).multipliedBy(0.35)
-        }
-        
-        label.snp.makeConstraints { make in
-            
-        }
-        
-        button.snp.makeConstraints { make in
-            make.height.equalTo(48)
-        }
-        validationLabel.snp.makeConstraints { make in
-            make.centerX.equalTo(view)
-            make.top.equalTo(button.snp.bottom).offset(4)
-        }
-        buttonStack.snp.makeConstraints { make in
-            
-        }
-        maleButton.snp.makeConstraints { make in
-            make.height.equalTo(120)
-        }
-        femaleButton.snp.makeConstraints { make in
-            make.height.equalTo(120)
-        }
-    }
-    
     @objc func toggleMaleButton() {
         if maleButton.isSelected == false {
             maleButton.isSelected = true

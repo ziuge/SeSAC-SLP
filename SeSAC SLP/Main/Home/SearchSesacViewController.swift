@@ -50,6 +50,22 @@ class SearchSesacViewController: BaseViewController {
         findSesacButton.addTarget(self, action: #selector(pushFindSesac), for: .touchUpInside)
     }
     
+    override func configure() {
+        [collectionView, findSesacButton].forEach {
+            view.addSubview($0)
+        }
+    }
+    override func setConstraints() {
+        collectionView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        findSesacButton.snp.makeConstraints { make in
+            make.height.equalTo(48)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
+        }
+    }
+    
     @objc func pushFindSesac() {
         let vc = FindSesacViewController()
         vc.fromQueueDB = fromQueueDB
@@ -71,22 +87,6 @@ class SearchSesacViewController: BaseViewController {
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
         findSesacButton.transform = CGAffineTransform(translationX: 0, y: keyboardFrame.height - 80)
-    }
-    
-    override func configure() {
-        [collectionView, findSesacButton].forEach {
-            view.addSubview($0)
-        }
-    }
-    override func setConstraints() {
-        collectionView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-        findSesacButton.snp.makeConstraints { make in
-            make.height.equalTo(48)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
-            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
-        }
     }
     
 }

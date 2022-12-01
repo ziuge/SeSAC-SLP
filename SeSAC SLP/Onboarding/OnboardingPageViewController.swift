@@ -10,6 +10,8 @@ import SnapKit
 
 class OnboardingPageViewController: BaseViewController {
     
+    let vc = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    
     // MARK: UI
     var containerView: UIView = {
         let view = UIView()
@@ -62,8 +64,6 @@ class OnboardingPageViewController: BaseViewController {
     }
     
     // MARK: PageVC
-    let vc = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-    
     func addPageVC() {
         addChild(vc)
         containerView.addSubview(vc.view)

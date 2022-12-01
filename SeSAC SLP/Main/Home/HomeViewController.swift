@@ -53,6 +53,33 @@ class HomeViewController: BaseViewController {
         gpsButton.addTarget(self, action: #selector(setGPS), for: .touchUpInside)
     }
     
+    override func configure() {
+        [mapView, centerImage, matchButton, gpsButton].forEach {
+            view.addSubview($0)
+        }
+    }
+    override func setConstraints() {
+        mapView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view)
+        }
+        centerImage.snp.makeConstraints { make in
+            make.centerX.equalTo(mapView)
+            make.centerY.equalTo(mapView).offset(-45)
+            make.width.equalTo(35)
+            make.height.equalTo(45)
+        }
+        matchButton.snp.makeConstraints { make in
+            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            make.height.width.equalTo(64)
+        }
+        gpsButton.snp.makeConstraints { make in
+            make.height.width.equalTo(48)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+        }
+    }
+    
     @objc func searchSesac() {
         let vc = SearchSesacViewController()
         vc.tagList = studyRecommend
@@ -105,34 +132,6 @@ class HomeViewController: BaseViewController {
             }
         }
     }
-    
-    override func configure() {
-        [mapView, centerImage, matchButton, gpsButton].forEach {
-            view.addSubview($0)
-        }
-    }
-    override func setConstraints() {
-        mapView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalTo(view.safeAreaLayoutGuide)
-            make.top.equalTo(view)
-        }
-        centerImage.snp.makeConstraints { make in
-            make.centerX.equalTo(mapView)
-            make.centerY.equalTo(mapView).offset(-45)
-            make.width.equalTo(35)
-            make.height.equalTo(45)
-        }
-        matchButton.snp.makeConstraints { make in
-            make.bottom.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
-            make.height.width.equalTo(64)
-        }
-        gpsButton.snp.makeConstraints { make in
-            make.height.width.equalTo(48)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
-        }
-    }
-    
 }
 
 extension HomeViewController: CLLocationManagerDelegate {

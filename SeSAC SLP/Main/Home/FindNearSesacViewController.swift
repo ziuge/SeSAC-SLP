@@ -67,6 +67,14 @@ class FindUserTableViewCell: BaseTableViewCell {
     }()
     var images: UIImageView = {
         let view = UIImageView()
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    var requestButton: SeSACButton = {
+        let view = SeSACButton()
+        view.setColor(backgroundColor: Constants.Color.error, borderColor: .clear, textColor: Constants.Color.white, for: .normal)
+        view.setTitle("요청하기", for: .normal)
+        view.titleLabel?.font = Constants.Font.title3
         return view
     }()
     lazy var stack: UIStackView = {
@@ -85,10 +93,17 @@ class FindUserTableViewCell: BaseTableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        requestButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func requestButtonClicked() {
+        print(#function)
+        let vc = RequestSesacPopUpViewController()
+        
     }
     
     override func configure() {
@@ -99,6 +114,7 @@ class FindUserTableViewCell: BaseTableViewCell {
         [images, nickButton].forEach {
             stack.addArrangedSubview($0)
         }
+        contentView.addSubview(requestButton)
     }
     override func setConstraints() {
         stack.snp.makeConstraints { make in
@@ -119,6 +135,12 @@ class FindUserTableViewCell: BaseTableViewCell {
             make.height.width.equalTo(170)
             make.centerY.equalTo(background).offset(16)
             make.centerX.equalTo(background)
+        }
+        requestButton.snp.makeConstraints { make in
+            make.height.equalTo(40)
+            make.width.equalTo(80)
+            make.trailing.equalTo(stack).offset(-12)
+            make.top.equalTo(stack).offset(12)
         }
         nickButton.setTitle("  \(user.nick)", for: .normal)
         background.image = UIImage(named: "sesac_background_\(user.background + 2)")

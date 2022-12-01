@@ -74,21 +74,6 @@ class BirthViewController: BaseViewController {
         button.addTarget(self, action: #selector(getBirth), for: .touchUpInside)
     }
     
-    @objc func getBirth() {
-        print(#function)
-        
-        let registerableBirth = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
-        // TODO: if success/fail 분기처리
-        if birthDate < registerableBirth {
-            SignupDetails.details.birth = String(describing: birthDate)
-            let vc = EmailViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else {
-            showValidationLabel()
-        }
-        
-    }
-    
     override func configure() {
         view.addSubview(stack)
         [label, textField, button].forEach {
@@ -124,6 +109,21 @@ class BirthViewController: BaseViewController {
             make.centerX.equalTo(view)
             make.top.equalTo(button.snp.bottom).offset(4)
         }
+    }
+    
+    @objc func getBirth() {
+        print(#function)
+        
+        let registerableBirth = Calendar.current.date(byAdding: .year, value: -17, to: Date())!
+        // TODO: if success/fail 분기처리
+        if birthDate < registerableBirth {
+            SignupDetails.details.birth = String(describing: birthDate)
+            let vc = EmailViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            showValidationLabel()
+        }
+        
     }
     
     // DATE PICKER

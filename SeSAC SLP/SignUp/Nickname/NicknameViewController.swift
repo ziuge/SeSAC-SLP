@@ -71,39 +71,6 @@ class NicknameViewController: BaseViewController {
         button.addTarget(self, action: #selector(makeNickname), for: .touchUpInside)
     }
     
-    func bind() {
-        let input = NicknameValidationModel.Input(nick: textField.rx.text, tap: button.rx.tap)
-        let output = viewModel.transform(input: input)
-        
-        output.text
-            .drive(validationLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        output.validation
-            .withUnretained(self)
-            .bind { (vc, value) in
-                let color: [UIColor] = value ? [Constants.Color.green, Constants.Color.white] : [Constants.Color.gray6, Constants.Color.gray3]
-                vc.button.setColor(backgroundColor: color[0], borderColor: .clear, textColor: color[1], for: .normal)
-            }
-            .disposed(by: disposeBag)
-        
-        output.tap
-            .bind { _ in
-                self.showValidationLabel()
-            }
-            .disposed(by: disposeBag)
-        
-    }
-    
-    @objc func makeNickname() {
-        print(#function)
-        
-        SignupDetails.details.nick = textField.text!
-        
-        let vc = BirthViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     override func configure() {
         view.addSubview(stack)
         [label, textField, button].forEach {
@@ -139,6 +106,39 @@ class NicknameViewController: BaseViewController {
             make.centerX.equalTo(view)
             make.top.equalTo(button.snp.bottom).offset(4)
         }
+    }
+    
+    func bind() {
+        let input = NicknameValidationModel.Input(nick: textField.rx.text, tap: button.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.text
+            .drive(validationLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.validation
+            .withUnretained(self)
+            .bind { (vc, value) in
+                let color: [UIColor] = value ? [Constants.Color.green, Constants.Color.white] : [Constants.Color.gray6, Constants.Color.gray3]
+                vc.button.setColor(backgroundColor: color[0], borderColor: .clear, textColor: color[1], for: .normal)
+            }
+            .disposed(by: disposeBag)
+        
+        output.tap
+            .bind { _ in
+                self.showValidationLabel()
+            }
+            .disposed(by: disposeBag)
+        
+    }
+    
+    @objc func makeNickname() {
+        print(#function)
+        
+        SignupDetails.details.nick = textField.text!
+        
+        let vc = BirthViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showValidationLabel() {

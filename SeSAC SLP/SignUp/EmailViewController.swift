@@ -61,38 +61,12 @@ class EmailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        bind()
-        print(self, SignupDetails.details)
+    
         if SignupDetails.details.email != "" {
             textField.text = SignupDetails.details.email
         }
         
         button.addTarget(self, action: #selector(getEmail), for: .touchUpInside)
-    }
-
-    func bind() {
-
-
-    }
-    
-    @objc func getEmail() {
-        print(#function)
-        
-        if isValidEmail(testStr: textField.text ?? "") {
-            SignupDetails.details.email = textField.text!
-            let vc = GenderViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        } else {
-            showValidationLabel()
-        }
-        
-    }
-    
-    func isValidEmail(testStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: testStr)
     }
     
     override func configure() {
@@ -130,6 +104,25 @@ class EmailViewController: BaseViewController {
             make.centerX.equalTo(view)
             make.top.equalTo(button.snp.bottom).offset(4)
         }
+    }
+    
+    @objc func getEmail() {
+        print(#function)
+        
+        if isValidEmail(testStr: textField.text ?? "") {
+            SignupDetails.details.email = textField.text!
+            let vc = GenderViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        } else {
+            showValidationLabel()
+        }
+        
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
     }
     
     func showValidationLabel() {

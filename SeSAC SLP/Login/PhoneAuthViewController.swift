@@ -69,33 +69,6 @@ class PhoneAuthViewController: BaseViewController {
         button.addTarget(self, action: #selector(getNumber), for: .touchUpInside)
     }
     
-    @objc func getNumber() {
-        print(#function)
-//        let phoneNumber = "+16995552312"
-//        let testVerificationCode = "312345"
-//        guard let text = textField.text else { return showValidationLabel() }
-//        let phoneNumber = "+82" + text.removeFirst()
-//        let phoneNumber = text.replacingCharacters(in: textRange, with: string)
-//        Auth.auth().settings!.isAppVerificationDisabledForTesting = false
-        
-//        let phoneNumber = "+16662223333"
-        let phoneNumber = textField.text!
-        PhoneAuthProvider.provider()
-            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationID, error in
-                if let error = error {
-                    print("error", error.localizedDescription)
-                    return
-                }
-                print("success")
-
-                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
-
-                let vc = PhoneVerificationViewController()
-                vc.verificationID = verificationID
-                self?.navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
     override func configure() {
         view.addSubview(stack)
         [label, textField, button].forEach {
@@ -128,6 +101,33 @@ class PhoneAuthViewController: BaseViewController {
         validationLabel.snp.makeConstraints { make in
             make.centerX.equalTo(view)
             make.top.equalTo(button.snp.bottom).offset(4)
+        }
+    }
+    
+    @objc func getNumber() {
+        print(#function)
+//        let phoneNumber = "+16995552312"
+//        let testVerificationCode = "312345"
+//        guard let text = textField.text else { return showValidationLabel() }
+//        let phoneNumber = "+82" + text.removeFirst()
+//        let phoneNumber = text.replacingCharacters(in: textRange, with: string)
+//        Auth.auth().settings!.isAppVerificationDisabledForTesting = false
+        
+//        let phoneNumber = "+16662223333"
+        let phoneNumber = textField.text!
+        PhoneAuthProvider.provider()
+            .verifyPhoneNumber(phoneNumber, uiDelegate: nil) { [weak self] verificationID, error in
+                if let error = error {
+                    print("error", error.localizedDescription)
+                    return
+                }
+                print("success")
+
+                UserDefaults.standard.set(verificationID, forKey: "authVerificationID")
+
+                let vc = PhoneVerificationViewController()
+                vc.verificationID = verificationID
+                self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
