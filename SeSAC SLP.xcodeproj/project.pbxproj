@@ -64,6 +64,7 @@
 		DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DE99A3442923F06700FAF745 /* MultiSlider */; };
 		DE99A3472926207300FAF745 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A3462926207300FAF745 /* NetworkMonitor.swift */; };
 		DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */; };
+		DE99D2252938802800A1DE61 /* FindUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D2242938802800A1DE61 /* FindUserTableViewCell.swift */; };
 		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
 		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
@@ -138,6 +139,7 @@
 		DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A3462926207300FAF745 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		DE99D2242938802800A1DE61 /* FindUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserTableViewCell.swift; sourceTree = "<group>"; };
 		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
 		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -381,6 +383,24 @@
 			path = Birthday;
 			sourceTree = "<group>";
 		};
+		DE99D22329387FA400A1DE61 /* SearchSesac */ = {
+			isa = PBXGroup;
+			children = (
+				DE5C4401292DE4C9003D7011 /* SearchSesacViewController.swift */,
+				DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */,
+			);
+			path = SearchSesac;
+			sourceTree = "<group>";
+		};
+		DE99D2262938804200A1DE61 /* FindNearSesac */ = {
+			isa = PBXGroup;
+			children = (
+				DE9207AB293237000077BA13 /* FindNearSesacViewController.swift */,
+				DE99D2242938802800A1DE61 /* FindUserTableViewCell.swift */,
+			);
+			path = FindNearSesac;
+			sourceTree = "<group>";
+		};
 		DE9B7D5D292201C300089C2D /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,13 +427,12 @@
 			isa = PBXGroup;
 			children = (
 				DE9B7D602922028E00089C2D /* HomeViewController.swift */,
-				DE5C4401292DE4C9003D7011 /* SearchSesacViewController.swift */,
-				DE92079E2930A89C0077BA13 /* SearchSesacHeaderView.swift */,
+				DE99D22329387FA400A1DE61 /* SearchSesac */,
 				DE9207A0293115600077BA13 /* FindSesacViewController.swift */,
-				DE9207AB293237000077BA13 /* FindNearSesacViewController.swift */,
+				DE99D2262938804200A1DE61 /* FindNearSesac */,
 				DE9207C82935FB9D0077BA13 /* RequestSesacPopUpViewController.swift */,
-				DE9207A529311AD00077BA13 /* NearSesacViewController.swift */,
 				DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */,
+				DE9207A529311AD00077BA13 /* NearSesacViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -612,6 +631,7 @@
 				DE9FAE51291AAFA000C1F807 /* Toast+UIViewController.swift in Sources */,
 				DE9207A629311AD00077BA13 /* NearSesacViewController.swift in Sources */,
 				DE3A8674291D5C4400DE83C9 /* BirthViewController.swift in Sources */,
+				DE99D2252938802800A1DE61 /* FindUserTableViewCell.swift in Sources */,
 				DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */,
 				DE08092129190360004A1445 /* ThirdViewController.swift in Sources */,
 				DE3A8665291CDA2800DE83C9 /* APIService.swift in Sources */,
