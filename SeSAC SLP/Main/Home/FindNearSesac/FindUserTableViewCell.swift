@@ -103,6 +103,7 @@ class FindUserTableViewCell: BaseTableViewCell {
         let vc = RequestSesacPopUpViewController()
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .fullScreen
+        vc.otheruid = user.uid
 //        parent?.navigationController?.pushViewController(vc, animated: true)
         parent?.present(vc, animated: true)
     }

@@ -9,6 +9,8 @@ import UIKit
 
 class RequestSesacPopUpViewController: BaseViewController {
     
+    var otheruid: String = ""
+    
     let popupView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 16
@@ -56,6 +58,9 @@ class RequestSesacPopUpViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.Color.gray4.withAlphaComponent(0.3)
+        
+        cancelButton.addTarget(self, action: #selector(cancelButtonClicked), for: .touchUpInside)
+        okButton.addTarget(self, action: #selector(okButtonClicked), for: .touchUpInside)
     }
     
     override func configure() {
@@ -93,4 +98,26 @@ class RequestSesacPopUpViewController: BaseViewController {
             make.height.equalTo(48)
         }
     }
+    
+    @objc func cancelButtonClicked() {
+        self.dismiss(animated: true)
+    }
+    
+    @objc func okButtonClicked() {
+        print("okbuttonclicekd")
+        print(otheruid)
+        
+        let api = SeSACAPI.studyrequest(otheruid: otheruid)
+        Network.shared.requestSeSAC(type: Main.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { response in
+            switch response {
+            case .success(let success):
+                print("requestSuccess")
+                
+            case .failure(let failure):
+                print("request fail", failure)
+            }
+        }
+    }
+    
+    
 }

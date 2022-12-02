@@ -61,7 +61,7 @@ class LaunchScreenViewController: BaseViewController {
             Network.shared.requestSeSAC(type: UserInfo.self, url: api.url, method: .get, parameters: api.parameters, headers: api.headers) { response in
                 switch response {
                 case .success(let userinfo):
-                    print("==== login success")
+                    print("==== login success", UserDefaults.standard.string(forKey: "idToken"))
                     print(userinfo)
 
                     let info = UserInfo(id: userinfo.id, reputation: userinfo.reputation, comment: userinfo.comment, sesacCollection: userinfo.sesacCollection, backgroundCollection: userinfo.backgroundCollection, purchaseToken: userinfo.purchaseToken, transactionID: userinfo.transactionID, reviewedBefore: userinfo.reviewedBefore, reportedUser: userinfo.reportedUser, uid: userinfo.uid, phoneNumber: userinfo.phoneNumber, fcMtoken: userinfo.fcMtoken, nick: userinfo.nick, birth: userinfo.birth, email: userinfo.email, gender: userinfo.gender, sesac: userinfo.sesac, study: userinfo.study, dodgepenalty: userinfo.dodgepenalty, background: userinfo.background, ageMin: userinfo.ageMin, ageMax: userinfo.ageMax, dodgeNum: userinfo.dodgeNum, searchable: userinfo.searchable, reportedNum: userinfo.reportedNum, createdAt: userinfo.createdAt, v: userinfo.v)
