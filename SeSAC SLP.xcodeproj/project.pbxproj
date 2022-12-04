@@ -65,6 +65,9 @@
 		DE99A3472926207300FAF745 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A3462926207300FAF745 /* NetworkMonitor.swift */; };
 		DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */; };
 		DE99D2252938802800A1DE61 /* FindUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D2242938802800A1DE61 /* FindUserTableViewCell.swift */; };
+		DE99D229293B791700A1DE61 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D228293B791700A1DE61 /* ChatViewController.swift */; };
+		DE99D22D293C88EE00A1DE61 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D22C293C88EE00A1DE61 /* Chat.swift */; };
+		DE99D22F293C8E3600A1DE61 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D22E293C8E3600A1DE61 /* MyChatTableViewCell.swift */; };
 		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
 		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
@@ -140,6 +143,9 @@
 		DE99A3462926207300FAF745 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		DE99A348292620C400FAF745 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		DE99D2242938802800A1DE61 /* FindUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUserTableViewCell.swift; sourceTree = "<group>"; };
+		DE99D228293B791700A1DE61 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		DE99D22C293C88EE00A1DE61 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		DE99D22E293C8E3600A1DE61 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
 		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
 		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -401,6 +407,16 @@
 			path = FindNearSesac;
 			sourceTree = "<group>";
 		};
+		DE99D227293B790700A1DE61 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				DE99D228293B791700A1DE61 /* ChatViewController.swift */,
+				DE99D22E293C8E3600A1DE61 /* MyChatTableViewCell.swift */,
+				DE99D22C293C88EE00A1DE61 /* Chat.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		DE9B7D5D292201C300089C2D /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +449,7 @@
 				DE9207C82935FB9D0077BA13 /* RequestSesacPopUpViewController.swift */,
 				DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */,
 				DE9207A529311AD00077BA13 /* NearSesacViewController.swift */,
+				DE99D227293B790700A1DE61 /* Chat */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -601,6 +618,7 @@
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,
 				DE9B7D5F292201FC00089C2D /* MainViewController.swift in Sources */,
+				DE99D22F293C8E3600A1DE61 /* MyChatTableViewCell.swift in Sources */,
 				DE9B7D5C2921F46400089C2D /* SignupData.swift in Sources */,
 				DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */,
 				DE9B7D58291FF32C00089C2D /* AlignText+UIButton.swift in Sources */,
@@ -616,6 +634,7 @@
 				DE0809072918EE0A004A1445 /* BaseView.swift in Sources */,
 				DE0808F12918D63D004A1445 /* Constants.swift in Sources */,
 				DE9B7D6A2922998300089C2D /* FriendViewController.swift in Sources */,
+				DE99D22D293C88EE00A1DE61 /* Chat.swift in Sources */,
 				DE92079F2930A89C0077BA13 /* SearchSesacHeaderView.swift in Sources */,
 				DE9207AC293237000077BA13 /* FindNearSesacViewController.swift in Sources */,
 				DE3A866C291CDB3300DE83C9 /* Endpoint.swift in Sources */,
@@ -640,6 +659,7 @@
 				DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */,
 				DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */,
 				DE5C4402292DE4C9003D7011 /* SearchSesacViewController.swift in Sources */,
+				DE99D229293B791700A1DE61 /* ChatViewController.swift in Sources */,
 				DE9B7D682922997400089C2D /* ShopViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

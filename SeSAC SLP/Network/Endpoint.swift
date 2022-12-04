@@ -48,14 +48,19 @@ extension SeSACAPI {
             ]
         case .state:
             return [
-                
+                "idtoken": APIKey.authorization
             ]
         case .main:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
             ]
-        case .studyrequest(otheruid: let otheruid):
+        case .find:
+            return [
+                "Content-Type": "application/x-www-form-urlencoded",
+                "idtoken": APIKey.authorization
+            ]
+        case .studyrequest:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
@@ -79,6 +84,12 @@ extension SeSACAPI {
                 "lat": "\(lat)",
                 "long": "\(long)"
             ]
+//        case .find(let lat, let long, let studylist):
+//            return [
+//                "lat": "\(lat)",
+//                "long": "\(long)",
+//                "studylist": studylist
+//            ]
         case .studyrequest(let otheruid):
             return [
                 "otheruid": otheruid
