@@ -1,5 +1,5 @@
 //
-//  MyChatTableViewCell.swift
+//  YourChatTableViewCell.swift
 //  SeSAC SLP
 //
 //  Created by CHOI on 2022/12/04.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyChatTableViewCell: BaseTableViewCell {
+class YourChatTableViewCell: BaseTableViewCell {
     
     var chatLabel: UILabel
     
@@ -30,3 +30,4 @@ class MyChatTableViewCell: BaseTableViewCell {
     }
     
 }
+

@@ -68,6 +68,7 @@
 		DE99D229293B791700A1DE61 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D228293B791700A1DE61 /* ChatViewController.swift */; };
 		DE99D22D293C88EE00A1DE61 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D22C293C88EE00A1DE61 /* Chat.swift */; };
 		DE99D22F293C8E3600A1DE61 /* MyChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D22E293C8E3600A1DE61 /* MyChatTableViewCell.swift */; };
+		DE99D231293CED1500A1DE61 /* YourChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99D230293CED1500A1DE61 /* YourChatTableViewCell.swift */; };
 		DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */; };
 		DE9B7D54291E358800089C2D /* EmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D53291E358800089C2D /* EmailViewController.swift */; };
 		DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9B7D55291E3A4800089C2D /* GenderViewController.swift */; };
@@ -146,6 +147,7 @@
 		DE99D228293B791700A1DE61 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		DE99D22C293C88EE00A1DE61 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		DE99D22E293C8E3600A1DE61 /* MyChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTableViewCell.swift; sourceTree = "<group>"; };
+		DE99D230293CED1500A1DE61 /* YourChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourChatTableViewCell.swift; sourceTree = "<group>"; };
 		DE9B7D51291E2D6100089C2D /* BirthValidationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthValidationModel.swift; sourceTree = "<group>"; };
 		DE9B7D53291E358800089C2D /* EmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewController.swift; sourceTree = "<group>"; };
 		DE9B7D55291E3A4800089C2D /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			children = (
 				DE99D228293B791700A1DE61 /* ChatViewController.swift */,
 				DE99D22E293C8E3600A1DE61 /* MyChatTableViewCell.swift */,
+				DE99D230293CED1500A1DE61 /* YourChatTableViewCell.swift */,
 				DE99D22C293C88EE00A1DE61 /* Chat.swift */,
 			);
 			path = Chat;
@@ -657,6 +660,7 @@
 				DE0809052918EDF5004A1445 /* BaseViewController.swift in Sources */,
 				DE5C43FC292D1415003D7011 /* UserDefaultsManager.swift in Sources */,
 				DE9B7D56291E3A4800089C2D /* GenderViewController.swift in Sources */,
+				DE99D231293CED1500A1DE61 /* YourChatTableViewCell.swift in Sources */,
 				DE99A349292620C400FAF745 /* LaunchScreenViewController.swift in Sources */,
 				DE5C4402292DE4C9003D7011 /* SearchSesacViewController.swift in Sources */,
 				DE99D229293B791700A1DE61 /* ChatViewController.swift in Sources */,
