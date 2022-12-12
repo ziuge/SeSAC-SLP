@@ -58,7 +58,6 @@ class PhoneVerificationViewController: BaseViewController {
             stack.addArrangedSubview($0)
         }
     }
-    
     override func setConstraints() {
         let spacing = 16
         let frameHeight = view.frame.height

@@ -59,6 +59,7 @@
 		DE9207A829311AFA0077BA13 /* AcceptSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */; };
 		DE9207AC293237000077BA13 /* FindNearSesacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207AB293237000077BA13 /* FindNearSesacViewController.swift */; };
 		DE9207C92935FB9D0077BA13 /* RequestSesacPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9207C82935FB9D0077BA13 /* RequestSesacPopUpViewController.swift */; };
+		DE96D96F2947018E008BFD78 /* AcceptSesacTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE96D96E2947018E008BFD78 /* AcceptSesacTableViewCell.swift */; };
 		DE99A33D2923BDA600FAF745 /* MypageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */; };
 		DE99A33F2923BDDC00FAF745 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */; };
 		DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = DE99A3442923F06700FAF745 /* MultiSlider */; };
@@ -139,6 +140,7 @@
 		DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptSesacViewController.swift; sourceTree = "<group>"; };
 		DE9207AB293237000077BA13 /* FindNearSesacViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindNearSesacViewController.swift; sourceTree = "<group>"; };
 		DE9207C82935FB9D0077BA13 /* RequestSesacPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestSesacPopUpViewController.swift; sourceTree = "<group>"; };
+		DE96D96E2947018E008BFD78 /* AcceptSesacTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptSesacTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A33C2923BDA600FAF745 /* MypageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A33E2923BDDC00FAF745 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		DE99A3462926207300FAF745 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
@@ -373,6 +375,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		DE96D96D29470174008BFD78 /* Accept */ = {
+			isa = PBXGroup;
+			children = (
+				DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */,
+				DE96D96E2947018E008BFD78 /* AcceptSesacTableViewCell.swift */,
+			);
+			path = Accept;
+			sourceTree = "<group>";
+		};
 		DE99D22129387C7D00A1DE61 /* Nickname */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,13 +411,14 @@
 			path = SearchSesac;
 			sourceTree = "<group>";
 		};
-		DE99D2262938804200A1DE61 /* FindNearSesac */ = {
+		DE99D2262938804200A1DE61 /* Near */ = {
 			isa = PBXGroup;
 			children = (
 				DE9207AB293237000077BA13 /* FindNearSesacViewController.swift */,
 				DE99D2242938802800A1DE61 /* FindUserTableViewCell.swift */,
+				DE9207C82935FB9D0077BA13 /* RequestSesacPopUpViewController.swift */,
 			);
-			path = FindNearSesac;
+			path = Near;
 			sourceTree = "<group>";
 		};
 		DE99D227293B790700A1DE61 /* Chat */ = {
@@ -448,9 +460,8 @@
 				DE9B7D602922028E00089C2D /* HomeViewController.swift */,
 				DE99D22329387FA400A1DE61 /* SearchSesac */,
 				DE9207A0293115600077BA13 /* FindSesacViewController.swift */,
-				DE99D2262938804200A1DE61 /* FindNearSesac */,
-				DE9207C82935FB9D0077BA13 /* RequestSesacPopUpViewController.swift */,
-				DE9207A729311AFA0077BA13 /* AcceptSesacViewController.swift */,
+				DE99D2262938804200A1DE61 /* Near */,
+				DE96D96D29470174008BFD78 /* Accept */,
 				DE9207A529311AD00077BA13 /* NearSesacViewController.swift */,
 				DE99D227293B790700A1DE61 /* Chat */,
 			);
@@ -617,6 +628,7 @@
 				DE0809022918EDC6004A1445 /* OnboardingPageViewController.swift in Sources */,
 				DE9207C92935FB9D0077BA13 /* RequestSesacPopUpViewController.swift in Sources */,
 				DE908E8E291931AA00B54FAD /* PhoneAuthViewController.swift in Sources */,
+				DE96D96F2947018E008BFD78 /* AcceptSesacTableViewCell.swift in Sources */,
 				DE9B7D612922028E00089C2D /* HomeViewController.swift in Sources */,
 				DE0808DA2918D5DE004A1445 /* AppDelegate.swift in Sources */,
 				DE0808DC2918D5DE004A1445 /* SceneDelegate.swift in Sources */,

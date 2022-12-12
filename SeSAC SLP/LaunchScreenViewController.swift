@@ -51,7 +51,7 @@ class LaunchScreenViewController: BaseViewController {
     
     func checkNetwork() {
         if NetworkMonitor.shared.isConnected {
-            print("connected")
+            print("NetworkMonitor connected")
             
 //            if UserDefaults.standard.string(forKey: "idToken") == nil {
 //                getToken()
@@ -101,6 +101,7 @@ class LaunchScreenViewController: BaseViewController {
     }
     
     func getToken() {
+        print(#function)
         let currentUser = Auth.auth().currentUser
         currentUser?.getIDTokenForcingRefresh(true) { idToken, error in
             if let error = error {

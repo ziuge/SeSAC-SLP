@@ -9,7 +9,10 @@ import UIKit
 
 class YourChatTableViewCell: BaseTableViewCell {
     
-    var chatLabel: UILabel
+    var chatLabel: UILabel = {
+        let view = UILabel()
+        return view
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

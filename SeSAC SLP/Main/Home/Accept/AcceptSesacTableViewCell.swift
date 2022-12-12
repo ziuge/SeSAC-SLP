@@ -1,59 +1,11 @@
 //
-//  AcceptSesacViewController.swift
+//  AcceptSesacTableViewCell.swift
 //  SeSAC SLP
 //
-//  Created by CHOI on 2022/11/26.
+//  Created by CHOI on 2022/12/12.
 //
 
 import UIKit
-
-class AcceptSesacViewController: BaseViewController {
-    
-    var fromQueueDBRequested: [FromQueueDB] = []
-    
-    let tableView: UITableView = {
-        let view = UITableView()
-        return view
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(AcceptSesacTableViewCell.classForCoder(), forCellReuseIdentifier: AcceptSesacTableViewCell.reuseIdentifier)
-        print(fromQueueDBRequested)
-    }
-    
-    override func configure() {
-        view.addSubview(tableView)
-    }
-    override func setConstraints() {
-        tableView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
-        }
-    }
-    
-}
-
-extension AcceptSesacViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fromQueueDBRequested.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AcceptSesacTableViewCell.reuseIdentifier, for: indexPath) as? AcceptSesacTableViewCell else { return UITableViewCell() }
-        cell.user = fromQueueDBRequested[indexPath.row]
-        cell.nickButton.setTitle("\(fromQueueDBRequested[indexPath.row].nick)", for: .normal)
-        cell.background.image = UIImage(named: "sesac_background_\(fromQueueDBRequested[indexPath.row].background + 1)")
-        cell.sesacImage.image = UIImage(named: "sesac_face_\(fromQueueDBRequested[indexPath.row].sesac + 1)")
-        return cell
-    }
-    
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 240
-//    }
-    
-}
 
 class AcceptSesacTableViewCell: BaseTableViewCell {
     var user: FromQueueDB = FromQueueDB(uid: "", nick: "", lat: 0, long: 0, reputation: [], studylist: [], reviews: [], gender: 0, type: 0, sesac: 0, background: 0)
@@ -125,4 +77,5 @@ class AcceptSesacTableViewCell: BaseTableViewCell {
         sesacImage.image = UIImage(named: "sesac_face_\(user.sesac + 1)")
     }
 }
+
 
