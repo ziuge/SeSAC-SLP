@@ -74,17 +74,18 @@ class FindUserTableViewCell: BaseTableViewCell {
         }
         images.snp.makeConstraints { make in
 //            make.leading.top.trailing.bottom.equalTo(stack)
-            make.height.greaterThanOrEqualTo(190)
+            make.height.greaterThanOrEqualTo(200)
         }
         nickButton.snp.makeConstraints { make in
             make.height.equalTo(48)
         }
         background.snp.makeConstraints { make in
-            make.height.equalTo(190)
+//            make.height.equalTo(190)
+            make.width.equalTo(images)
         }
         sesacImage.snp.makeConstraints { make in
             make.height.width.equalTo(170)
-            make.centerY.equalTo(background).offset(16)
+            make.centerY.equalTo(background).offset(20)
             make.centerX.equalTo(background)
         }
         requestButton.snp.makeConstraints { make in

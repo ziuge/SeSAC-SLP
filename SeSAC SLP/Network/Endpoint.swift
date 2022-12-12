@@ -14,7 +14,7 @@ enum SeSACAPI {
     case state // 새싹 상태
     case main(lat: Double, long: Double) // 새싹 홈화면
     case find(lat: Double, long: Double, studylist: Array<String>) // 새싹 찾기 요청
-    case studyrequest(otheruid: String)
+    case studyrequest(otheruid: String) // 새싹 매칭 요청
 }
 
 extension SeSACAPI {
@@ -37,32 +37,13 @@ extension SeSACAPI {
     
     var headers: HTTPHeaders {
         switch self {
-        case .signup:
+        case .signup, .main, .find, .studyrequest:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
             ]
-        case .login:
+        case .login, .state:
             return [
-                "idtoken": APIKey.authorization
-            ]
-        case .state:
-            return [
-                "idtoken": APIKey.authorization
-            ]
-        case .main:
-            return [
-                "Content-Type": "application/x-www-form-urlencoded",
-                "idtoken": APIKey.authorization
-            ]
-        case .find:
-            return [
-                "Content-Type": "application/x-www-form-urlencoded",
-                "idtoken": APIKey.authorization
-            ]
-        case .studyrequest:
-            return [
-                "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
             ]
         }

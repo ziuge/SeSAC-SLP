@@ -55,3 +55,12 @@ extension FindNearSesacViewController: UITableViewDelegate, UITableViewDataSourc
 //    }
     
 }
+
+extension FindNearSesacViewController {
+    
+    func setEmptyView() {
+        
+    }
+    
+}
+
