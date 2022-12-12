@@ -37,6 +37,12 @@ class FindNearSesacViewController: BaseViewController {
 
 extension FindNearSesacViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if fromQueueDB.count == 0 {
+            tableView.setEmptyMessage("아쉽게도 주변에 새싹이 없어요ㅠ", submessage: "스터디를 변경하거나 조금만 더 기다려 주세요!")
+        } else {
+            tableView.restore()
+        }
+        
         return fromQueueDB.count
     }
     
@@ -53,14 +59,6 @@ extension FindNearSesacViewController: UITableViewDelegate, UITableViewDataSourc
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 240
 //    }
-    
-}
-
-extension FindNearSesacViewController {
-    
-    func setEmptyView() {
-        
-    }
     
 }
 

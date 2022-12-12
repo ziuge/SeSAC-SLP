@@ -37,6 +37,12 @@ class AcceptSesacViewController: BaseViewController {
 
 extension AcceptSesacViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if fromQueueDBRequested.count == 0 {
+            tableView.setEmptyMessage("아직 받은 요청이 없어요ㅠ", submessage: "스터디를 변경하거나 조금만 더 기다려 주세요!")
+        } else {
+            tableView.restore()
+        }
+        
         return fromQueueDBRequested.count
     }
     
