@@ -15,6 +15,7 @@ enum SeSACAPI {
     case main(lat: Double, long: Double) // 새싹 홈화면
     case find(lat: Double, long: Double, studylist: Array<String>) // 새싹 찾기 요청
     case studyrequest(otheruid: String) // 새싹 매칭 요청
+    case studyaccept(otheruid: String) // 새싹 매칭 수락
 }
 
 extension SeSACAPI {
@@ -32,6 +33,8 @@ extension SeSACAPI {
             return URL(string: "http://api.sesac.co.kr:1210/v1/queue/")!
         case .studyrequest:
             return URL(string: "http://api.sesac.co.kr:1210/v1/queue/studyrequest")!
+        case .studyaccept:
+            return URL(string: APIKey.baseURL + "/v1/queue/studyaccept")!
         }
     }
     
@@ -42,7 +45,7 @@ extension SeSACAPI {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
             ]
-        case .login, .state:
+        case .login, .state, .studyaccept:
             return [
                 "idtoken": APIKey.authorization
             ]
@@ -71,7 +74,7 @@ extension SeSACAPI {
 //                "long": "\(long)",
 //                "studylist": studylist
 //            ]
-        case .studyrequest(let otheruid):
+        case .studyrequest(let otheruid), .studyaccept(let otheruid):
             return [
                 "otheruid": otheruid
             ]
