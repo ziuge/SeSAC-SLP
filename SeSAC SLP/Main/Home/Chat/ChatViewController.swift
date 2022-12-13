@@ -10,8 +10,21 @@ import UIKit
 class ChatViewController: BaseViewController {
     
     var chat: [Chat] = []
+    var otherNick: String = "000"
     
     // MARK: UI
+    var stack: UIStackView = {
+        let view = UIStackView()
+        return view
+    }()
+    var matchLabel: UILabel = {
+        let view = UILabel()
+        return view
+    }()
+    var bodyLabel: UILabel = {
+        let view = UILabel()
+        return view
+    }()
     var tableView: UITableView = {
         let view = UITableView()
         return view
@@ -25,6 +38,27 @@ class ChatViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemMint
+        
+        title = otherNick
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(showMore))
+        
+    }
+    
+    @objc func showMore() {
+        print(#function)
+        
+    }
+    
+    override func configure() {
+        [stack, tableView, contentTextView].forEach {
+            view.addSubview($0)
+        }
+        [matchLabel, bodyLabel].forEach {
+            stack.addArrangedSubview($0)
+        }
+    }
+    override func setConstraints() {
+        
     }
     
 }
