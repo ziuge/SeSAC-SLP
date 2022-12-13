@@ -40,6 +40,10 @@ class SearchSesacViewController: BaseViewController {
     var cellRegistration: UICollectionView.CellRegistration<UICollectionViewCell, String>!
     var dataSource: UICollectionViewDiffableDataSource<Int, String>!
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = true
+    }
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +77,12 @@ class SearchSesacViewController: BaseViewController {
         }
     }
     
+    // 새싹 찾기 버튼
     @objc func pushFindSesac() {
         let vc = FindSesacViewController()
         vc.fromQueueDB = fromQueueDB
         vc.fromQueueDBRequested = fromQueueDBRequested
+        
         print("lat", lat, "long", long, "studylist", studyWantList)
         if studyWantList.count == 0 {
             studyWantList.append("anything")
@@ -107,15 +113,14 @@ class SearchSesacViewController: BaseViewController {
         let userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        findSesacButton.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 80))
+        findSesacButton.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 100))
     }
-    
     @objc func keyboardWillHide(notification:NSNotification){
         print(#function)
         let userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        findSesacButton.transform = CGAffineTransform(translationX: 0, y: keyboardFrame.height - 80)
+        findSesacButton.transform = CGAffineTransform(translationX: 0, y: keyboardFrame.height - 100)
     }
     
 }

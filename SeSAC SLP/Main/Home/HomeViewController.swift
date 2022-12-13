@@ -39,6 +39,7 @@ class HomeViewController: BaseViewController {
         return view
     }()
     
+    // viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         fetchMyState()
         tabBarController?.tabBar.isHidden = false
@@ -130,8 +131,7 @@ class HomeViewController: BaseViewController {
                 }
                 
                 self?.studyQueue = Array(Set(studyListQueue))
-                print("studyQueue", self?.studyQueue)
-                
+                print("studyQueue", self?.studyQueue ?? "studyQueue")
                 self?.studyRecommend = success.fromRecommend
                 print("fromQueueDB", success.fromQueueDB)
                 self?.fromQueueDB = success.fromQueueDB
@@ -143,6 +143,7 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    // 매칭 상태 확인
     func fetchMyState() {
         print(#function)
         let api = SeSACAPI.state
@@ -161,13 +162,14 @@ class HomeViewController: BaseViewController {
                     // 5초마다 상태 확인
                 }
             case .failure(let failure):
-                print("failure", failure)
+                print("일반 상태임")
                 // 일반 상태
                 self?.matchButton.setImage(UIImage(named: "Property 1=default"), for: .normal)
             }
         }
     }
     
+
 }
 
 extension HomeViewController: CLLocationManagerDelegate {
@@ -224,7 +226,7 @@ extension HomeViewController: CLLocationManagerDelegate {
 extension HomeViewController: NMFMapViewCameraDelegate {
     func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
         print("카메라 변경됨: reason: \(reason)")
-        let cameraPosition = mapView.cameraPosition
+//        let cameraPosition = mapView.cameraPosition
     }
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
@@ -234,5 +236,3 @@ extension HomeViewController: NMFMapViewCameraDelegate {
         fetchSesac(lat: cameraPosition.target.lat, long: cameraPosition.target.lng)
     }
 }
-
-

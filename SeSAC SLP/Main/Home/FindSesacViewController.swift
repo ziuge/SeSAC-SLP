@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Alamofire
 import Tabman
 import Pageboy
 
@@ -47,9 +48,30 @@ class FindSesacViewController: TabmanViewController {
         addBar(bar, dataSource: self, at: .top)
         
     }
-    
+
+    // 새싹 찾기 중단
     @objc func stopFinding() {
-        dismiss(animated: true)
+        print(#function)
+        self.dismiss(animated: true)
+        let api = SeSACAPI.stop
+        AF.request(api.url, method: .delete, headers: api.headers).responseString { [weak self] response in
+            switch response.result {
+            case .success(_):
+                guard let statuscode = response.response?.statusCode else { return }
+                
+                print("success", statuscode)
+//                let vc = self?.navigationController?.viewControllers.first(where: { $0 is MainViewController })
+                self?.navigationController?.popToRootViewController(animated: true)
+//                self?.navigationController?.popViewController(animated: true)
+                
+            case .failure(_):
+                guard let statuscode = response.response?.statusCode else { return }
+                
+                print("fail", statuscode)
+                self?.dismiss(animated: true)
+                self?.showToast(message: "찾기 중단 실패")
+            }
+        }
     }
 }
 

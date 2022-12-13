@@ -123,6 +123,8 @@ class AcceptSesacPopUpViewController: BaseViewController {
                 switch statuscode {
                 case 200:
                     self?.showToast(message: "스터디 수락 성공")
+                    let vc = ChatViewController()
+                    self?.navigationController?.pushViewController(vc, animated: true)
                 case 201:
                     self?.showToast(message: "상대방이 이미 다른 새싹과 스터디를 함께 하는 중입니다")
                 case 202:

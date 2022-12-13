@@ -212,7 +212,7 @@ class AgeRangeTableViewCell: BaseTableViewCell {
         view.snapStepSize = 1.0
         view.orientation = .horizontal
         view.tintColor = Constants.Color.green
-        view.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
+        view.addTarget(AgeRangeTableViewCell.self, action: #selector(sliderChanged), for: .valueChanged)
 //        view.outerTrackColor = .lightGray
         return view
     }()
