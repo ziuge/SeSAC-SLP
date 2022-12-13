@@ -78,7 +78,9 @@ class SearchSesacViewController: BaseViewController {
         vc.fromQueueDB = fromQueueDB
         vc.fromQueueDBRequested = fromQueueDBRequested
         print("lat", lat, "long", long, "studylist", studyWantList)
-        
+        if studyWantList.count == 0 {
+            studyWantList.append("anything")
+        }
         let api = SeSACAPI.find(lat: lat, long: long, studylist: studyWantList)
         let parameters = [
             "lat": lat,
