@@ -39,10 +39,14 @@ class HomeViewController: BaseViewController {
         return view
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchMyState()
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.isHidden = false
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -80,17 +84,20 @@ class HomeViewController: BaseViewController {
         }
     }
     
+    // 새싹 찾기 화면으로 push
     @objc func searchSesac() {
         let vc = SearchSesacViewController()
         vc.tagList = studyRecommend
         vc.studyQueueList = studyQueue
         vc.fromQueueDB = fromQueueDB
         vc.fromQueueDBRequested = fromQueueDBRequested
+        vc.lat = 37.51746853693317
+        vc.long = 126.88408527068208
         navigationController?.pushViewController(vc, animated: true)
     }
     
+    // 현 위치로 카메라 이동
     @objc func setGPS() {
-        //현 위치로 카메라 이동
         let location = self.locationManager.location?.coordinate
         let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: location?.latitude ?? 0, lng: location?.longitude ?? 0))
         cameraUpdate.animation = .easeIn
@@ -102,27 +109,30 @@ class HomeViewController: BaseViewController {
 //        self.mapView.moveCamera(cameraUpdate)
     }
     
+    // 새싹 찾기
     func fetchSesac(lat: Double, long: Double) {
         let api = SeSACAPI.main(lat: lat, long: long)
         Network.shared.requestSeSAC(type: Main.self, url: api.url, method: .post, parameters: api.parameters, headers: api.headers) { [weak self] response in
             switch response {
             case .success(let success):
                 print("sesac success")
+                var studyListQueue: [String] = []
                 
                 for user in success.fromQueueDB {
-                    print(user)
+//                    print(user)
                     let marker = NMFMarker()
                     marker.position = NMGLatLng(lat: user.lat, lng: user.long)
                     marker.iconImage = NMFOverlayImage(image: UIImage(named: "sesac_face_\(user.sesac + 1)")!)
                     marker.width = 83
                     marker.height = 83
                     marker.mapView = self?.mapView
-                    self?.studyQueue.append(contentsOf: user.studylist)
+                    studyListQueue.append(contentsOf: user.studylist)
                 }
                 
+                self?.studyQueue = Array(Set(studyListQueue))
+                print("studyQueue", self?.studyQueue)
+                
                 self?.studyRecommend = success.fromRecommend
-//                print("success recommend", success.fromRecommend)
-//                print("recommend:", self?.studyRecommend)
                 print("fromQueueDB", success.fromQueueDB)
                 self?.fromQueueDB = success.fromQueueDB
                 print("fromQueueDBRequested", success.fromQueueDBRequested)
@@ -132,6 +142,32 @@ class HomeViewController: BaseViewController {
             }
         }
     }
+    
+    func fetchMyState() {
+        print(#function)
+        let api = SeSACAPI.state
+        Network.shared.requestSeSAC(type: MyQueueState.self, url: api.url, method: .get, parameters: api.parameters, headers: api.headers) { [weak self] response in
+            switch response {
+            case .success(let success):
+                print("success", success.matched)
+                if success.matched == 0 {
+                    // 매칭대기중 상태 버튼 만들기
+                    self?.matchButton.setImage(UIImage(named: "Property 1=matching"), for: .normal)
+                } else if success.matched == 1{
+                    // 매칭 상태 버튼 만들기
+                    self?.matchButton.setImage(UIImage(named: "Property 1=matched"), for: .normal)
+                    // 토스트 메시지
+                    self?.showToast(message: "000님과 매칭되셨습니다. 잠시 후 채팅방으로 이동합니다.")
+                    // 5초마다 상태 확인
+                }
+            case .failure(let failure):
+                print("failure", failure)
+                // 일반 상태
+                self?.matchButton.setImage(UIImage(named: "Property 1=default"), for: .normal)
+            }
+        }
+    }
+    
 }
 
 extension HomeViewController: CLLocationManagerDelegate {
@@ -151,7 +187,7 @@ extension HomeViewController: CLLocationManagerDelegate {
                 
                 
                 // 시뮬 빌드를 위한 위치 변경 (새싹)
-                let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.48511640269022, lng: 126.92947109241517))
+                let cameraUpdate = NMFCameraUpdate(scrollTo: NMGLatLng(lat: 37.51746853693317, lng: 126.88408527068208))
                 cameraUpdate.animation = .easeIn
                 self.mapView.moveCamera(cameraUpdate)
 
@@ -184,18 +220,17 @@ extension HomeViewController: CLLocationManagerDelegate {
     }
 }
 
+// MARK: NMFMapViewCamera
 extension HomeViewController: NMFMapViewCameraDelegate {
     func mapView(_ mapView: NMFMapView, cameraIsChangingByReason reason: Int) {
         print("카메라 변경됨: reason: \(reason)")
         let cameraPosition = mapView.cameraPosition
-        
-        print("위도:", cameraPosition.target.lat)
-        print("경도:", cameraPosition.target.lng)
-//        fetchSesac(lat: cameraPosition.target.lat, long: cameraPosition.target.lng)
     }
     
     func mapViewCameraIdle(_ mapView: NMFMapView) {
         let cameraPosition = mapView.cameraPosition
+        print("위도:", cameraPosition.target.lat)
+        print("경도:", cameraPosition.target.lng)
         fetchSesac(lat: cameraPosition.target.lat, long: cameraPosition.target.lng)
     }
 }

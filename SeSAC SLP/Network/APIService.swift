@@ -68,6 +68,11 @@ struct FromQueueDB: Codable {
 }
 
 
+// MARK: - MyQueueState
+struct MyQueueState: Codable {
+    let dodged, matched, reviewed: Int
+}
+
 // MARK: - Error
 
 enum SeSACError: Int, Error {

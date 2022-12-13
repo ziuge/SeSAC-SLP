@@ -6,14 +6,20 @@
 //
 
 import UIKit
+import Alamofire
 
 class SearchSesacViewController: BaseViewController {
+    
     var tagList: [String] = []
     var studyQueueList: [String] = []
     var studyWantList: [String] = []
     var fromQueueDB: [FromQueueDB] = []
     var fromQueueDBRequested: [FromQueueDB] = []
     
+    var lat: Double = 0.0
+    var long: Double = 0.0
+    
+    // MARK: UI
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -34,6 +40,7 @@ class SearchSesacViewController: BaseViewController {
     var cellRegistration: UICollectionView.CellRegistration<UICollectionViewCell, String>!
     var dataSource: UICollectionViewDiffableDataSource<Int, String>!
     
+    // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboard()
@@ -70,7 +77,27 @@ class SearchSesacViewController: BaseViewController {
         let vc = FindSesacViewController()
         vc.fromQueueDB = fromQueueDB
         vc.fromQueueDBRequested = fromQueueDBRequested
-        self.navigationController?.pushViewController(vc, animated: true)
+        print("lat", lat, "long", long, "studylist", studyWantList)
+        
+        let api = SeSACAPI.find(lat: lat, long: long, studylist: studyWantList)
+        let parameters = [
+            "lat": lat,
+            "long": long,
+            "studylist": studyWantList
+        ] as [String : Any]
+        AF.request(api.url, method: .post, parameters: parameters, encoding: URLEncoding(arrayEncoding: .noBrackets), headers: api.headers).responseString { [weak self] response in
+            print(#function, "finding", response)
+            switch response.result {
+            case .success(_):
+                guard let statusCode = response.response?.statusCode else { return }
+                print("success", statusCode)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            case .failure(_):
+                guard let statusCode = response.response?.statusCode else {
+                    return }
+                print("fail", statusCode)
+            }
+        }
     }
     
     @objc func keyboardWillShow(notification:NSNotification){
@@ -112,7 +139,7 @@ extension SearchSesacViewController {
                 content.textProperties.color = Constants.Color.green
                 cell.layer.borderColor = Constants.Color.green.cgColor
                 content.image = UIImage(systemName: "xmark")
-                //                content.imageProperties.tintColor = Constants.Color.green.cgColor
+//                content.imageProperties.tintColor = Constants.Color.green.cgColor
                 //                content.imageProperties.maximumSize = CGSize(width: 10, height: 10)
             default:
                 content.textProperties.color = Constants.Color.black
@@ -120,7 +147,6 @@ extension SearchSesacViewController {
             }
             
             content.textProperties.font = Constants.Font.title4!
-            
             cell.contentConfiguration = content
         }
     }
@@ -128,9 +154,7 @@ extension SearchSesacViewController {
     private func createLayout() -> UICollectionViewLayout {
         
         return UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection? in
-            
             switch sectionNumber {
-                
             case 0: return self.firstLayoutSection()
             case 1: return self.secondLayoutSection()
             case 2: return self.thirdLayoutSection()
@@ -158,7 +182,6 @@ extension SearchSesacViewController {
         
         return section
     }
-    
     // Second Layout
     private func secondLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(20), heightDimension: .estimated(20))
@@ -172,7 +195,6 @@ extension SearchSesacViewController {
         
         return section
     }
-    
     // Third Layout
     private func thirdLayoutSection() -> NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(widthDimension: .estimated(20), heightDimension: .estimated(20))
@@ -198,7 +220,7 @@ extension SearchSesacViewController {
 // MARK: - UICollectionView - Delegate, DataSource
 extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var lists = [tagList, studyQueueList, studyWantList]
+        let lists = [tagList, studyQueueList, studyWantList]
         let item = lists[indexPath.section][indexPath.item]
         let cell = collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
         cell.layer.borderWidth = 0.5
@@ -257,7 +279,7 @@ extension SearchSesacViewController: UICollectionViewDelegate, UICollectionViewD
 // MARK: - SearchBar
 extension SearchSesacViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

@@ -37,7 +37,7 @@ extension SeSACAPI {
     
     var headers: HTTPHeaders {
         switch self {
-        case .signup, .main, .find, .studyrequest:
+        case .signup, .main, .studyrequest, .find:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
