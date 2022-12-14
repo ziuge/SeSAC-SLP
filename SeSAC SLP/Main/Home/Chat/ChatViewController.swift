@@ -93,12 +93,15 @@ class ChatViewController: BaseViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(showMore))
         
         configureTableView()
-    }
-    
-    @objc func showMore() {
-        print(#function)
-        moreView.isHidden.toggle()
-        moreBlackView.isHidden.toggle()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showMore))
+        moreBlackView.addGestureRecognizer(tapGesture)
+        moreBlackView.isUserInteractionEnabled = true
+        
+        // hidden view button addTarget
+        reportButton.addTarget(self, action: #selector(reportButtonClicked), for: .touchUpInside)
+        dodgeButton.addTarget(self, action: #selector(dodgeButtonClicked), for: .touchUpInside)
+        reviewButton.addTarget(self, action: #selector(reviewButtonClicked), for: .touchUpInside)
     }
     
     override func configure() {
@@ -147,6 +150,28 @@ class ChatViewController: BaseViewController {
             make.height.equalTo(72)
         }
     }
+    
+    
+    @objc func showMore() {
+        print(#function)
+        moreView.isHidden.toggle()
+        moreBlackView.isHidden.toggle()
+    }
+    
+    @objc func reportButtonClicked() {
+        print(#function)
+        
+    }
+    
+    @objc func dodgeButtonClicked() {
+        print(#function)
+        
+    }
+    
+    @objc func reviewButtonClicked() {
+        print(#function)
+    }
+    
 }
 
 // MARK: UITableView

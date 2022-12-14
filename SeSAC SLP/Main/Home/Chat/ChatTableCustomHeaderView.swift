@@ -24,7 +24,6 @@ class ChatTableCustomHeaderView: BaseTableViewHeaderView {
     // MARK: init
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-//        contentView.backgroundColor = .brown
     }
     
     required init?(coder: NSCoder) {

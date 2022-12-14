@@ -17,6 +17,7 @@ enum SeSACAPI {
     case stop // 새싹 찾기 중단
     case studyrequest(otheruid: String) // 새싹 매칭 요청
     case studyaccept(otheruid: String) // 새싹 매칭 수락
+    case studydodge(otheruid: String) // 스터디 취소
 }
 
 extension SeSACAPI {
@@ -32,6 +33,8 @@ extension SeSACAPI {
             return URL(string: "http://api.sesac.co.kr:1210/v1/queue/search")!
         case .find, .stop:
             return URL(string: "http://api.sesac.co.kr:1210/v1/queue/")!
+        case .studydodge:
+            return URL(string: "http://api.sesac.co.kr:1210/v1/queue/dodge")!
         case .studyrequest:
             return URL(string: "http://api.sesac.co.kr:1210/v1/queue/studyrequest")!
         case .studyaccept:
@@ -41,7 +44,7 @@ extension SeSACAPI {
     
     var headers: HTTPHeaders {
         switch self {
-        case .signup, .main, .studyrequest, .find:
+        case .signup, .main, .studyrequest, .find, .studydodge:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization
@@ -75,7 +78,7 @@ extension SeSACAPI {
 //                "long": "\(long)",
 //                "studylist": studylist
 //            ]
-        case .studyrequest(let otheruid), .studyaccept(let otheruid):
+        case .studyrequest(let otheruid), .studyaccept(let otheruid), .studydodge(otheruid: let otheruid):
             return [
                 "otheruid": otheruid
             ]
