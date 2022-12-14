@@ -28,6 +28,7 @@
 		DE280CF42948C53F00D09656 /* BaseTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE280CF32948C53F00D09656 /* BaseTableViewHeaderView.swift */; };
 		DE280CF629499EE300D09656 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE280CF529499EE300D09656 /* BasePaddingLabel.swift */; };
 		DE280CF8294A04BB00D09656 /* DodgePopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE280CF7294A04BB00D09656 /* DodgePopUpViewController.swift */; };
+		DE280CFD294A0DDC00D09656 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = DE280CFC294A0DDC00D09656 /* SocketIO */; };
 		DE3A865B291BC9E800DE83C9 /* PhoneVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A865A291BC9E800DE83C9 /* PhoneVerificationViewController.swift */; };
 		DE3A865D291BF92D00DE83C9 /* WithHyphen+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A865C291BF92D00DE83C9 /* WithHyphen+String.swift */; };
 		DE3A8660291BFF0900DE83C9 /* NicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE3A865F291BFF0900DE83C9 /* NicknameViewController.swift */; };
@@ -187,6 +188,7 @@
 				DE908E9C291A263800B54FAD /* FirebaseMessaging in Frameworks */,
 				DE08090A2918F776004A1445 /* SnapKit in Frameworks */,
 				DE9FAE4C291AA0C200C1F807 /* RxSwift in Frameworks */,
+				DE280CFD294A0DDC00D09656 /* SocketIO in Frameworks */,
 				DE99A3452923F06700FAF745 /* MultiSlider in Frameworks */,
 				DE3A8668291CDAD100DE83C9 /* Alamofire in Frameworks */,
 				DE9207A429311A300077BA13 /* Tabman in Frameworks */,
@@ -522,6 +524,7 @@
 				DE3A8667291CDAD100DE83C9 /* Alamofire */,
 				DE99A3442923F06700FAF745 /* MultiSlider */,
 				DE9207A329311A300077BA13 /* Tabman */,
+				DE280CFC294A0DDC00D09656 /* SocketIO */,
 			);
 			productName = "SeSAC SLP";
 			productReference = DE0808D62918D5DE004A1445 /* SeSAC SLP.app */;
@@ -558,6 +561,7 @@
 				DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				DE99A3432923F06700FAF745 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 				DE9207A229311A300077BA13 /* XCRemoteSwiftPackageReference "Tabman" */,
+				DE280CFB294A0DDC00D09656 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = DE0808D72918D5DE004A1445 /* Products */;
 			projectDirPath = "";
@@ -930,6 +934,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		DE280CFB294A0DDC00D09656 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
 		DE3A8666291CDAD100DE83C9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -977,6 +989,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DE0809082918F776004A1445 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DE280CFC294A0DDC00D09656 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE280CFB294A0DDC00D09656 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 		DE3A8667291CDAD100DE83C9 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
