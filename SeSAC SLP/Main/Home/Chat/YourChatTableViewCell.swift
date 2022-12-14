@@ -21,7 +21,7 @@ class YourChatTableViewCell: BaseTableViewCell {
         let view = UILabel()
         view.font = Constants.Font.title6
         view.textColor = Constants.Color.gray6
-        view.text = "dd:dd"
+        view.text = "00:00"
         return view
     }()
     
@@ -51,4 +51,3 @@ class YourChatTableViewCell: BaseTableViewCell {
         }
     }
 }
-

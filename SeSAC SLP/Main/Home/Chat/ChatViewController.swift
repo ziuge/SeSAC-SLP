@@ -14,20 +14,32 @@ class ChatViewController: BaseViewController {
     
     // MARK: UI
     var tableView: UITableView = {
-        let view = UITableView()
+        let view = UITableView(frame: CGRect.zero, style: .grouped)
+        view.backgroundColor = Constants.Color.white
         return view
     }()
     var contentTextView: UITextView = {
         let view = UITextView()
         view.text = "메시지를 입력하세요"
+        view.textColor = Constants.Color.gray7
         view.font = Constants.Font.body3
+        view.backgroundColor = Constants.Color.gray1
+        view.textContainerInset = UIEdgeInsets(top: 14, left: 12, bottom: 14, right: 44)
+        view.layer.cornerRadius = 8
+        return view
+    }()
+    var sendButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "send-unavailable"), for: .disabled)
+        view.isEnabled = false
         return view
     }()
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemMint
+        tabBarController?.tabBar.isHidden = true
+        view.backgroundColor = Constants.Color.white
         
         title = otherNick
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(showMore))
@@ -41,7 +53,7 @@ class ChatViewController: BaseViewController {
     }
     
     override func configure() {
-        [tableView, contentTextView].forEach {
+        [tableView, contentTextView, sendButton].forEach {
             view.addSubview($0)
         }
     }
@@ -51,10 +63,15 @@ class ChatViewController: BaseViewController {
             make.bottom.equalTo(contentTextView.snp.top)
         }
         contentTextView.snp.makeConstraints { make in
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view).offset(-50)
             make.height.equalTo(52)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.trailing.equalTo(view.safeAreaLayoutGuide).offset(-16)
+        }
+        sendButton.snp.makeConstraints { make in
+            make.size.equalTo(20)
+            make.centerY.equalTo(contentTextView)
+            make.trailing.equalTo(contentTextView).offset(-14)
         }
     }
 }
@@ -70,6 +87,7 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(YourChatTableViewCell.self, forCellReuseIdentifier: YourChatTableViewCell.reuseIdentifier)
         tableView.register(MyChatTableViewCell.self, forCellReuseIdentifier: MyChatTableViewCell.reuseIdentifier)
+        tableView.register(ChatTableCustomHeaderView.self, forHeaderFooterViewReuseIdentifier: ChatTableCustomHeaderView.reuseIdentifier)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,5 +108,16 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
             
             return cell
         }
+    }
+    
+    // TableView Header
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let chatheaderview = tableView.dequeueReusableHeaderFooterView(withIdentifier: ChatTableCustomHeaderView.reuseIdentifier) as? ChatTableCustomHeaderView else { return UIView() }
+        
+        return chatheaderview
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 52
     }
 }

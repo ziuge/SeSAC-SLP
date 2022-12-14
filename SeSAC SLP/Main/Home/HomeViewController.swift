@@ -38,6 +38,11 @@ class HomeViewController: BaseViewController {
         view.setImage(UIImage(named: "bt_gps"), for: .normal)
         return view
     }()
+    let testButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "Property 1=matched"), for: .normal)
+        return view
+    }()
     
     // viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
@@ -56,10 +61,12 @@ class HomeViewController: BaseViewController {
         mapView.addCameraDelegate(delegate: self)
         matchButton.addTarget(self, action: #selector(searchSesac), for: .touchUpInside)
         gpsButton.addTarget(self, action: #selector(setGPS), for: .touchUpInside)
+        
+        testButton.addTarget(self, action: #selector(testChat), for: .touchUpInside)
     }
     
     override func configure() {
-        [mapView, centerImage, matchButton, gpsButton].forEach {
+        [mapView, centerImage, matchButton, gpsButton, testButton].forEach {
             view.addSubview($0)
         }
     }
@@ -82,6 +89,11 @@ class HomeViewController: BaseViewController {
             make.height.width.equalTo(48)
             make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+        }
+        testButton.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-16)
+            make.leading.equalTo(view.safeAreaLayoutGuide).offset(16)
+            make.size.equalTo(64)
         }
     }
     
@@ -169,7 +181,11 @@ class HomeViewController: BaseViewController {
         }
     }
     
-
+    @objc func testChat() {
+        print(#function)
+        let vc = ChatViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension HomeViewController: CLLocationManagerDelegate {
