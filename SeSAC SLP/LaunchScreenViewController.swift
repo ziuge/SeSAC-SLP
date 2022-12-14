@@ -87,7 +87,8 @@ class LaunchScreenViewController: BaseViewController {
                 }
             }
             
-            let vc = MainViewController()
+            let vc = ChatViewController()
+//            let vc = MainViewController()
 //            let vc = OnboardingPageViewController()
             let scenes = UIApplication.shared.connectedScenes
             let windowScene = scenes.first as? UIWindowScene
