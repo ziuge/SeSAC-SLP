@@ -34,6 +34,54 @@ class ChatViewController: BaseViewController {
         view.isEnabled = false
         return view
     }()
+    var moreView: UIView = {
+        let view = UIView()
+        view.isHidden = true
+        return view
+    }()
+    var moreBlackView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Constants.Color.black.withAlphaComponent(0.5)
+        view.isHidden = true
+        return view
+    }()
+    var moreStack: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.alignment = .fill
+        view.distribution = .fillEqually
+        return view
+    }()
+    var reportButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "siren"), for: .normal)
+        view.setTitle("새싹 신고", for: .normal)
+        view.setTitleColor(Constants.Color.black, for: .normal)
+        view.titleLabel?.font = Constants.Font.title3
+        view.alignTextBelow(spacing: 4)
+        view.backgroundColor = Constants.Color.white
+        return view
+    }()
+    var dodgeButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "cancel_match"), for: .normal)
+        view.setTitle("스터디 취소", for: .normal)
+        view.setTitleColor(Constants.Color.black, for: .normal)
+        view.titleLabel?.font = Constants.Font.title3
+        view.alignTextBelow(spacing: 4)
+        view.backgroundColor = Constants.Color.white
+        return view
+    }()
+    var reviewButton: UIButton = {
+        let view = UIButton()
+        view.setImage(UIImage(named: "write"), for: .normal)
+        view.setTitle("리뷰 등록", for: .normal)
+        view.setTitleColor(Constants.Color.black, for: .normal)
+        view.titleLabel?.font = Constants.Font.title3
+        view.alignTextBelow(spacing: 4)
+        view.backgroundColor = Constants.Color.white
+        return view
+    }()
     
     // MARK: viewDidLoad
     override func viewDidLoad() {
@@ -49,12 +97,17 @@ class ChatViewController: BaseViewController {
     
     @objc func showMore() {
         print(#function)
-        
+        moreView.isHidden.toggle()
+        moreBlackView.isHidden.toggle()
     }
     
     override func configure() {
-        [tableView, contentTextView, sendButton].forEach {
+        [tableView, contentTextView, sendButton, moreView, moreBlackView].forEach {
             view.addSubview($0)
+        }
+        moreView.addSubview(moreStack)
+        [reportButton, dodgeButton, reviewButton].forEach {
+            moreStack.addArrangedSubview($0)
         }
     }
     override func setConstraints() {
@@ -72,6 +125,26 @@ class ChatViewController: BaseViewController {
             make.size.equalTo(20)
             make.centerY.equalTo(contentTextView)
             make.trailing.equalTo(contentTextView).offset(-14)
+        }
+        moreView.snp.makeConstraints { make in
+            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(72)
+        }
+        moreStack.snp.makeConstraints { make in
+            make.horizontalEdges.verticalEdges.equalTo(moreView)
+        }
+        moreBlackView.snp.makeConstraints { make in
+            make.bottom.horizontalEdges.equalTo(view)
+            make.top.equalTo(moreView.snp.bottom)
+        }
+        reportButton.snp.makeConstraints { make in
+            make.height.equalTo(72)
+        }
+        dodgeButton.snp.makeConstraints { make in
+            make.height.equalTo(72)
+        }
+        reviewButton.snp.makeConstraints { make in
+            make.height.equalTo(72)
         }
     }
 }

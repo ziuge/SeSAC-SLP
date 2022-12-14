@@ -132,7 +132,6 @@ class HomeViewController: BaseViewController {
                 var studyListQueue: [String] = []
                 
                 for user in success.fromQueueDB {
-//                    print(user)
                     let marker = NMFMarker()
                     marker.position = NMGLatLng(lat: user.lat, lng: user.long)
                     marker.iconImage = NMFOverlayImage(image: UIImage(named: "sesac_face_\(user.sesac + 1)")!)
@@ -182,7 +181,6 @@ class HomeViewController: BaseViewController {
     }
     
     @objc func testChat() {
-        print(#function)
         let vc = ChatViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
