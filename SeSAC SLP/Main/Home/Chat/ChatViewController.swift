@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class ChatViewController: BaseViewController {
     
-    var chat: [Chat] = [Chat(id: "", to: "", from: "", chat: "알고리즘 스터디는 언제 하실 예정이세요?", createdAt: ""), Chat(id: "", to: "", from: "", chat: "알고리즘 스터디는 언제 하실 ?", createdAt: ""), Chat(id: "", to: "", from: "", chat: "알고리즘 스터디는 언제?", createdAt: "")]
+    var chat: [Payload] = []
     var otherNick: String = "000"
+    var otheruid: String?
     
     // MARK: UI
     var tableView: UITableView = {
@@ -102,6 +104,8 @@ class ChatViewController: BaseViewController {
         reportButton.addTarget(self, action: #selector(reportButtonClicked), for: .touchUpInside)
         dodgeButton.addTarget(self, action: #selector(dodgeButtonClicked), for: .touchUpInside)
         reviewButton.addTarget(self, action: #selector(reviewButtonClicked), for: .touchUpInside)
+        
+        fetchChats(otheruid: "cgP8iswqFEO4VpPxpcWKUbtr0t22", lastchatdate: "2022-11-16T06:55:54.784Z")
     }
     
     override func configure() {
@@ -172,6 +176,19 @@ class ChatViewController: BaseViewController {
         print(#function)
     }
     
+}
+
+// MARK: Chat Logic
+extension ChatViewController {
+    
+    private func fetchChats(otheruid: String, lastchatdate: String) {
+        print(#function)
+        let api = SeSACAPI.getchat(otheruid: otheruid, lastchatdate: lastchatdate)
+        
+        AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: Chat.self) { response in
+            print("== AF", response)
+        }
+    }
 }
 
 // MARK: UITableView

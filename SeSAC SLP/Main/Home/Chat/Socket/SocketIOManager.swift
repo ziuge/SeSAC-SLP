@@ -17,7 +17,6 @@ class SocketIOManager {
     var socket: SocketIOClient!
     
     private init() {
-        let api = SeSACAPI.getchat(otheruid: <#T##String#>, lastchatdate: <#T##String#>)
         manager = SocketManager(socketURL: URL(string: APIKey.baseURL)!, config: [
 //            .log(true),
             .extraHeaders(["auth": APIKey.authorization])
