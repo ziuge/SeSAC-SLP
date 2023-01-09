@@ -19,6 +19,7 @@ enum SeSACAPI {
     case studyaccept(otheruid: String) // 새싹 매칭 수락
     case studydodge(otheruid: String) // 스터디 취소
     case getchat(otheruid: String, lastchatdate: String) // 채팅 목록 가져오기
+    case postchat(otheruid: String, text: String)
 }
 
 extension SeSACAPI {
@@ -42,12 +43,14 @@ extension SeSACAPI {
             return URL(string: APIKey.baseURL + "/v1/queue/studyaccept")!
         case .getchat(let otheruid, let lastchatdate):
             return URL(string: APIKey.baseURL + "/v1/chat/" + otheruid + "?lastchatDate=" + lastchatdate)!
+        case .postchat(let otheruid, let text):
+            return URL(string: APIKey.baseURL + "/v1/chat/" + text)!
         }
     }
     
     var headers: HTTPHeaders {
         switch self {
-        case .signup, .main, .studyrequest, .find, .studydodge:
+        case .signup, .main, .studyrequest, .find, .studydodge, .postchat:
             return [
                 "Content-Type": "application/x-www-form-urlencoded",
                 "idtoken": APIKey.authorization

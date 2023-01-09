@@ -30,7 +30,6 @@ class MypageViewController: BaseViewController {
     ]
     
     var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, MyPage>!
-    
     var dataSource: UICollectionViewDiffableDataSource<Int, MyPage>!
     
     override func viewDidLoad() {

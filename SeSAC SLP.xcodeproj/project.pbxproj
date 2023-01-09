@@ -24,6 +24,7 @@
 		DE08091F29190357004A1445 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08091E29190357004A1445 /* SecondViewController.swift */; };
 		DE08092129190360004A1445 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE08092029190360004A1445 /* ThirdViewController.swift */; };
 		DE0809232919170C004A1445 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE0809222919170C004A1445 /* PageViewController.swift */; };
+		DE1A4B4C29519E0000E0ED45 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1A4B4B29519E0000E0ED45 /* Date+Extension.swift */; };
 		DE280CF22948C48D00D09656 /* ChatTableCustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE280CF12948C48D00D09656 /* ChatTableCustomHeaderView.swift */; };
 		DE280CF42948C53F00D09656 /* BaseTableViewHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE280CF32948C53F00D09656 /* BaseTableViewHeaderView.swift */; };
 		DE280CF629499EE300D09656 /* BasePaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE280CF529499EE300D09656 /* BasePaddingLabel.swift */; };
@@ -116,6 +117,7 @@
 		DE08091E29190357004A1445 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		DE08092029190360004A1445 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		DE0809222919170C004A1445 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		DE1A4B4B29519E0000E0ED45 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		DE280CF12948C48D00D09656 /* ChatTableCustomHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableCustomHeaderView.swift; sourceTree = "<group>"; };
 		DE280CF32948C53F00D09656 /* BaseTableViewHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderView.swift; sourceTree = "<group>"; };
 		DE280CF529499EE300D09656 /* BasePaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasePaddingLabel.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				DE9FAE50291AAFA000C1F807 /* Toast+UIViewController.swift */,
 				DE3A865C291BF92D00DE83C9 /* WithHyphen+String.swift */,
 				DE96D970294743CA008BFD78 /* EmptyBackground+UITableView.swift */,
+				DE1A4B4B29519E0000E0ED45 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				DE9B7D58291FF32C00089C2D /* AlignText+UIButton.swift in Sources */,
 				DE96D971294743CA008BFD78 /* EmptyBackground+UITableView.swift in Sources */,
 				DE0809132918FC1B004A1445 /* BaseCollectionViewCell.swift in Sources */,
+				DE1A4B4C29519E0000E0ED45 /* Date+Extension.swift in Sources */,
 				DE9B7D52291E2D6100089C2D /* BirthValidationModel.swift in Sources */,
 				DE280CF629499EE300D09656 /* BasePaddingLabel.swift in Sources */,
 				DE908E902919332A00B54FAD /* InputTextField.swift in Sources */,

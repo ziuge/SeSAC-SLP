@@ -113,14 +113,14 @@ class SearchSesacViewController: BaseViewController {
         let userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        findSesacButton.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 100))
+        findSesacButton.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 24))
     }
     @objc func keyboardWillHide(notification:NSNotification){
         print(#function)
         let userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-        findSesacButton.transform = CGAffineTransform(translationX: 0, y: keyboardFrame.height - 100)
+        findSesacButton.transform = CGAffineTransform(translationX: 0, y: -48)
     }
     
 }

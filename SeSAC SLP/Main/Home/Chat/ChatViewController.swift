@@ -12,7 +12,7 @@ class ChatViewController: BaseViewController {
     
     var chat: [Payload] = []
     var otherNick: String = "000"
-    var otheruid: String?
+    var otheruid: String = "cgP8iswqFEO4VpPxpcWKUbtr0t22"
     
     // MARK: UI
     var tableView: UITableView = {
@@ -28,12 +28,14 @@ class ChatViewController: BaseViewController {
         view.backgroundColor = Constants.Color.gray1
         view.textContainerInset = UIEdgeInsets(top: 14, left: 12, bottom: 14, right: 44)
         view.layer.cornerRadius = 8
+        view.isEditable = true
         return view
     }()
     var sendButton: UIButton = {
         let view = UIButton()
         view.setImage(UIImage(named: "send-unavailable"), for: .disabled)
-        view.isEnabled = false
+        view.setImage(UIImage(named: "send-available"), for: .normal)
+        view.isEnabled = true
         return view
     }()
     var moreView: UIView = {
@@ -88,6 +90,7 @@ class ChatViewController: BaseViewController {
     // MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboard()
         tabBarController?.tabBar.isHidden = true
         view.backgroundColor = Constants.Color.white
         
@@ -96,6 +99,13 @@ class ChatViewController: BaseViewController {
         
         configureTableView()
         
+        fetchChats(otheruid: otheruid, lastchatdate: "2022-11-16T06:55:54.784Z")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+        sendButton.addTarget(self, action: #selector(sendChat), for: .touchUpInside)
+        
+        // MARK: 더보기
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showMore))
         moreBlackView.addGestureRecognizer(tapGesture)
         moreBlackView.isUserInteractionEnabled = true
@@ -104,8 +114,6 @@ class ChatViewController: BaseViewController {
         reportButton.addTarget(self, action: #selector(reportButtonClicked), for: .touchUpInside)
         dodgeButton.addTarget(self, action: #selector(dodgeButtonClicked), for: .touchUpInside)
         reviewButton.addTarget(self, action: #selector(reviewButtonClicked), for: .touchUpInside)
-        
-        fetchChats(otheruid: "cgP8iswqFEO4VpPxpcWKUbtr0t22", lastchatdate: "2022-11-16T06:55:54.784Z")
     }
     
     override func configure() {
@@ -155,6 +163,10 @@ class ChatViewController: BaseViewController {
         }
     }
     
+    @objc func sendChat() {
+        print(#function)
+        postChat(otheruid: otheruid, text: "하이루")
+    }
     
     @objc func showMore() {
         print(#function)
@@ -176,17 +188,51 @@ class ChatViewController: BaseViewController {
         print(#function)
     }
     
+    @objc func keyboardWillShow(notification:NSNotification){
+        print(#function)
+        let userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        contentTextView.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 30))
+        sendButton.transform = CGAffineTransform(translationX: 0, y: -(keyboardFrame.height - 30))
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        print(#function)
+        let userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        contentTextView.transform = CGAffineTransform(translationX: 0, y: 0)
+        sendButton.transform = CGAffineTransform(translationX: 0, y: 0)
+    }
+    
 }
 
 // MARK: Chat Logic
 extension ChatViewController {
     
     private func fetchChats(otheruid: String, lastchatdate: String) {
-        print(#function)
         let api = SeSACAPI.getchat(otheruid: otheruid, lastchatdate: lastchatdate)
         
-        AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: Chat.self) { response in
+        AF.request(api.url, method: .get, headers: api.headers).responseDecodable(of: Chat.self) { [weak self] response in
             print("== AF", response)
+            switch response.result {
+            case .success(let value):
+                self?.chat = value.payload
+                self?.tableView.reloadData()
+//                self?.tableView.scrollToRow(at: IndexPath(row: self!.chat.count - 1, section: 0), at: .bottom, animated: false)
+                SocketIOManager.shared.establishConnection()
+            case .failure(let error):
+                print("fetchChats FAIL", error)
+            }
+        }
+    }
+    
+    private func postChat(otheruid: String, text: String) {
+        print(#function, text)
+        let api = SeSACAPI.postchat(otheruid: otheruid, text: text)
+        AF.request(api.url, method: .post, headers: api.headers).responseDecodable(of: Payload.self) { response in
+            print("response", response)
         }
     }
 }
@@ -212,9 +258,11 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let data = chat[indexPath.row]
         
-        if indexPath.row.isMultiple(of: 2) {
+//        if indexPath.row.isMultiple(of: 2) {
+        if data.from != otheruid {
             let cell = tableView.dequeueReusableCell(withIdentifier: MyChatTableViewCell.reuseIdentifier, for: indexPath) as! MyChatTableViewCell
             cell.chatLabel.text = data.chat
+            cell.timeLabel.text = dateToTime(date: stringToDate(string: data.createdAt))
             
             return cell
         } else {
@@ -234,5 +282,16 @@ extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 52
+    }
+}
+
+// MARK: textView Delegate
+extension ChatViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
     }
 }
